@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-FoodTaskerMobile/Pods-FoodTaskerMobile-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Stripe/Stripe.framework
+${BUILT_PRODUCTS_DIR}/StripeCore/StripeCore.framework
+${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework

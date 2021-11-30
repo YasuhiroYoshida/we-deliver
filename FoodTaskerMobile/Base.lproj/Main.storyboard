@@ -415,10 +415,10 @@
             </objects>
             <point key="canvasLocation" x="1428" y="1544"/>
         </scene>
-        <!--View Controller-->
+        <!--Cart View Controller-->
         <scene sceneID="deu-n1-Oeb">
             <objects>
-                <viewController id="xRo-Sf-rNK" sceneMemberID="viewController">
+                <viewController id="xRo-Sf-rNK" customClass="CartViewController" customModule="FoodTaskerMobile" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ryz-yi-4A9">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -491,7 +491,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pKU-4d-Qix">
                                         <rect key="frame" x="20" y="19" width="90" height="22"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="90" id="yJu-Fh-y6n"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="90" id="yJu-Fh-y6n"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <nil key="textColor"/>
@@ -500,7 +500,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$100.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rhS-ZR-N1H">
                                         <rect key="frame" x="250" y="19" width="120" height="22"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="120" id="7sq-bd-tPs"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="7sq-bd-tPs"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                         <nil key="textColor"/>
@@ -531,7 +531,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="69y-af-g6A">
                                         <rect key="frame" x="20" y="19" width="80" height="22"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="80" id="gAe-cN-sgC"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="gAe-cN-sgC"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                         <nil key="textColor"/>
@@ -572,6 +572,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Go to Checkout">
                                     <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="20"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <segue destination="ClU-Ra-Q0h" kind="presentation" modalPresentationStyle="fullScreen" id="RsJ-0R-Tr3"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9bD-kQ-St8"/>
@@ -596,10 +599,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="l4P-ou-vUI">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="icon_hamburger" id="Fzl-g3-F1s">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="icon_hamburger" id="Fzl-g3-F1s" userLabel="Menu Bar Bfutton">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="menuBarButton" destination="Fzl-g3-F1s" id="zUU-d6-oDw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4o4-uR-ehV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -750,6 +756,11 @@
                                             <fontDescription key="titleFontDescription" type="system" pointSize="30"/>
                                         </buttonConfiguration>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DxE-dd-Hwu">
+                                        <rect key="frame" x="50" y="11.666666666666629" width="50" height="27"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KNi-nl-S26">
                                         <rect key="frame" x="100" y="0.0" width="50" height="50"/>
                                         <color key="backgroundColor" systemColor="systemYellowColor"/>
@@ -762,14 +773,11 @@
                                             <fontDescription key="titleFontDescription" type="system" pointSize="30"/>
                                         </buttonConfiguration>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DxE-dd-Hwu">
-                                        <rect key="frame" x="68.666666666666657" y="11.666666666666629" width="13" height="27"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="DxE-dd-Hwu" firstAttribute="centerY" secondItem="dzf-iN-leG" secondAttribute="centerY" id="2CU-YG-JqM"/>
+                                    <constraint firstItem="KNi-nl-S26" firstAttribute="leading" secondItem="DxE-dd-Hwu" secondAttribute="trailing" id="3xM-gd-qnf"/>
+                                    <constraint firstItem="DxE-dd-Hwu" firstAttribute="leading" secondItem="Jfj-bM-meo" secondAttribute="trailing" id="6fk-eZ-a6U"/>
                                     <constraint firstItem="DxE-dd-Hwu" firstAttribute="centerX" secondItem="dzf-iN-leG" secondAttribute="centerX" id="EOJ-od-MlV"/>
                                     <constraint firstItem="Jfj-bM-meo" firstAttribute="leading" secondItem="dzf-iN-leG" secondAttribute="leading" id="JKQ-mE-Hqi"/>
                                     <constraint firstAttribute="height" constant="50" id="M73-Zw-JaO"/>
@@ -805,7 +813,7 @@
                         <barButtonItem key="rightBarButtonItem" title="CartButton" image="button_cart" id="zfo-5P-rCf">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="CmX-of-v45" kind="show" id="7hT-b8-v0d"/>
+                                <segue destination="xRo-Sf-rNK" kind="show" id="4Iw-Sz-cGW"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -837,9 +845,69 @@
             </objects>
             <point key="canvasLocation" x="2474" y="555"/>
         </scene>
+        <!--Payment View Controller-->
+        <scene sceneID="boj-lj-DLc">
+            <objects>
+                <viewController id="ClU-Ra-Q0h" customClass="PaymentViewController" customModule="FoodTaskerMobile" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iNR-d3-JQy">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9RV-YS-55g" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="43" y="144" width="304" height="188"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="188" id="fLi-B2-AQc"/>
+                                    <constraint firstAttribute="width" constant="304" id="hb7-Ti-py8"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="27630-credit-card-blue"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zQy-D6-yLq">
+                                <rect key="frame" x="10" y="740" width="370" height="60"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="tvr-5q-sgT"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Place Order">
+                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="20"/>
+                                </buttonConfiguration>
+                            </button>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ttg-1D-LvD" customClass="STPPaymentCardTextField" customModule="Stripe">
+                                <rect key="frame" x="21" y="362" width="350" height="60"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="yBj-dQ-lOT"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="GAy-Yx-Oxq"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9RV-YS-55g" firstAttribute="centerX" secondItem="iNR-d3-JQy" secondAttribute="centerX" id="9tb-G9-S7i"/>
+                            <constraint firstItem="GAy-Yx-Oxq" firstAttribute="trailing" secondItem="ttg-1D-LvD" secondAttribute="trailing" constant="20" id="IbX-3q-wUV"/>
+                            <constraint firstItem="ttg-1D-LvD" firstAttribute="top" secondItem="9RV-YS-55g" secondAttribute="bottom" constant="30" id="JHw-ka-5Rj"/>
+                            <constraint firstItem="GAy-Yx-Oxq" firstAttribute="bottom" secondItem="zQy-D6-yLq" secondAttribute="bottom" constant="10" id="Pz0-1h-wQL"/>
+                            <constraint firstItem="GAy-Yx-Oxq" firstAttribute="trailing" secondItem="zQy-D6-yLq" secondAttribute="trailing" constant="10" id="ZWy-yl-YCi"/>
+                            <constraint firstItem="ttg-1D-LvD" firstAttribute="leading" secondItem="GAy-Yx-Oxq" secondAttribute="leading" constant="20" id="dHB-A3-oCP"/>
+                            <constraint firstItem="zQy-D6-yLq" firstAttribute="leading" secondItem="GAy-Yx-Oxq" secondAttribute="leading" constant="10" id="iGK-Mu-20h"/>
+                            <constraint firstItem="9RV-YS-55g" firstAttribute="top" secondItem="GAy-Yx-Oxq" secondAttribute="top" constant="100" id="smh-tn-xva"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="animationView" destination="9RV-YS-55g" id="Ask-m0-Doq"/>
+                        <outlet property="cardTextField" destination="ttg-1D-LvD" id="uMS-HS-YUg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WZk-ea-Cil" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4570.7692307692305" y="1542.654028436019"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ewx-22-K92"/>
+        <segue reference="4Iw-Sz-cGW"/>
         <segue reference="wpH-RY-abS"/>
     </inferredMetricsTieBreakers>
     <resources>
