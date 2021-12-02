@@ -1,30 +1,25 @@
 //
 //  PaymentViewController.swift
-//  FoodTaskerMobile
+//  Pods
 //
-//  Created by Yasuhiro Yoshida on 2021-11-30.
+//  Created by Yasuhiro Yoshida on 2021-12-02.
 //
 
 import UIKit
 import Lottie
-import Stripe
+//import Stripe
 
 class PaymentViewController: UIViewController {
+  // MARK: - IBOutlets
   @IBOutlet weak var animationView: AnimationView!
-  @IBOutlet weak var cardTextField: STPPaymentCardTextField!
+//  @IBOutlet weak var cardTextField: STPPaymentCardTextField!
 
+  // MARK: - View life cycle
   override func viewDidLoad() {
     super.viewDidLoad()
 
     animationView.contentMode = .scaleAspectFit
-    animationView.loopMode = .loop
-    animationView.animationSpeed = 0.5
-    animationView.play(completion: nil)
-
-    cardTextField.postalCodeEntryEnabled = false
-
+//    animationView.loo
+//    cardTextField.postalCodeEntryEnabled = false
   }
-
-
-
 }

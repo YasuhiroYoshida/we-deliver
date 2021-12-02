@@ -579,7 +579,7 @@
                                     <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="20"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="ClU-Ra-Q0h" kind="presentation" modalPresentationStyle="fullScreen" id="RsJ-0R-Tr3"/>
+                                    <segue destination="YZU-5l-EMs" kind="presentation" modalPresentationStyle="fullScreen" id="RLT-IF-TQa"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -851,66 +851,6 @@
             </objects>
             <point key="canvasLocation" x="2474" y="555"/>
         </scene>
-        <!--Payment View Controller-->
-        <scene sceneID="boj-lj-DLc">
-            <objects>
-                <viewController id="ClU-Ra-Q0h" customClass="PaymentViewController" customModule="FoodTaskerMobile" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="iNR-d3-JQy">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9RV-YS-55g" customClass="AnimationView" customModule="Lottie">
-                                <rect key="frame" x="43" y="144" width="304" height="188"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="188" id="fLi-B2-AQc"/>
-                                    <constraint firstAttribute="width" constant="304" id="hb7-Ti-py8"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="27630-credit-card-blue"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zQy-D6-yLq">
-                                <rect key="frame" x="10" y="740" width="370" height="60"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="tvr-5q-sgT"/>
-                                </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Place Order">
-                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="20"/>
-                                </buttonConfiguration>
-                            </button>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ttg-1D-LvD" customClass="STPPaymentCardTextField" customModule="Stripe">
-                                <rect key="frame" x="21" y="362" width="350" height="60"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="yBj-dQ-lOT"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="GAy-Yx-Oxq"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="9RV-YS-55g" firstAttribute="centerX" secondItem="iNR-d3-JQy" secondAttribute="centerX" id="9tb-G9-S7i"/>
-                            <constraint firstItem="GAy-Yx-Oxq" firstAttribute="trailing" secondItem="ttg-1D-LvD" secondAttribute="trailing" constant="20" id="IbX-3q-wUV"/>
-                            <constraint firstItem="ttg-1D-LvD" firstAttribute="top" secondItem="9RV-YS-55g" secondAttribute="bottom" constant="30" id="JHw-ka-5Rj"/>
-                            <constraint firstItem="GAy-Yx-Oxq" firstAttribute="bottom" secondItem="zQy-D6-yLq" secondAttribute="bottom" constant="10" id="Pz0-1h-wQL"/>
-                            <constraint firstItem="GAy-Yx-Oxq" firstAttribute="trailing" secondItem="zQy-D6-yLq" secondAttribute="trailing" constant="10" id="ZWy-yl-YCi"/>
-                            <constraint firstItem="ttg-1D-LvD" firstAttribute="leading" secondItem="GAy-Yx-Oxq" secondAttribute="leading" constant="20" id="dHB-A3-oCP"/>
-                            <constraint firstItem="zQy-D6-yLq" firstAttribute="leading" secondItem="GAy-Yx-Oxq" secondAttribute="leading" constant="10" id="iGK-Mu-20h"/>
-                            <constraint firstItem="9RV-YS-55g" firstAttribute="top" secondItem="GAy-Yx-Oxq" secondAttribute="top" constant="100" id="smh-tn-xva"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="animationView" destination="9RV-YS-55g" id="Ask-m0-Doq"/>
-                        <outlet property="cardTextField" destination="ttg-1D-LvD" id="uMS-HS-YUg"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WZk-ea-Cil" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4570.7692307692305" y="1542.654028436019"/>
-        </scene>
         <!--Delivery View Controller-->
         <scene sceneID="iKW-eC-RUe">
             <objects>
@@ -1101,6 +1041,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d2q-dO-kvm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3825" y="353"/>
+        </scene>
+        <!--Payment View Controller-->
+        <scene sceneID="QwM-OD-2ku">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8ER-eM-ceF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController id="YZU-5l-EMs" customClass="PaymentViewController" customModule="FoodTaskerMobile" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VA4-2Q-Dxf">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uQZ-Wj-Fsb" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="43" y="144" width="304" height="188"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="188" id="VPB-h7-JGy"/>
+                                    <constraint firstAttribute="width" constant="304" id="n2s-u9-t7G"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="27630-credit-card-blue"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uw7-YA-4BS" customClass="STPPaymentCardTextField" customModule="Stripe">
+                                <rect key="frame" x="20" y="362" width="350" height="60"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="HoU-Oe-62w"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vlb-JU-Yg5">
+                                <rect key="frame" x="10" y="740" width="370" height="60"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="h4Q-yK-FDd"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Place Order">
+                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="20"/>
+                                </buttonConfiguration>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Wch-W5-eUg"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="uw7-YA-4BS" firstAttribute="top" secondItem="uQZ-Wj-Fsb" secondAttribute="bottom" constant="30" id="3ga-cj-3KI"/>
+                            <constraint firstItem="uQZ-Wj-Fsb" firstAttribute="centerX" secondItem="VA4-2Q-Dxf" secondAttribute="centerX" id="5q0-r4-L77"/>
+                            <constraint firstItem="Wch-W5-eUg" firstAttribute="bottom" secondItem="vlb-JU-Yg5" secondAttribute="bottom" constant="10" id="6Bs-7Y-XHr"/>
+                            <constraint firstItem="uQZ-Wj-Fsb" firstAttribute="top" secondItem="Wch-W5-eUg" secondAttribute="top" constant="100" id="9R8-cO-eE2"/>
+                            <constraint firstItem="Wch-W5-eUg" firstAttribute="trailing" secondItem="vlb-JU-Yg5" secondAttribute="trailing" constant="10" id="owc-nV-VEE"/>
+                            <constraint firstItem="uw7-YA-4BS" firstAttribute="leading" secondItem="Wch-W5-eUg" secondAttribute="leading" constant="20" id="vlI-02-Bb3"/>
+                            <constraint firstItem="Wch-W5-eUg" firstAttribute="trailing" secondItem="uw7-YA-4BS" secondAttribute="trailing" constant="20" id="wLQ-3h-2Cg"/>
+                            <constraint firstItem="vlb-JU-Yg5" firstAttribute="leading" secondItem="Wch-W5-eUg" secondAttribute="leading" constant="10" id="y4n-st-9mx"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="animationView" destination="uQZ-Wj-Fsb" id="jHs-iW-J75"/>
+                        <outlet property="cardTextField" destination="uw7-YA-4BS" id="LjM-aw-deL"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="4571" y="1543"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

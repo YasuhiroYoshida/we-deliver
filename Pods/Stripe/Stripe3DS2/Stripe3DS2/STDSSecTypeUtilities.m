@@ -138,7 +138,7 @@ SecKeyRef _Nullable STDSSecCertificateCopyPublicKey(SecCertificateRef certificat
     } else {
 #if TARGET_OS_MACCATALYST
 #else
-      publicKey = SecCertificateCopyKey(certificate);
+        publicKey = SecCertificateCopyPublicKey(certificate);
 #endif
     }
     
