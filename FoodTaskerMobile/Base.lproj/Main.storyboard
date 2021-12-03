@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="MainController" id="BYZ-38-t0r" customClass="ViewController" customModule="FoodTaskerMobile" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="FoodTaskerMobile" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -34,7 +34,7 @@
                                             <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <segue destination="1ta-f6-TZG" kind="presentation" modalPresentationStyle="fullScreen" id="TPb-VW-G84"/>
+                                            <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Aiq-8K-QWM"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FoodTasker" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dL-aX-1c1">
@@ -90,6 +90,10 @@
                             <constraint firstItem="1tl-zM-pZS" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="xZ4-YY-hTP"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="loginButton" destination="QJX-8T-ZqG" id="mEn-25-fVI"/>
+                        <segue destination="1ta-f6-TZG" kind="presentation" identifier="Login2SWReveal" modalPresentationStyle="fullScreen" id="zyx-CX-GtW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -114,10 +118,10 @@
             </objects>
             <point key="canvasLocation" x="717" y="97"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Customer Menu Table View Controller-->
         <scene sceneID="U1H-xV-XXw">
             <objects>
-                <tableViewController id="4rJ-6O-zKZ" sceneMemberID="viewController">
+                <tableViewController id="4rJ-6O-zKZ" customClass="CustomerMenuTableViewController" customModule="FoodTaskerMobile" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="QY9-Mo-roJ">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -282,7 +286,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="Pfp-fZ-96w"/>
+                                            <segue destination="BYZ-38-t0r" kind="presentation" identifier="Logout2Login" modalPresentationStyle="fullScreen" id="Pfp-fZ-96w"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -293,6 +297,10 @@
                             <outlet property="delegate" destination="4rJ-6O-zKZ" id="7yC-UU-KzI"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="avatarView" destination="0QU-Ni-9vt" id="jKB-tK-lwj"/>
+                        <outlet property="usernameLabel" destination="B9L-NW-otu" id="1cj-0W-2zF"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PNv-fX-3Kg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -579,7 +587,7 @@
                                     <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="20"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="YZU-5l-EMs" kind="presentation" modalPresentationStyle="fullScreen" id="RLT-IF-TQa"/>
+                                    <segue destination="YZU-5l-EMs" kind="presentation" modalPresentationStyle="fullScreen" id="rEt-BE-BgW"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -819,7 +827,7 @@
                         <barButtonItem key="rightBarButtonItem" title="CartButton" image="button_cart" id="zfo-5P-rCf">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="xRo-Sf-rNK" kind="show" id="4Iw-Sz-cGW"/>
+                                <segue destination="xRo-Sf-rNK" kind="show" id="vQQ-7v-Bh1"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1045,28 +1053,17 @@
         <!--Payment View Controller-->
         <scene sceneID="QwM-OD-2ku">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8ER-eM-ceF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="YZU-5l-EMs" customClass="PaymentViewController" customModule="FoodTaskerMobile" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VA4-2Q-Dxf">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uQZ-Wj-Fsb" customClass="AnimationView" customModule="Lottie">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p5e-KB-Avb" customClass="AnimationView" customModule="Lottie">
                                 <rect key="frame" x="43" y="144" width="304" height="188"/>
-                                <color key="backgroundColor" systemColor="systemYellowColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="188" id="VPB-h7-JGy"/>
-                                    <constraint firstAttribute="width" constant="304" id="n2s-u9-t7G"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="27630-credit-card-blue"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uw7-YA-4BS" customClass="STPPaymentCardTextField" customModule="Stripe">
-                                <rect key="frame" x="20" y="362" width="350" height="60"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="HoU-Oe-62w"/>
+                                    <constraint firstAttribute="height" constant="188" id="6bx-MD-r5K"/>
+                                    <constraint firstAttribute="width" constant="304" id="NYM-zu-zc2"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vlb-JU-Yg5">
@@ -1081,31 +1078,39 @@
                                     <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="20"/>
                                 </buttonConfiguration>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aTf-a2-EAQ" customClass="STPPaymentCardTextField" customModule="Stripe">
+                                <rect key="frame" x="20" y="362" width="350" height="60"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Mq6-eE-cLf"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Wch-W5-eUg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="uw7-YA-4BS" firstAttribute="top" secondItem="uQZ-Wj-Fsb" secondAttribute="bottom" constant="30" id="3ga-cj-3KI"/>
-                            <constraint firstItem="uQZ-Wj-Fsb" firstAttribute="centerX" secondItem="VA4-2Q-Dxf" secondAttribute="centerX" id="5q0-r4-L77"/>
+                            <constraint firstItem="p5e-KB-Avb" firstAttribute="top" secondItem="Wch-W5-eUg" secondAttribute="top" constant="100" id="3AP-UU-ScQ"/>
                             <constraint firstItem="Wch-W5-eUg" firstAttribute="bottom" secondItem="vlb-JU-Yg5" secondAttribute="bottom" constant="10" id="6Bs-7Y-XHr"/>
-                            <constraint firstItem="uQZ-Wj-Fsb" firstAttribute="top" secondItem="Wch-W5-eUg" secondAttribute="top" constant="100" id="9R8-cO-eE2"/>
+                            <constraint firstItem="aTf-a2-EAQ" firstAttribute="leading" secondItem="Wch-W5-eUg" secondAttribute="leading" constant="20" id="kqO-fS-PzA"/>
                             <constraint firstItem="Wch-W5-eUg" firstAttribute="trailing" secondItem="vlb-JU-Yg5" secondAttribute="trailing" constant="10" id="owc-nV-VEE"/>
-                            <constraint firstItem="uw7-YA-4BS" firstAttribute="leading" secondItem="Wch-W5-eUg" secondAttribute="leading" constant="20" id="vlI-02-Bb3"/>
-                            <constraint firstItem="Wch-W5-eUg" firstAttribute="trailing" secondItem="uw7-YA-4BS" secondAttribute="trailing" constant="20" id="wLQ-3h-2Cg"/>
+                            <constraint firstItem="aTf-a2-EAQ" firstAttribute="top" secondItem="p5e-KB-Avb" secondAttribute="bottom" constant="30" id="qVJ-z4-83e"/>
+                            <constraint firstItem="Wch-W5-eUg" firstAttribute="trailing" secondItem="aTf-a2-EAQ" secondAttribute="trailing" constant="20" id="t0s-Mb-gFs"/>
+                            <constraint firstItem="p5e-KB-Avb" firstAttribute="centerX" secondItem="VA4-2Q-Dxf" secondAttribute="centerX" id="w2j-52-d6Q"/>
                             <constraint firstItem="vlb-JU-Yg5" firstAttribute="leading" secondItem="Wch-W5-eUg" secondAttribute="leading" constant="10" id="y4n-st-9mx"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="animationView" destination="uQZ-Wj-Fsb" id="jHs-iW-J75"/>
-                        <outlet property="cardTextField" destination="uw7-YA-4BS" id="LjM-aw-deL"/>
+                        <outlet property="animationView" destination="p5e-KB-Avb" id="Y8V-uv-U5p"/>
+                        <outlet property="cardTextField" destination="aTf-a2-EAQ" id="xpT-gv-kh9"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8ER-eM-ceF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4571" y="1543"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="4Iw-Sz-cGW"/>
+        <segue reference="vQQ-7v-Bh1"/>
         <segue reference="wpH-RY-abS"/>
     </inferredMetricsTieBreakers>
     <resources>
