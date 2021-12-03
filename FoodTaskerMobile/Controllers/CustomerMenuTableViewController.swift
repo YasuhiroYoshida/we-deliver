@@ -17,7 +17,7 @@ class CustomerMenuTableViewController: UITableViewController {
     super.viewDidLoad()
 
     usernameLabel.text = User.currentUser.name!
-    if let image = try? UIImage(data: Data(contentsOf: URL(string: User.currentUser.pictureUrl!)!)) {
+    if let image = try? UIImage(data: Data(contentsOf: URL(string: User.currentUser.pictureURL!)!)) {
       avatarView.image = image
     }
     avatarView.layer.cornerRadius = avatarView.frame.width / 2

@@ -11,7 +11,7 @@ import SwiftyJSON
 struct User {
   var name: String?
   var email: String?
-  var pictureUrl: String?
+  var pictureURL: String?
 
   static var currentUser = User()
 
@@ -20,12 +20,12 @@ struct User {
     self.email = json["email"].string
     let picture = json["picture"].dictionary
     let data = picture?["data"]?.dictionary
-    self.pictureUrl = data?["url"]?.string
+    self.pictureURL = data?["url"]?.string
   }
 
   mutating func resetAttrs() {
     self.name = nil
     self.email = nil
-    self.pictureUrl = nil
+    self.pictureURL = nil
   }
 }
