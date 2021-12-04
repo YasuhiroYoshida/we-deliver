@@ -29,8 +29,14 @@ class CustomerMenuTableViewController: UITableViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     // Logout
     if segue.identifier == "Logout2Login" {
-      MetaClient.shared.logOut() // AccessToken.current will be lost
-      User.currentUser.resetAttrs()
+      APIClient.shared.logOut { error in
+        if error == nil {
+          MetaClient.shared.logOut() // AccessToken.current will be lost
+          User.currentUser.resetAttrs()
+
+          self.view.window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController")
+        }
+      }
     }
   }
 }

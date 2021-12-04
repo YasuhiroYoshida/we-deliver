@@ -7,35 +7,66 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0782D9B5B9F37D499CA4343B /* Pods_FoodTaskerMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FD8799414B61869E6658AC2 /* Pods_FoodTaskerMobile.framework */; };
 		0E2F41722753E75D00E0304A /* RestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2F41712753E75D00E0304A /* RestaurantViewController.swift */; };
 		0E2F417627553B9D00E0304A /* MealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2F417527553B9D00E0304A /* MealTableViewController.swift */; };
 		0E2F417827555EB000E0304A /* MealDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2F417727555EB000E0304A /* MealDetailsViewController.swift */; };
+		0E409DFB275A4E9C0003A5A8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E409DFA275A4E9C0003A5A8 /* LoginViewController.swift */; };
+		0E409DFE275A6C1A0003A5A8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E409DFD275A6C1A0003A5A8 /* User.swift */; };
+		0E409E00275A76A40003A5A8 /* CustomerMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E409DFF275A76A40003A5A8 /* CustomerMenuTableViewController.swift */; };
 		0E4C63902756A079003008F5 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4C638F2756A079003008F5 /* CartViewController.swift */; };
 		0E50CE762758158500EACDC6 /* DeliveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E50CE752758158500EACDC6 /* DeliveryViewController.swift */; };
+		0E51F243275931370048F8CA /* 27630-credit-card-blue.json in Resources */ = {isa = PBXBuildFile; fileRef = 0E51F242275931360048F8CA /* 27630-credit-card-blue.json */; };
+		0E51F2A9275A12E50048F8CA /* MetaClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E51F2A8275A12E50048F8CA /* MetaClient.swift */; };
+		0E68CBDB275BA4BA00C766BF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68CBDA275BA4BA00C766BF /* Constants.swift */; };
+		0E68CBDD275BDD3500C766BF /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68CBDC275BDD3500C766BF /* Restaurant.swift */; };
+		0E6C856D275A8D7F00DB7309 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 0E6C856C275A8D7F00DB7309 /* Lottie */; };
+		0E6C856F275A8D7F00DB7309 /* Stripe in Frameworks */ = {isa = PBXBuildFile; productRef = 0E6C856E275A8D7F00DB7309 /* Stripe */; };
+		0E6C8571275A8D7F00DB7309 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0E6C8570275A8D7F00DB7309 /* Alamofire */; };
+		0E6C8573275A8D7F00DB7309 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 0E6C8572275A8D7F00DB7309 /* FacebookCore */; };
+		0E6C8575275A8D7F00DB7309 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 0E6C8574275A8D7F00DB7309 /* FacebookLogin */; };
+		0E6C8577275A8D7F00DB7309 /* FacebookShare in Frameworks */ = {isa = PBXBuildFile; productRef = 0E6C8576275A8D7F00DB7309 /* FacebookShare */; };
+		0E6C8579275A8D7F00DB7309 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 0E6C8578275A8D7F00DB7309 /* SwiftyJSON */; };
+		0E7FBEAE275ABA4200E514BC /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7FBEAD275ABA4200E514BC /* APIClient.swift */; };
 		0E8D3A882758CBD20082DD0F /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8D3A872758CBD20082DD0F /* PaymentViewController.swift */; };
 		0EA7F244275257AE00A4216B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA7F243275257AE00A4216B /* AppDelegate.swift */; };
 		0EA7F246275257AE00A4216B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA7F245275257AE00A4216B /* SceneDelegate.swift */; };
-		0EA7F248275257AE00A4216B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA7F247275257AE00A4216B /* ViewController.swift */; };
 		0EA7F24B275257AE00A4216B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EA7F249275257AE00A4216B /* Main.storyboard */; };
 		0EA7F24D275257AF00A4216B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EA7F24C275257AF00A4216B /* Assets.xcassets */; };
 		0EA7F250275257AF00A4216B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EA7F24E275257AF00A4216B /* LaunchScreen.storyboard */; };
-		0EA7F25A275262C600A4216B /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EA7F259275262C600A4216B /* SWRevealViewController.m */; };
-		0EFFD1372756B21C00768E13 /* 27630-credit-card-blue.json in Resources */ = {isa = PBXBuildFile; fileRef = 0EFFD1362756B21C00768E13 /* 27630-credit-card-blue.json */; };
-		0EFFD1392756B5CB00768E13 /* _PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFFD1382756B5CB00768E13 /* _PaymentViewController.swift */; };
+		0EA7F25A275262C600A4216B /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EA7F259275262C600A4216B /* SWRevealViewController.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0E51F2B7275A1FE00048F8CA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0E2F41712753E75D00E0304A /* RestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewController.swift; sourceTree = "<group>"; };
 		0E2F417527553B9D00E0304A /* MealTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewController.swift; sourceTree = "<group>"; };
 		0E2F417727555EB000E0304A /* MealDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailsViewController.swift; sourceTree = "<group>"; };
+		0E409DFA275A4E9C0003A5A8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		0E409DFD275A6C1A0003A5A8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		0E409DFF275A76A40003A5A8 /* CustomerMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerMenuTableViewController.swift; sourceTree = "<group>"; };
 		0E4C638F2756A079003008F5 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		0E50CE752758158500EACDC6 /* DeliveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryViewController.swift; sourceTree = "<group>"; };
+		0E51F242275931360048F8CA /* 27630-credit-card-blue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "27630-credit-card-blue.json"; sourceTree = "<group>"; };
+		0E51F2A8275A12E50048F8CA /* MetaClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaClient.swift; sourceTree = "<group>"; };
+		0E68CBDA275BA4BA00C766BF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		0E68CBDC275BDD3500C766BF /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		0E7FBEAD275ABA4200E514BC /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		0E8D3A872758CBD20082DD0F /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		0EA7F240275257AE00A4216B /* FoodTaskerMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodTaskerMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EA7F243275257AE00A4216B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0EA7F245275257AE00A4216B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0EA7F247275257AE00A4216B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0EA7F24A275257AE00A4216B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0EA7F24C275257AF00A4216B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0EA7F24F275257AF00A4216B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -43,11 +74,6 @@
 		0EA7F257275262C600A4216B /* FoodTaskerMobile-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FoodTaskerMobile-Bridging-Header.h"; sourceTree = "<group>"; };
 		0EA7F258275262C600A4216B /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		0EA7F259275262C600A4216B /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
-		0EFFD1362756B21C00768E13 /* 27630-credit-card-blue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "27630-credit-card-blue.json"; sourceTree = "<group>"; };
-		0EFFD1382756B5CB00768E13 /* _PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _PaymentViewController.swift; sourceTree = "<group>"; };
-		1FD8799414B61869E6658AC2 /* Pods_FoodTaskerMobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodTaskerMobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2A115D4B33C6F1F1CD669176 /* Pods-FoodTaskerMobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodTaskerMobile.debug.xcconfig"; path = "Target Support Files/Pods-FoodTaskerMobile/Pods-FoodTaskerMobile.debug.xcconfig"; sourceTree = "<group>"; };
-		8C69BB4CEEF9616C473C6242 /* Pods-FoodTaskerMobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodTaskerMobile.release.xcconfig"; path = "Target Support Files/Pods-FoodTaskerMobile/Pods-FoodTaskerMobile.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,20 +81,85 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0782D9B5B9F37D499CA4343B /* Pods_FoodTaskerMobile.framework in Frameworks */,
+				0E6C8575275A8D7F00DB7309 /* FacebookLogin in Frameworks */,
+				0E6C8579275A8D7F00DB7309 /* SwiftyJSON in Frameworks */,
+				0E6C8571275A8D7F00DB7309 /* Alamofire in Frameworks */,
+				0E6C8577275A8D7F00DB7309 /* FacebookShare in Frameworks */,
+				0E6C856D275A8D7F00DB7309 /* Lottie in Frameworks */,
+				0E6C856F275A8D7F00DB7309 /* Stripe in Frameworks */,
+				0E6C8573275A8D7F00DB7309 /* FacebookCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E409DFC275A6BF50003A5A8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0E409DFD275A6C1A0003A5A8 /* User.swift */,
+				0E68CBDC275BDD3500C766BF /* Restaurant.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0E6C8569275A8D2A00DB7309 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0E6C857A275AB68B00DB7309 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0E6C857C275AB70600DB7309 /* SideMenu */,
+				0E409DFA275A4E9C0003A5A8 /* LoginViewController.swift */,
+				0E4C638F2756A079003008F5 /* CartViewController.swift */,
+				0E2F417727555EB000E0304A /* MealDetailsViewController.swift */,
+				0E2F417527553B9D00E0304A /* MealTableViewController.swift */,
+				0E2F41712753E75D00E0304A /* RestaurantViewController.swift */,
+				0E8D3A872758CBD20082DD0F /* PaymentViewController.swift */,
+				0E409DFF275A76A40003A5A8 /* CustomerMenuTableViewController.swift */,
+				0E50CE752758158500EACDC6 /* DeliveryViewController.swift */,
+				0E68CBDA275BA4BA00C766BF /* Constants.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0E6C857B275AB6D000DB7309 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0E51F2A8275A12E50048F8CA /* MetaClient.swift */,
+				0E7FBEAD275ABA4200E514BC /* APIClient.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		0E6C857C275AB70600DB7309 /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				0EA7F257275262C600A4216B /* FoodTaskerMobile-Bridging-Header.h */,
+				0EA7F258275262C600A4216B /* SWRevealViewController.h */,
+				0EA7F259275262C600A4216B /* SWRevealViewController.m */,
+			);
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
+		0E6DADD0275906DE001A55ED /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				0E51F242275931360048F8CA /* 27630-credit-card-blue.json */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
 		0EA7F237275257AD00A4216B = {
 			isa = PBXGroup;
 			children = (
 				0EA7F242275257AE00A4216B /* FoodTaskerMobile */,
+				0E6C8569275A8D2A00DB7309 /* Frameworks */,
 				0EA7F241275257AE00A4216B /* Products */,
-				118D25F1A48B13061858F55B /* Pods */,
-				392D99856CC036FB3DA41C6E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,43 +174,18 @@
 		0EA7F242275257AE00A4216B /* FoodTaskerMobile */ = {
 			isa = PBXGroup;
 			children = (
-				0EA7F257275262C600A4216B /* FoodTaskerMobile-Bridging-Header.h */,
-				0EA7F258275262C600A4216B /* SWRevealViewController.h */,
-				0EFFD1362756B21C00768E13 /* 27630-credit-card-blue.json */,
-				0EA7F259275262C600A4216B /* SWRevealViewController.m */,
+				0E6DADD0275906DE001A55ED /* Animations */,
 				0EA7F251275257AF00A4216B /* Info.plist */,
 				0EA7F243275257AE00A4216B /* AppDelegate.swift */,
-				0E4C638F2756A079003008F5 /* CartViewController.swift */,
-				0E2F417727555EB000E0304A /* MealDetailsViewController.swift */,
-				0E2F417527553B9D00E0304A /* MealTableViewController.swift */,
-				0EFFD1382756B5CB00768E13 /* _PaymentViewController.swift */,
-				0E2F41712753E75D00E0304A /* RestaurantViewController.swift */,
+				0E6C857A275AB68B00DB7309 /* Controllers */,
+				0E409DFC275A6BF50003A5A8 /* Models */,
 				0EA7F245275257AE00A4216B /* SceneDelegate.swift */,
-				0EA7F247275257AE00A4216B /* ViewController.swift */,
-				0E8D3A872758CBD20082DD0F /* PaymentViewController.swift */,
+				0E6C857B275AB6D000DB7309 /* Services */,
 				0EA7F24C275257AF00A4216B /* Assets.xcassets */,
 				0EA7F24E275257AF00A4216B /* LaunchScreen.storyboard */,
 				0EA7F249275257AE00A4216B /* Main.storyboard */,
-				0E50CE752758158500EACDC6 /* DeliveryViewController.swift */,
 			);
 			path = FoodTaskerMobile;
-			sourceTree = "<group>";
-		};
-		118D25F1A48B13061858F55B /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				2A115D4B33C6F1F1CD669176 /* Pods-FoodTaskerMobile.debug.xcconfig */,
-				8C69BB4CEEF9616C473C6242 /* Pods-FoodTaskerMobile.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
-		392D99856CC036FB3DA41C6E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				1FD8799414B61869E6658AC2 /* Pods_FoodTaskerMobile.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -129,17 +195,25 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0EA7F254275257AF00A4216B /* Build configuration list for PBXNativeTarget "FoodTaskerMobile" */;
 			buildPhases = (
-				381D2A7D5E499C8E7B0868A9 /* [CP] Check Pods Manifest.lock */,
 				0EA7F23C275257AE00A4216B /* Sources */,
 				0EA7F23D275257AE00A4216B /* Frameworks */,
 				0EA7F23E275257AE00A4216B /* Resources */,
-				1439BD6537EBAB91E29133F4 /* [CP] Embed Pods Frameworks */,
+				0E51F2B7275A1FE00048F8CA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = FoodTaskerMobile;
+			packageProductDependencies = (
+				0E6C856C275A8D7F00DB7309 /* Lottie */,
+				0E6C856E275A8D7F00DB7309 /* Stripe */,
+				0E6C8570275A8D7F00DB7309 /* Alamofire */,
+				0E6C8572275A8D7F00DB7309 /* FacebookCore */,
+				0E6C8574275A8D7F00DB7309 /* FacebookLogin */,
+				0E6C8576275A8D7F00DB7309 /* FacebookShare */,
+				0E6C8578275A8D7F00DB7309 /* SwiftyJSON */,
+			);
 			productName = FoodTaskerMobile;
 			productReference = 0EA7F240275257AE00A4216B /* FoodTaskerMobile.app */;
 			productType = "com.apple.product-type.application";
@@ -169,6 +243,13 @@
 				Base,
 			);
 			mainGroup = 0EA7F237275257AD00A4216B;
+			packageReferences = (
+				0E51F2DA275A43040048F8CA /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				0E409DEA275A44010003A5A8 /* XCRemoteSwiftPackageReference "stripe-ios" */,
+				0E409DED275A445A0003A5A8 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				0E409DF0275A44F10003A5A8 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
+				0E409DF7275A451F0003A5A8 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+			);
 			productRefGroup = 0EA7F241275257AE00A4216B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -184,7 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0EA7F250275257AF00A4216B /* LaunchScreen.storyboard in Resources */,
-				0EFFD1372756B21C00768E13 /* 27630-credit-card-blue.json in Resources */,
+				0E51F243275931370048F8CA /* 27630-credit-card-blue.json in Resources */,
 				0EA7F24D275257AF00A4216B /* Assets.xcassets in Resources */,
 				0EA7F24B275257AE00A4216B /* Main.storyboard in Resources */,
 			);
@@ -192,63 +273,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		1439BD6537EBAB91E29133F4 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FoodTaskerMobile/Pods-FoodTaskerMobile-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FoodTaskerMobile/Pods-FoodTaskerMobile-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FoodTaskerMobile/Pods-FoodTaskerMobile-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		381D2A7D5E499C8E7B0868A9 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-FoodTaskerMobile-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		0EA7F23C275257AE00A4216B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0EA7F248275257AE00A4216B /* ViewController.swift in Sources */,
+				0E409DFB275A4E9C0003A5A8 /* LoginViewController.swift in Sources */,
+				0E7FBEAE275ABA4200E514BC /* APIClient.swift in Sources */,
 				0E2F417827555EB000E0304A /* MealDetailsViewController.swift in Sources */,
+				0E409E00275A76A40003A5A8 /* CustomerMenuTableViewController.swift in Sources */,
+				0E68CBDD275BDD3500C766BF /* Restaurant.swift in Sources */,
 				0E50CE762758158500EACDC6 /* DeliveryViewController.swift in Sources */,
+				0E68CBDB275BA4BA00C766BF /* Constants.swift in Sources */,
 				0E2F41722753E75D00E0304A /* RestaurantViewController.swift in Sources */,
 				0EA7F244275257AE00A4216B /* AppDelegate.swift in Sources */,
 				0E4C63902756A079003008F5 /* CartViewController.swift in Sources */,
 				0E8D3A882758CBD20082DD0F /* PaymentViewController.swift in Sources */,
 				0EA7F246275257AE00A4216B /* SceneDelegate.swift in Sources */,
+				0E409DFE275A6C1A0003A5A8 /* User.swift in Sources */,
 				0E2F417627553B9D00E0304A /* MealTableViewController.swift in Sources */,
-				0EFFD1392756B5CB00768E13 /* _PaymentViewController.swift in Sources */,
+				0E51F2A9275A12E50048F8CA /* MetaClient.swift in Sources */,
 				0EA7F25A275262C600A4216B /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,6 +353,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -370,6 +415,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -393,14 +439,15 @@
 		};
 		0EA7F255275257AF00A4216B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2A115D4B33C6F1F1CD669176 /* Pods-FoodTaskerMobile.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 3XZ9KXSTT5;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FoodTaskerMobile/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -416,13 +463,12 @@
 					"$(inherited)",
 					"\"${DT_TOOLCHAIN_DIR}/usr/lib/swift/${PLATFORM_NAME}\"",
 					/usr/lib/swift,
-					"${PODS_CONFIGURATION_BUILD_DIR}/StripeCore",
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yasuhiroyoshida.FoodTaskerMobile;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "FoodTaskerMobile/FoodTaskerMobile-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "FoodTaskerMobile/Controllers/SideMenu/FoodTaskerMobile-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -431,14 +477,15 @@
 		};
 		0EA7F256275257AF00A4216B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8C69BB4CEEF9616C473C6242 /* Pods-FoodTaskerMobile.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 3XZ9KXSTT5;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FoodTaskerMobile/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -459,7 +506,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.yasuhiroyoshida.FoodTaskerMobile;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "FoodTaskerMobile/FoodTaskerMobile-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "FoodTaskerMobile/Controllers/SideMenu/FoodTaskerMobile-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -487,6 +534,87 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0E409DEA275A44010003A5A8 /* XCRemoteSwiftPackageReference "stripe-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stripe/stripe-ios";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 21.9.0;
+			};
+		};
+		0E409DED275A445A0003A5A8 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 5.4.0;
+			};
+		};
+		0E409DF0275A44F10003A5A8 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/facebook-ios-sdk.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 12.1.0;
+			};
+		};
+		0E409DF7275A451F0003A5A8 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+		0E51F2DA275A43040048F8CA /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 3.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0E6C856C275A8D7F00DB7309 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0E51F2DA275A43040048F8CA /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+		0E6C856E275A8D7F00DB7309 /* Stripe */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0E409DEA275A44010003A5A8 /* XCRemoteSwiftPackageReference "stripe-ios" */;
+			productName = Stripe;
+		};
+		0E6C8570275A8D7F00DB7309 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0E409DED275A445A0003A5A8 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		0E6C8572275A8D7F00DB7309 /* FacebookCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0E409DF0275A44F10003A5A8 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookCore;
+		};
+		0E6C8574275A8D7F00DB7309 /* FacebookLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0E409DF0275A44F10003A5A8 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookLogin;
+		};
+		0E6C8576275A8D7F00DB7309 /* FacebookShare */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0E409DF0275A44F10003A5A8 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookShare;
+		};
+		0E6C8578275A8D7F00DB7309 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0E409DF7275A451F0003A5A8 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0EA7F238275257AD00A4216B /* Project object */;
 }

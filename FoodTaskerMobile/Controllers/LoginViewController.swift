@@ -9,6 +9,8 @@ import UIKit
 import FBSDKLoginKit
 
 class LoginViewController: UIViewController {
+  let userType = UserTypeCustomer
+
   // MARK: - IBOutlets
   @IBOutlet weak var loginButton: UIButton!
   // MARK: - View life cycle
@@ -25,26 +27,30 @@ class LoginViewController: UIViewController {
 
   func redirect2Home() {
     if let token = AccessToken.current, !token.isExpired {
-     performSegue(withIdentifier: "Login2SWReveal", sender: self)
+      performSegue(withIdentifier: "Login2SWReveal", sender: self)
     }
   }
 
   // MARK: -
   @IBAction func loginButtonPressed(_ sender: Any) {
     if AccessToken.current != nil {
-      redirect2Home()
+      APIClient.shared.logIn(userType) { error in
+        if error == nil {
+          self.redirect2Home()
+        }
+      }
     } else {
       MetaClient.shared.logIn(permissions: ["public_profile", "email"], from: self) { result, error in
-
         if error == nil {
           MetaClient.fetchUser() {
-            self.redirect2Home()
+            APIClient.shared.logIn(self.userType) { error in
+              if error == nil {
+                self.redirect2Home()
+              }
+            }
           }
-        } else {
-
-        }
+        } 
       }
     }
   }
-
 }

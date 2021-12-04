@@ -8,9 +8,13 @@
 import UIKit
 
 class RestaurantViewController: UIViewController {
+  // MARK: - Vars
+  var restaurants: [Restaurant] = []
 
+  // MARK: - IBOutlets
   @IBOutlet weak var menuBarButton: UIBarButtonItem!
-  
+
+  // MARK: - View life cycle
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -18,6 +22,19 @@ class RestaurantViewController: UIViewController {
       menuBarButton.target = revealViewController()
       menuBarButton.action = #selector(SWRevealViewController.revealToggle(_:))
       view.addGestureRecognizer(revealViewController().panGestureRecognizer())
+    }
+
+    loadRestaurants()
+
+  }
+
+  private func loadRestaurants() {
+    APIClient.shared.restaurants { responseAsJson in
+      if let json = responseAsJson {
+        for restaurant in json["restaurants"].array! {
+          self.restaurants.append(Restaurant(restaurant))
+        }
+      }
     }
   }
 }
