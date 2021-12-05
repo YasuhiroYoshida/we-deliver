@@ -8,6 +8,9 @@
 import UIKit
 
 class MealDetailsViewController: UIViewController {
+  // MARK: - Vars
+  var meal: Meal?
+
   // MARK: - IBOutlets
   @IBOutlet weak var minusButton: UIButton!
   @IBOutlet weak var plusButton: UIButton!

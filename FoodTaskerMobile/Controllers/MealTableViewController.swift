@@ -6,80 +6,74 @@
 //
 
 import UIKit
+import SkeletonView
 
 class MealTableViewController: UITableViewController {
+  // MARK: - Vars
+  var restaurant: Restaurant?
+  var meals: [Meal] = []
 
+  // MARK: - IBOutlets
+  @IBOutlet weak var mealTableView: UITableView!
+
+  // MARK: - View Life cycle
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = false
+    navigationItem.title = restaurant!.name
 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    mealTableView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .concrete), animation: nil, transition: .crossDissolve(0.25))
+
+    loadMeals()
+  }
+
+  private func loadMeals() {
+    APIClient.shared.meals(restaurantId: restaurant!.id!) { json in
+      guard json != nil else { return }
+
+      for meal in json!["meals"].array! {
+        self.meals.append(Meal(meal))
+      }
+
+      self.mealTableView.stopSkeletonAnimation()
+      self.view.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.25))
+      self.mealTableView.reloadData()
+    }
   }
 
   // MARK: - Table view data source
-
   override func numberOfSections(in tableView: UITableView) -> Int {
     return 1
   }
 
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    // #warning Incomplete implementation, return the number of rows
-    return 3
+    return meals.count
   }
 
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let meal = meals[indexPath.row]
 
-   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-     let cell = tableView.dequeueReusableCell(withIdentifier: "MealCell", for: indexPath)
+    let cell = tableView.dequeueReusableCell(withIdentifier: "MealTableViewCell", for: indexPath) as! MealTableViewCell
+    if let imageURL = meal.image {
+      Utils.fetchImage(in: cell.mealImageView, from: imageURL)
+    }
+    cell.nameLabel.text = meal.name
+    cell.shortDescriptionLabel.text = meal.shortDescription
+    cell.priceLabel.text = String(format: "$ %.2f", meal.price!)
+    return cell
+  }
 
-     return cell
-   }
+  // MARK: - Navigation
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "MealTableViewCell2MealDetail" {
+      let mealDetailsVC = segue.destination as! MealDetailsViewController
+      mealDetailsVC.meal = meals[mealTableView.indexPathForSelectedRow!.row]
+    }
+  }
+}
 
-  /*
-   // Override to support conditional editing of the table view.
-   override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-   // Return false if you do not want the specified item to be editable.
-   return true
-   }
-   */
-
-  /*
-   // Override to support editing the table view.
-   override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-   if editingStyle == .delete {
-   // Delete the row from the data source
-   tableView.deleteRows(at: [indexPath], with: .fade)
-   } else if editingStyle == .insert {
-   // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-   }
-   }
-   */
-
-  /*
-   // Override to support rearranging the table view.
-   override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-   }
-   */
-
-  /*
-   // Override to support conditional rearranging of the table view.
-   override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-   // Return false if you do not want the item to be re-orderable.
-   return true
-   }
-   */
-
-  /*
-   // MARK: - Navigation
-
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   // Get the new view controller using segue.destination.
-   // Pass the selected object to the new view controller.
-   }
-   */
-
+extension MealTableViewController: SkeletonTableViewDataSource {
+  func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+    return "MealTableViewCell"
+  }
 }

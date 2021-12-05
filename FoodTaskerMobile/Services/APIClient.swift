@@ -9,6 +9,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 import FBSDKLoginKit
+import SwiftUI
 
 class APIClient {
   static let shared = APIClient()
@@ -96,17 +97,18 @@ class APIClient {
     completion()
   }
 
-  func restaurants(completion: @escaping (JSON?) -> Void) {
-    let path = "api/customer/restaurants/"
+  func request(by method: Alamofire.HTTPMethod, to path: String, with params: [String: Any]?, encoding: ParameterEncoding = JSONEncoding.default, completion: @escaping (JSON?) -> Void) {
+
     let url = baseURL?.appendingPathComponent(path)
 
     refreshToken {
-      AF.request(url!, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
+      AF.request(url!, method: method, parameters: params, encoding: encoding, headers: nil).responseJSON { response in
+
         switch response.result {
         case .success(let value):
           let json = JSON(value)
           completion(json)
-          break
+          return
         case .failure(let error):
           print(error.localizedDescription)
           completion(nil)
@@ -114,5 +116,13 @@ class APIClient {
         }
       }
     }
+  }
+
+  func restaurants(completion: @escaping (JSON?) -> Void) {
+    request(by: .get, to: "api/customer/restaurants/", with: nil, completion: completion)
+  }
+
+  func meals(restaurantId: Int, completion: @escaping (JSON?) -> Void) {
+    request(by: .get, to: "api/customer/restaurants/\(restaurantId)/meals/", with: nil, completion: completion)
   }
 }

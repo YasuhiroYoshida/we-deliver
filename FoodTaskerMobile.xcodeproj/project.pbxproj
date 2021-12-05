@@ -19,6 +19,11 @@
 		0E51F2A9275A12E50048F8CA /* MetaClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E51F2A8275A12E50048F8CA /* MetaClient.swift */; };
 		0E68CBDB275BA4BA00C766BF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68CBDA275BA4BA00C766BF /* Constants.swift */; };
 		0E68CBDD275BDD3500C766BF /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68CBDC275BDD3500C766BF /* Restaurant.swift */; };
+		0E68CBDF275CAD3900C766BF /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68CBDE275CAD3900C766BF /* RestaurantTableViewCell.swift */; };
+		0E68CBE2275CEC1800C766BF /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 0E68CBE1275CEC1800C766BF /* SkeletonView */; };
+		0E68CBE4275CFC6600C766BF /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68CBE3275CFC6600C766BF /* Meal.swift */; };
+		0E68CBE6275CFF0400C766BF /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68CBE5275CFF0400C766BF /* MealTableViewCell.swift */; };
+		0E68CBEB275D3ED100C766BF /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68CBEA275D3ED100C766BF /* Utils.swift */; };
 		0E6C856D275A8D7F00DB7309 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 0E6C856C275A8D7F00DB7309 /* Lottie */; };
 		0E6C856F275A8D7F00DB7309 /* Stripe in Frameworks */ = {isa = PBXBuildFile; productRef = 0E6C856E275A8D7F00DB7309 /* Stripe */; };
 		0E6C8571275A8D7F00DB7309 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0E6C8570275A8D7F00DB7309 /* Alamofire */; };
@@ -62,6 +67,10 @@
 		0E51F2A8275A12E50048F8CA /* MetaClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaClient.swift; sourceTree = "<group>"; };
 		0E68CBDA275BA4BA00C766BF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0E68CBDC275BDD3500C766BF /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		0E68CBDE275CAD3900C766BF /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
+		0E68CBE3275CFC6600C766BF /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		0E68CBE5275CFF0400C766BF /* MealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
+		0E68CBEA275D3ED100C766BF /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		0E7FBEAD275ABA4200E514BC /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		0E8D3A872758CBD20082DD0F /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		0EA7F240275257AE00A4216B /* FoodTaskerMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodTaskerMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,6 +94,7 @@
 				0E6C8579275A8D7F00DB7309 /* SwiftyJSON in Frameworks */,
 				0E6C8571275A8D7F00DB7309 /* Alamofire in Frameworks */,
 				0E6C8577275A8D7F00DB7309 /* FacebookShare in Frameworks */,
+				0E68CBE2275CEC1800C766BF /* SkeletonView in Frameworks */,
 				0E6C856D275A8D7F00DB7309 /* Lottie in Frameworks */,
 				0E6C856F275A8D7F00DB7309 /* Stripe in Frameworks */,
 				0E6C8573275A8D7F00DB7309 /* FacebookCore in Frameworks */,
@@ -99,6 +109,7 @@
 			children = (
 				0E409DFD275A6C1A0003A5A8 /* User.swift */,
 				0E68CBDC275BDD3500C766BF /* Restaurant.swift */,
+				0E68CBE3275CFC6600C766BF /* Meal.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -118,11 +129,14 @@
 				0E4C638F2756A079003008F5 /* CartViewController.swift */,
 				0E2F417727555EB000E0304A /* MealDetailsViewController.swift */,
 				0E2F417527553B9D00E0304A /* MealTableViewController.swift */,
+				0E68CBE5275CFF0400C766BF /* MealTableViewCell.swift */,
 				0E2F41712753E75D00E0304A /* RestaurantViewController.swift */,
 				0E8D3A872758CBD20082DD0F /* PaymentViewController.swift */,
 				0E409DFF275A76A40003A5A8 /* CustomerMenuTableViewController.swift */,
+				0E68CBEA275D3ED100C766BF /* Utils.swift */,
 				0E50CE752758158500EACDC6 /* DeliveryViewController.swift */,
 				0E68CBDA275BA4BA00C766BF /* Constants.swift */,
+				0E68CBDE275CAD3900C766BF /* RestaurantTableViewCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -213,6 +227,7 @@
 				0E6C8574275A8D7F00DB7309 /* FacebookLogin */,
 				0E6C8576275A8D7F00DB7309 /* FacebookShare */,
 				0E6C8578275A8D7F00DB7309 /* SwiftyJSON */,
+				0E68CBE1275CEC1800C766BF /* SkeletonView */,
 			);
 			productName = FoodTaskerMobile;
 			productReference = 0EA7F240275257AE00A4216B /* FoodTaskerMobile.app */;
@@ -249,6 +264,7 @@
 				0E409DED275A445A0003A5A8 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				0E409DF0275A44F10003A5A8 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 				0E409DF7275A451F0003A5A8 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				0E68CBE0275CEC1800C766BF /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			productRefGroup = 0EA7F241275257AE00A4216B /* Products */;
 			projectDirPath = "";
@@ -281,7 +297,9 @@
 				0E409DFB275A4E9C0003A5A8 /* LoginViewController.swift in Sources */,
 				0E7FBEAE275ABA4200E514BC /* APIClient.swift in Sources */,
 				0E2F417827555EB000E0304A /* MealDetailsViewController.swift in Sources */,
+				0E68CBE6275CFF0400C766BF /* MealTableViewCell.swift in Sources */,
 				0E409E00275A76A40003A5A8 /* CustomerMenuTableViewController.swift in Sources */,
+				0E68CBE4275CFC6600C766BF /* Meal.swift in Sources */,
 				0E68CBDD275BDD3500C766BF /* Restaurant.swift in Sources */,
 				0E50CE762758158500EACDC6 /* DeliveryViewController.swift in Sources */,
 				0E68CBDB275BA4BA00C766BF /* Constants.swift in Sources */,
@@ -292,6 +310,8 @@
 				0EA7F246275257AE00A4216B /* SceneDelegate.swift in Sources */,
 				0E409DFE275A6C1A0003A5A8 /* User.swift in Sources */,
 				0E2F417627553B9D00E0304A /* MealTableViewController.swift in Sources */,
+				0E68CBEB275D3ED100C766BF /* Utils.swift in Sources */,
+				0E68CBDF275CAD3900C766BF /* RestaurantTableViewCell.swift in Sources */,
 				0E51F2A9275A12E50048F8CA /* MetaClient.swift in Sources */,
 				0EA7F25A275262C600A4216B /* SWRevealViewController.m in Sources */,
 			);
@@ -576,9 +596,22 @@
 				minimumVersion = 3.2.0;
 			};
 		};
+		0E68CBE0275CEC1800C766BF /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.26.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0E68CBE1275CEC1800C766BF /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0E68CBE0275CEC1800C766BF /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
+		};
 		0E6C856C275A8D7F00DB7309 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0E51F2DA275A43040048F8CA /* XCRemoteSwiftPackageReference "lottie-ios" */;
