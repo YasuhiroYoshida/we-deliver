@@ -12,7 +12,7 @@ class CustomerMenuTableViewController: UITableViewController {
   @IBOutlet weak var usernameLabel: UILabel!
   @IBOutlet weak var avatarView: UIImageView!
 
-  // MARK: - View life cycle
+  // MARK: - Lifecycles
   override func viewDidLoad() {
     super.viewDidLoad()
 

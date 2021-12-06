@@ -11,7 +11,7 @@ class DeliveryViewController: UIViewController {
   // MARK: - IBOutlet
   @IBOutlet weak var menuBarButton: UIBarButtonItem!
 
-  // MARK: - View life cycle
+  // MARK: - Lifecycles
   override func viewDidLoad() {
     super.viewDidLoad()
 

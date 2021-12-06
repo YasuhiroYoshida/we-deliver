@@ -13,7 +13,7 @@ class RestaurantTableViewCell: UITableViewCell {
   @IBOutlet weak var nameLabel: UILabel!
   @IBOutlet weak var addressLabel: UILabel!
 
-  // MARK: - View life cycle
+  // MARK: - Lifecycles
   override func awakeFromNib() {
     super.awakeFromNib()
 

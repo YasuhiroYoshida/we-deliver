@@ -18,7 +18,7 @@ class RestaurantViewController: UIViewController {
   @IBOutlet weak var menuBarButton: UIBarButtonItem!
   @IBOutlet weak var searchBar: UISearchBar!
 
-  // MARK: - View life cycle
+  // MARK: - Lifecycles
   override func viewDidLoad() {
     super.viewDidLoad()
 

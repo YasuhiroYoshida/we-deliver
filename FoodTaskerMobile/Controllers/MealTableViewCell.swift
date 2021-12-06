@@ -14,7 +14,7 @@ class MealTableViewCell: UITableViewCell {
   @IBOutlet weak var shortDescriptionLabel: UILabel!
   @IBOutlet weak var priceLabel: UILabel!
 
-  // MARK: - View life cycle
+  // MARK: - Lifecycles
   override func awakeFromNib() {
     super.awakeFromNib()
   }

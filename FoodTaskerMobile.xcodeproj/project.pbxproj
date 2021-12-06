@@ -24,6 +24,7 @@
 		0E68CBE4275CFC6600C766BF /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68CBE3275CFC6600C766BF /* Meal.swift */; };
 		0E68CBE6275CFF0400C766BF /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68CBE5275CFF0400C766BF /* MealTableViewCell.swift */; };
 		0E68CBEB275D3ED100C766BF /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68CBEA275D3ED100C766BF /* Utils.swift */; };
+		0E68CBF4275EAC5600C766BF /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68CBF3275EAC5600C766BF /* NumberFormatter.swift */; };
 		0E6C856D275A8D7F00DB7309 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 0E6C856C275A8D7F00DB7309 /* Lottie */; };
 		0E6C856F275A8D7F00DB7309 /* Stripe in Frameworks */ = {isa = PBXBuildFile; productRef = 0E6C856E275A8D7F00DB7309 /* Stripe */; };
 		0E6C8571275A8D7F00DB7309 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0E6C8570275A8D7F00DB7309 /* Alamofire */; };
@@ -71,6 +72,7 @@
 		0E68CBE3275CFC6600C766BF /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		0E68CBE5275CFF0400C766BF /* MealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
 		0E68CBEA275D3ED100C766BF /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		0E68CBF3275EAC5600C766BF /* NumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NumberFormatter.swift; path = FoodTaskerMobile/Helpers/NumberFormatter.swift; sourceTree = "<group>"; };
 		0E7FBEAD275ABA4200E514BC /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		0E8D3A872758CBD20082DD0F /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		0EA7F240275257AE00A4216B /* FoodTaskerMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodTaskerMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +116,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		0E68CBF2275EABE200C766BF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0E68CBEA275D3ED100C766BF /* Utils.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		0E6C8569275A8D2A00DB7309 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,19 +134,18 @@
 		0E6C857A275AB68B00DB7309 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				0E6C857C275AB70600DB7309 /* SideMenu */,
-				0E409DFA275A4E9C0003A5A8 /* LoginViewController.swift */,
 				0E4C638F2756A079003008F5 /* CartViewController.swift */,
-				0E2F417727555EB000E0304A /* MealDetailsViewController.swift */,
-				0E2F417527553B9D00E0304A /* MealTableViewController.swift */,
-				0E68CBE5275CFF0400C766BF /* MealTableViewCell.swift */,
-				0E2F41712753E75D00E0304A /* RestaurantViewController.swift */,
-				0E8D3A872758CBD20082DD0F /* PaymentViewController.swift */,
-				0E409DFF275A76A40003A5A8 /* CustomerMenuTableViewController.swift */,
-				0E68CBEA275D3ED100C766BF /* Utils.swift */,
-				0E50CE752758158500EACDC6 /* DeliveryViewController.swift */,
 				0E68CBDA275BA4BA00C766BF /* Constants.swift */,
+				0E409DFF275A76A40003A5A8 /* CustomerMenuTableViewController.swift */,
+				0E50CE752758158500EACDC6 /* DeliveryViewController.swift */,
+				0E409DFA275A4E9C0003A5A8 /* LoginViewController.swift */,
+				0E2F417727555EB000E0304A /* MealDetailsViewController.swift */,
+				0E68CBE5275CFF0400C766BF /* MealTableViewCell.swift */,
+				0E2F417527553B9D00E0304A /* MealTableViewController.swift */,
+				0E8D3A872758CBD20082DD0F /* PaymentViewController.swift */,
 				0E68CBDE275CAD3900C766BF /* RestaurantTableViewCell.swift */,
+				0E2F41712753E75D00E0304A /* RestaurantViewController.swift */,
+				0E6C857C275AB70600DB7309 /* SideMenu */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -171,6 +180,7 @@
 		0EA7F237275257AD00A4216B = {
 			isa = PBXGroup;
 			children = (
+				0E68CBF3275EAC5600C766BF /* NumberFormatter.swift */,
 				0EA7F242275257AE00A4216B /* FoodTaskerMobile */,
 				0E6C8569275A8D2A00DB7309 /* Frameworks */,
 				0EA7F241275257AE00A4216B /* Products */,
@@ -188,16 +198,17 @@
 		0EA7F242275257AE00A4216B /* FoodTaskerMobile */ = {
 			isa = PBXGroup;
 			children = (
-				0E6DADD0275906DE001A55ED /* Animations */,
 				0EA7F251275257AF00A4216B /* Info.plist */,
 				0EA7F243275257AE00A4216B /* AppDelegate.swift */,
-				0E6C857A275AB68B00DB7309 /* Controllers */,
-				0E409DFC275A6BF50003A5A8 /* Models */,
 				0EA7F245275257AE00A4216B /* SceneDelegate.swift */,
-				0E6C857B275AB6D000DB7309 /* Services */,
 				0EA7F24C275257AF00A4216B /* Assets.xcassets */,
+				0E6DADD0275906DE001A55ED /* Animations */,
+				0E6C857A275AB68B00DB7309 /* Controllers */,
+				0E68CBF2275EABE200C766BF /* Helpers */,
 				0EA7F24E275257AF00A4216B /* LaunchScreen.storyboard */,
 				0EA7F249275257AE00A4216B /* Main.storyboard */,
+				0E409DFC275A6BF50003A5A8 /* Models */,
+				0E6C857B275AB6D000DB7309 /* Services */,
 			);
 			path = FoodTaskerMobile;
 			sourceTree = "<group>";
@@ -313,6 +324,7 @@
 				0E68CBEB275D3ED100C766BF /* Utils.swift in Sources */,
 				0E68CBDF275CAD3900C766BF /* RestaurantTableViewCell.swift in Sources */,
 				0E51F2A9275A12E50048F8CA /* MetaClient.swift in Sources */,
+				0E68CBF4275EAC5600C766BF /* NumberFormatter.swift in Sources */,
 				0EA7F25A275262C600A4216B /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

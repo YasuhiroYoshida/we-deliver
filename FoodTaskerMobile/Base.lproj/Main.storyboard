@@ -788,6 +788,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="Add to Cart">
                                             <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="20"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="addToCartPressed:" destination="S7B-Og-CN7" eventType="touchUpInside" id="DK3-wb-8Fp"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$10.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htq-h3-Ok4">
                                         <rect key="frame" x="292" y="26.666666666666629" width="68" height="27"/>
@@ -820,6 +823,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="-">
                                             <fontDescription key="titleFontDescription" type="system" pointSize="30"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="minusButtonPressed:" destination="S7B-Og-CN7" eventType="touchUpInside" id="iev-AU-98y"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DxE-dd-Hwu">
                                         <rect key="frame" x="50" y="11.666666666666629" width="50" height="27"/>
@@ -837,6 +843,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="+">
                                             <fontDescription key="titleFontDescription" type="system" pointSize="30"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="plusButtonPressed:" destination="S7B-Og-CN7" eventType="touchUpInside" id="J5A-tT-BTA"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -883,8 +892,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addToCartButton" destination="7E9-3U-uhG" id="NRa-vK-Dhe"/>
+                        <outlet property="mealImageView" destination="68i-yR-6V9" id="vlX-wl-wgG"/>
                         <outlet property="minusButton" destination="Jfj-bM-meo" id="BGp-uJ-KlL"/>
+                        <outlet property="nameLabel" destination="ree-VE-nwQ" id="D9I-H3-kWw"/>
                         <outlet property="plusButton" destination="KNi-nl-S26" id="brN-LH-lQQ"/>
+                        <outlet property="quantityLabel" destination="DxE-dd-Hwu" id="dAo-0p-he9"/>
+                        <outlet property="shortDescriptionLabel" destination="hX1-qb-yfJ" id="sAt-OU-Aej"/>
+                        <outlet property="subTotalLabel" destination="htq-h3-Ok4" id="hMg-jv-ZZN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nrR-C5-uZO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

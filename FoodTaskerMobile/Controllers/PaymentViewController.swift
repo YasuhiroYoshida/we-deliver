@@ -14,7 +14,7 @@ class PaymentViewController: UIViewController {
   @IBOutlet weak var animationView: AnimationView!
   @IBOutlet weak var cardTextField: STPPaymentCardTextField!
 
-  // MARK: - View life cycle
+  // MARK: - Lifecycles
   override func viewDidLoad() {
     super.viewDidLoad()
   }
