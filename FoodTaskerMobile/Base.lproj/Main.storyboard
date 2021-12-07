@@ -745,6 +745,7 @@
                     <navigationItem key="navigationItem" id="kaa-mh-PUg"/>
                     <connections>
                         <outlet property="mealTableView" destination="vd7-r8-55w" id="QUd-co-MQN"/>
+                        <segue destination="xRo-Sf-rNK" kind="show" identifier="MealTableView2CartView" id="azQ-kl-6pd"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ofv-zw-Jnb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -884,15 +885,23 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="KCB-hI-MZs">
-                        <barButtonItem key="rightBarButtonItem" title="CartButton" image="button_cart" id="zfo-5P-rCf">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <segue destination="xRo-Sf-rNK" kind="show" id="vQQ-7v-Bh1"/>
-                            </connections>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="duN-lp-WHF">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Jde-3g-Vqe">
+                                <rect key="frame" x="326" y="0.0" width="48" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="button_cart"/>
+                                <buttonConfiguration key="configuration" style="tinted" image="button_cart"/>
+                                <connections>
+                                    <segue destination="xRo-Sf-rNK" kind="show" identifier="MealDetails2Cart" id="4MH-XS-XxM"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="addToCartButton" destination="7E9-3U-uhG" id="NRa-vK-Dhe"/>
+                        <outlet property="cartButton" destination="Jde-3g-Vqe" id="BuL-3v-OQv"/>
                         <outlet property="mealImageView" destination="68i-yR-6V9" id="vlX-wl-wgG"/>
                         <outlet property="minusButton" destination="Jfj-bM-meo" id="BGp-uJ-KlL"/>
                         <outlet property="nameLabel" destination="ree-VE-nwQ" id="D9I-H3-kWw"/>
@@ -1176,7 +1185,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vQQ-7v-Bh1"/>
+        <segue reference="azQ-kl-6pd"/>
         <segue reference="wpH-RY-abS"/>
     </inferredMetricsTieBreakers>
     <resources>

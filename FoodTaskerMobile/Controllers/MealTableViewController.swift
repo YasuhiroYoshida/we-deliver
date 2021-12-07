@@ -25,6 +25,7 @@ class MealTableViewController: UITableViewController {
     mealTableView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .concrete), animation: nil, transition: .crossDissolve(0.25))
 
     loadMeals()
+    initCartBbutton()
   }
 
   private func loadMeals() {
@@ -39,6 +40,40 @@ class MealTableViewController: UITableViewController {
       self.view.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.25))
       self.mealTableView.reloadData()
     }
+  }
+
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    updateCartButton()
+  }
+
+  // MARK: - IBActions
+  @IBAction private func goToCart(_ sender: Any) {
+    performSegue(withIdentifier: "MealTableView2CartView", sender: nil)
+  }
+
+  var cartButton: UIButton?
+
+  private func initCartBbutton() {
+    cartButton = UIButton(type: .custom)
+    cartButton?.backgroundColor = .black
+    cartButton?.translatesAutoresizingMaskIntoConstraints = false
+    cartButton?.isHidden = true
+    cartButton?.addTarget(self, action: #selector(goToCart(_:)), for: .touchUpInside)
+
+    DispatchQueue.main.async {
+      self.tableView.addSubview(self.cartButton!)
+      self.cartButton?.leadingAnchor.constraint(equalTo: self.tableView.safeAreaLayoutGuide.leadingAnchor, constant: 20.0).isActive = true
+      self.cartButton?.trailingAnchor.constraint(equalTo: self.tableView.safeAreaLayoutGuide.trailingAnchor, constant: -20.0).isActive = true
+      self.cartButton?.bottomAnchor.constraint(equalTo: self.tableView.safeAreaLayoutGuide.bottomAnchor, constant: 0.0).isActive = true
+      self.cartButton?.heightAnchor.constraint(equalToConstant: 60.0).isActive = true
+    }
+  }
+
+  func updateCartButton() {
+    let quantity = Cart.currentCart.quantity
+    cartButton?.setTitle("View cart (\(quantity))", for: .normal)
+    cartButton?.isHidden = quantity == 0 ? true : false
   }
 
   // MARK: - Table view data source
@@ -68,6 +103,7 @@ class MealTableViewController: UITableViewController {
     if segue.identifier == "MealTableViewCell2MealDetail" {
       let mealDetailsVC = segue.destination as! MealDetailsViewController
       mealDetailsVC.meal = meals[mealTableView.indexPathForSelectedRow!.row]
+      mealDetailsVC.restaurant = restaurant
     }
   }
 }

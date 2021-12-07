@@ -9,13 +9,15 @@ import UIKit
 
 class MealDetailsViewController: UIViewController {
   // MARK: - Vars
+  var restaurant: Restaurant?
   var meal: Meal?
-  var quantity: Int = 99
+  var quantity: Int = 1
   var subTotal: String {
     return (meal!.price! * Float(quantity)).currencyUSD
   }
 
   // MARK: - IBOutlets
+  @IBOutlet weak var cartButton: UIButton!
   @IBOutlet weak var mealImageView: UIImageView!
   @IBOutlet weak var nameLabel: UILabel!
   @IBOutlet weak var shortDescriptionLabel: UILabel!
@@ -25,12 +27,69 @@ class MealDetailsViewController: UIViewController {
   @IBOutlet weak var addToCartButton: UIButton!
   @IBOutlet weak var subTotalLabel: UILabel!
 
+  // MARK: - Badge
+  var badgeLabel = UILabel()
+  var badgeBreadth: CGFloat = 24.0
+  var badgeTag = 9830384
+
+  func createBadgeLabel(_ count: Int) -> UILabel {
+    let label = UILabel(frame: CGRect(x: 0, y: 0, width: badgeBreadth, height: badgeBreadth))
+    label.tag = badgeTag
+    label.translatesAutoresizingMaskIntoConstraints = false
+    label.layer.cornerRadius = label.bounds.size.height / 2
+    label.layer.masksToBounds = true
+    label.backgroundColor = .greenSea
+    label.text = String(count)
+    label.textAlignment = .center
+    label.textColor = .white
+    label.font = label.font.withSize(12)
+    return label
+  }
+
+  func showBadgeLabel() {
+    cartButton.addSubview(badgeLabel)
+    NSLayoutConstraint.activate([
+      badgeLabel.leftAnchor.constraint(equalTo: cartButton.leftAnchor, constant: 14.0),
+      badgeLabel.topAnchor.constraint(equalTo: cartButton.topAnchor, constant: -6.0),
+      badgeLabel.widthAnchor.constraint(equalToConstant: badgeBreadth),
+      badgeLabel.heightAnchor.constraint(equalToConstant: badgeBreadth),
+    ])
+  }
+
+  func removeBadgeLabel() {
+    if let badgeLabel = cartButton.viewWithTag(badgeTag) {
+      badgeLabel.removeFromSuperview()
+    }
+  }
+
+  func refreshBadgeLabel() {
+    removeBadgeLabel()
+
+    let quantity = Cart.currentCart.quantity
+    badgeLabel = createBadgeLabel(quantity)
+
+    if quantity > 0 {
+      showBadgeLabel()
+      cartButton.isEnabled = true
+    } else {
+      cartButton.isEnabled = false
+    }
+  }
+
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "MealDetails2Cart" {
+      let cartVC = segue.destination as! CartViewController
+      performSegue(withIdentifier: "MealDetails2Cart", sender: self)
+    }
+  }
+
   // MARK: - Lifecycles
   override func viewDidLoad() {
     super.viewDidLoad()
 
     initButtonsAndLabels()
     fetchMeal()
+    refreshBadgeLabel()
   }
 
   private func initButtonsAndLabels() {
@@ -63,6 +122,7 @@ class MealDetailsViewController: UIViewController {
   @IBAction func minusButtonPressed(_ sender: Any) {
     decreaseQuantity()
   }
+  
   private func decreaseQuantity() {
     guard quantity > 0 else { return }
 
@@ -82,16 +142,68 @@ class MealDetailsViewController: UIViewController {
   }
 
   @IBAction func addToCartPressed(_ sender: Any) {
+    let thisCartItem = CartItem(meal!, quantity)
+
+    // Case 1. You cart is empty
+    // restaurant in cart remains nil and cartItems in cart remains empty until an item is added for the first time.
+    // you only need to check either one of them to see if the cart is empty.
+    // both properties are cleared when the cart is reset.
+    if Cart.currentCart.restaurant == nil {
+      Cart.currentCart.restaurant = restaurant
+      Cart.currentCart.cartItems.append(thisCartItem)
+      goBackToMealTableView()
+      return
+    }
+
+    // Case 2. Your cart is filled with items from the current restaurant
+    if Cart.currentCart.restaurant!.id! == restaurant!.id {
+      let foundAt = Cart.currentCart.cartItems.lastIndex { cartItem in
+        return cartItem.meal.id == thisCartItem.meal.id
+      } // can be firstIndex as there is no meal id that is redundant
+
+      // Case 2-1. Your cart is filled with the same item
+      if let index = foundAt {
+        let alertController = UIAlertController(
+          title: "Add more?",
+          message: "You already have this meal in your cart. Would you like to add more?",
+          preferredStyle: .alert
+        )
+
+        let okAction = UIAlertAction(title: "Add more?", style: .default) { action in
+          Cart.currentCart.cartItems[index].quantity += self.quantity
+          self.goBackToMealTableView()
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true)
+        // Case 2-2. Your cart is filled with other items
+      } else {
+        Cart.currentCart.cartItems.append(thisCartItem)
+        goBackToMealTableView()
+      }
+
+      // Case 3. Your cart is filled with items from another restaurant
+    } else {
+      let alertController = UIAlertController(title: "Reset your cart?", message: "You already have meals from another restaurant in your cart. Would you like to reset your cart?", preferredStyle: .alert)
+
+      let okAction = UIAlertAction(title: "Reset cart", style: .default) { action in
+        Cart.currentCart.reset(includingDeliveryAddress: false)
+        Cart.currentCart.restaurant = self.restaurant
+        Cart.currentCart.cartItems.append(thisCartItem)
+        self.goBackToMealTableView()
+      }
+      let cancelAction = UIAlertAction(title: "Cancel", style: .default)
+
+      alertController.addAction(okAction)
+      alertController.addAction(cancelAction)
+      present(alertController, animated: true)
+    }
   }
 
-  /*
-   // MARK: - Navigation
-
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   // Get the new view controller using segue.destination.
-   // Pass the selected object to the new view controller.
-   }
-   */
-
+  // MARK: - Navigation
+  private func goBackToMealTableView() {
+    navigationController?.popViewController(animated: true)
+  }
 }
