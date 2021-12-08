@@ -13,6 +13,7 @@
 		0E409DFB275A4E9C0003A5A8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E409DFA275A4E9C0003A5A8 /* LoginViewController.swift */; };
 		0E409DFE275A6C1A0003A5A8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E409DFD275A6C1A0003A5A8 /* User.swift */; };
 		0E409E00275A76A40003A5A8 /* CustomerMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E409DFF275A76A40003A5A8 /* CustomerMenuTableViewController.swift */; };
+		0E470A77276125C200323EBA /* CartViewCartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E470A76276125C200323EBA /* CartViewCartTableViewCell.swift */; };
 		0E4C63902756A079003008F5 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4C638F2756A079003008F5 /* CartViewController.swift */; };
 		0E50CE762758158500EACDC6 /* DeliveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E50CE752758158500EACDC6 /* DeliveryViewController.swift */; };
 		0E51F243275931370048F8CA /* 27630-credit-card-blue.json in Resources */ = {isa = PBXBuildFile; fileRef = 0E51F242275931360048F8CA /* 27630-credit-card-blue.json */; };
@@ -64,6 +65,7 @@
 		0E409DFA275A4E9C0003A5A8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0E409DFD275A6C1A0003A5A8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0E409DFF275A76A40003A5A8 /* CustomerMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerMenuTableViewController.swift; sourceTree = "<group>"; };
+		0E470A76276125C200323EBA /* CartViewCartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewCartTableViewCell.swift; sourceTree = "<group>"; };
 		0E4C638F2756A079003008F5 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		0E50CE752758158500EACDC6 /* DeliveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryViewController.swift; sourceTree = "<group>"; };
 		0E51F242275931360048F8CA /* 27630-credit-card-blue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "27630-credit-card-blue.json"; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 		0E68CBF2275EABE200C766BF /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				0E68CBDA275BA4BA00C766BF /* Constants.swift */,
 				0E68CBF3275EAC5600C766BF /* NumberFormatter.swift */,
 				0E68CBEA275D3ED100C766BF /* Utils.swift */,
 			);
@@ -142,7 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				0E4C638F2756A079003008F5 /* CartViewController.swift */,
-				0E68CBDA275BA4BA00C766BF /* Constants.swift */,
+				0E470A76276125C200323EBA /* CartViewCartTableViewCell.swift */,
 				0E409DFF275A76A40003A5A8 /* CustomerMenuTableViewController.swift */,
 				0E50CE752758158500EACDC6 /* DeliveryViewController.swift */,
 				0E409DFA275A4E9C0003A5A8 /* LoginViewController.swift */,
@@ -313,6 +316,7 @@
 			files = (
 				0E409DFB275A4E9C0003A5A8 /* LoginViewController.swift in Sources */,
 				0E7FBEAE275ABA4200E514BC /* APIClient.swift in Sources */,
+				0E470A77276125C200323EBA /* CartViewCartTableViewCell.swift in Sources */,
 				0E68CBF6275F50B700C766BF /* CartItem.swift in Sources */,
 				0E2F417827555EB000E0304A /* MealDetailsViewController.swift in Sources */,
 				0E68CBE6275CFF0400C766BF /* MealTableViewCell.swift in Sources */,

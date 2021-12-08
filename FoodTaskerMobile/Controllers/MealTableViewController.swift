@@ -12,6 +12,7 @@ class MealTableViewController: UITableViewController {
   // MARK: - Vars
   var restaurant: Restaurant?
   var meals: [Meal] = []
+  var cartButton: UIButton?
 
   // MARK: - IBOutlets
   @IBOutlet weak var mealTableView: UITableView!
@@ -42,18 +43,6 @@ class MealTableViewController: UITableViewController {
     }
   }
 
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    updateCartButton()
-  }
-
-  // MARK: - IBActions
-  @IBAction private func goToCart(_ sender: Any) {
-    performSegue(withIdentifier: "MealTableView2CartView", sender: nil)
-  }
-
-  var cartButton: UIButton?
-
   private func initCartBbutton() {
     cartButton = UIButton(type: .custom)
     cartButton?.backgroundColor = .black
@@ -70,10 +59,20 @@ class MealTableViewController: UITableViewController {
     }
   }
 
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    updateCartButton()
+  }
+
   func updateCartButton() {
     let quantity = Cart.currentCart.quantity
     cartButton?.setTitle("View cart (\(quantity))", for: .normal)
     cartButton?.isHidden = quantity == 0 ? true : false
+  }
+
+  // MARK: - IBActions
+  @IBAction private func goToCart(_ sender: Any) {
+    performSegue(withIdentifier: "MealTableView2CartView", sender: nil)
   }
 
   // MARK: - Table view data source
