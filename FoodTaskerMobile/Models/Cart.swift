@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class Cart {
   static let currentCart = Cart()
@@ -22,6 +23,24 @@ class Cart {
   }
   var quantity: Int {
     return cartItems.reduce(0) { $0 + $1.quantity}
+  }
+  var cartItemsStringified: String {
+    get throws {
+      let _cartItems = cartItems.map { ["meal_id": $0.meal.id!, "quantity": $0.quantity] }
+
+      guard JSONSerialization.isValidJSONObject(_cartItems) else {
+        throw RuntimeError("cartItems are not convertible to JSON")
+      }
+
+      let data: Data
+      do {
+        data = try JSONSerialization.data(withJSONObject: _cartItems, options: [])
+      }  catch {
+        throw RuntimeError(error.localizedDescription)
+      }
+
+      return String(data: data, encoding: String.Encoding.utf8)!
+    }
   }
 
   func reset(includingDeliveryAddress: Bool = true) {

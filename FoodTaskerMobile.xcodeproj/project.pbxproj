@@ -35,6 +35,7 @@
 		0E6C8575275A8D7F00DB7309 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 0E6C8574275A8D7F00DB7309 /* FacebookLogin */; };
 		0E6C8577275A8D7F00DB7309 /* FacebookShare in Frameworks */ = {isa = PBXBuildFile; productRef = 0E6C8576275A8D7F00DB7309 /* FacebookShare */; };
 		0E6C8579275A8D7F00DB7309 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 0E6C8578275A8D7F00DB7309 /* SwiftyJSON */; };
+		0E720D042763BE06004FDC8D /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E720D032763BE06004FDC8D /* Errors.swift */; };
 		0E7FBEAE275ABA4200E514BC /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7FBEAD275ABA4200E514BC /* APIClient.swift */; };
 		0E8D3A882758CBD20082DD0F /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8D3A872758CBD20082DD0F /* PaymentViewController.swift */; };
 		0EA7F244275257AE00A4216B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA7F243275257AE00A4216B /* AppDelegate.swift */; };
@@ -79,6 +80,7 @@
 		0E68CBF3275EAC5600C766BF /* NumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatter.swift; sourceTree = "<group>"; };
 		0E68CBF5275F50B700C766BF /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
 		0E68CBF7275F56C900C766BF /* Cart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
+		0E720D032763BE06004FDC8D /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		0E7FBEAD275ABA4200E514BC /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		0E8D3A872758CBD20082DD0F /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		0EA7F240275257AE00A4216B /* FoodTaskerMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodTaskerMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,6 +131,7 @@
 			children = (
 				0E68CBDA275BA4BA00C766BF /* Constants.swift */,
 				0E68CBF3275EAC5600C766BF /* NumberFormatter.swift */,
+				0E720D032763BE06004FDC8D /* Errors.swift */,
 				0E68CBEA275D3ED100C766BF /* Utils.swift */,
 			);
 			path = Helpers;
@@ -330,6 +333,7 @@
 				0E68CBF8275F56C900C766BF /* Cart.swift in Sources */,
 				0E4C63902756A079003008F5 /* CartViewController.swift in Sources */,
 				0E8D3A882758CBD20082DD0F /* PaymentViewController.swift in Sources */,
+				0E720D042763BE06004FDC8D /* Errors.swift in Sources */,
 				0EA7F246275257AE00A4216B /* SceneDelegate.swift in Sources */,
 				0E409DFE275A6C1A0003A5A8 /* User.swift in Sources */,
 				0E2F417627553B9D00E0304A /* MealTableViewController.swift in Sources */,

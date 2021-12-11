@@ -93,7 +93,8 @@ class MealTableViewController: UITableViewController {
     }
     cell.nameLabel.text = meal.name
     cell.shortDescriptionLabel.text = meal.shortDescription
-    cell.priceLabel.text = String(format: "$ %.2f", meal.price!)
+//    cell.priceLabel.text = String(format: "$ %.2f", meal.price!)
+    cell.priceLabel.text = meal.price!.currencyEUR
     return cell
   }
 

@@ -13,7 +13,7 @@ class MealDetailsViewController: UIViewController {
   var meal: Meal?
   var quantity: Int = 1
   var subTotal: String {
-    return (meal!.price! * Float(quantity)).currencyUSD
+    return (meal!.price! * Float(quantity)).currencyEUR
   }
 
   // MARK: - IBOutlets

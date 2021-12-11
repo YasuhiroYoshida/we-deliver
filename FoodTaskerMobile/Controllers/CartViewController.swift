@@ -46,7 +46,7 @@ class CartViewController: UIViewController {
       checkoutButton.isHidden = false
       cartTableView.reloadData()
 
-      totalLabel.text = Cart.currentCart.total.currencyUSD
+      totalLabel.text = Cart.currentCart.total.currencyEUR
     }
 
     if CLLocationManager.locationServicesEnabled() {
@@ -93,7 +93,7 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
     let cell = tableView.dequeueReusableCell(withIdentifier: "CartViewCartTableViewCell", for: indexPath) as! CartViewCartTableViewCell
     cell.quantityLabel.text = String(cartItem.quantity)
     cell.nameLabel.text = cartItem.meal.name!
-    cell.subTotalLabel.text = (Float(cartItem.quantity) * cartItem.meal.price!).currencyUSD
+    cell.subTotalLabel.text = (Float(cartItem.quantity) * cartItem.meal.price!).currencyEUR
     return cell
   }
 }
