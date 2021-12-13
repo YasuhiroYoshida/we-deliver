@@ -13,7 +13,7 @@ class CartViewController: UIViewController {
   var locationMgr = CLLocationManager()
 
   // MARK: - IBOutlets
-  @IBOutlet weak var menuBarButton: UIBarButtonItem!
+  @IBOutlet weak var menuBarButtonItem: UIBarButtonItem!
   @IBOutlet weak var cartTableView: UITableView!
   @IBOutlet weak var totalView: UIView!
   @IBOutlet weak var totalLabel: UILabel!
@@ -27,8 +27,8 @@ class CartViewController: UIViewController {
     super.viewDidLoad()
 
     if let controller = revealViewController() {
-      menuBarButton.target = controller
-      menuBarButton.action = #selector(SWRevealViewController.revealToggle(_:))
+      menuBarButtonItem.target = controller
+      menuBarButtonItem.action = #selector(SWRevealViewController.revealToggle(_:))
       view.addGestureRecognizer(controller.panGestureRecognizer())
     }
 
@@ -60,8 +60,7 @@ class CartViewController: UIViewController {
   }
 
   // MARK: - IBActions
-  @IBAction func addressTextField(_ sender: Any) {
-  }
+  @IBAction func addressTextField(_ sender: Any) {}
   @IBAction func goToCheckoutPressed(_ sender: Any) {
     guard let address = addressTextField.text, !address.isEmpty else {
       let action = UIAlertAction(title: "OK", style: .default) { _ in

@@ -19,7 +19,7 @@ class MetaClient {
 
         if error == nil {
           let json = JSON(result!)
-          User.currentUser.setAttrs(json)
+          User.current.setAttrs(json)
           completion()
         } else {
           DispatchQueue.main.async {

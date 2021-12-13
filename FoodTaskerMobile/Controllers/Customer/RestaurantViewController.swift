@@ -15,7 +15,7 @@ class RestaurantViewController: UIViewController {
 
   // MARK: - IBOutlets
   @IBOutlet weak var restaurantTableView: UITableView!
-  @IBOutlet weak var menuBarButton: UIBarButtonItem!
+  @IBOutlet weak var menuBarButtonItem: UIBarButtonItem!
   @IBOutlet weak var searchBar: UISearchBar!
 
   // MARK: - Lifecycles
@@ -23,8 +23,8 @@ class RestaurantViewController: UIViewController {
     super.viewDidLoad()
 
     if revealViewController() != nil {
-      menuBarButton.target = revealViewController()
-      menuBarButton.action = #selector(SWRevealViewController.revealToggle(_:))
+      menuBarButtonItem.target = revealViewController()
+      menuBarButtonItem.action = #selector(SWRevealViewController.revealToggle(_:))
       view.addGestureRecognizer(revealViewController().panGestureRecognizer())
     }
 

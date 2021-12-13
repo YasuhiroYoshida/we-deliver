@@ -9,9 +9,10 @@ import UIKit
 import FBSDKLoginKit
 
 class LoginViewController: UIViewController {
-  let userType = UserTypeCustomer
+  var userType: String = UserTypeCustomer
 
   // MARK: - IBOutlets
+  @IBOutlet weak var userSegmentedControl: UISegmentedControl!
   @IBOutlet weak var loginButton: UIButton!
   // MARK: - Lifecycles
   override func viewDidLoad() {
@@ -19,7 +20,7 @@ class LoginViewController: UIViewController {
 
     if (AccessToken.current != nil) {
       MetaClient.fetchUser {
-        self.loginButton.setTitle("Continue as \(User.currentUser.name!)", for: .normal)
+        self.loginButton.setTitle("Continue as \(User.current.name!)", for: .normal)
         self.loginButton.sizeToFit()
       }
     }
@@ -27,11 +28,30 @@ class LoginViewController: UIViewController {
 
   func redirect2Home() {
     if let token = AccessToken.current, !token.isExpired {
-      performSegue(withIdentifier: "Login2SWReveal", sender: self)
+      switch userType {
+      case UserTypeCustomer:
+        performSegue(withIdentifier: "LoginView2SWRevealForCustomer", sender: self)
+      case UserTypeDriver:
+        performSegue(withIdentifier: "LoginView2SWRevealForDriver", sender: self)
+      default:
+        break
+      }
     }
   }
 
-  // MARK: -
+  // MARK: - IBActions
+  @IBAction func userSegmentedControlPressed(_ sender: Any) {
+    let index = userSegmentedControl.selectedSegmentIndex
+    switch index {
+    case 0:
+      userType = UserTypeCustomer
+    case 1:
+      userType = UserTypeDriver
+    default:
+      break
+    }
+  }
+
   @IBAction func loginButtonPressed(_ sender: Any) {
     if AccessToken.current != nil {
       APIClient.shared.logIn(userType) { error in

@@ -13,7 +13,7 @@ struct User {
   var email: String?
   var pictureURL: String?
 
-  static var currentUser = User()
+  static var current = User()
 
   mutating func setAttrs(_ json: JSON) {
     self.name = json["name"].string
