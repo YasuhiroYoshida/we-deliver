@@ -10,6 +10,7 @@
 		0E14305F2766689B009EE043 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E14305E2766689B009EE043 /* Enums.swift */; };
 		0E143061276752C9009EE043 /* OrdersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E143060276752C9009EE043 /* OrdersTableViewController.swift */; };
 		0E14306A276761BD009EE043 /* DriverMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E143069276761BD009EE043 /* DriverMenuTableViewController.swift */; };
+		0E169F20276891E700E1EB06 /* DropDown in Frameworks */ = {isa = PBXBuildFile; productRef = 0E169F1F276891E700E1EB06 /* DropDown */; };
 		0E25FAC02767DCE600F83796 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E25FABF2767DCE600F83796 /* ProfileViewController.swift */; };
 		0E2F41722753E75D00E0304A /* RestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2F41712753E75D00E0304A /* RestaurantViewController.swift */; };
 		0E2F417627553B9D00E0304A /* MealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2F417527553B9D00E0304A /* MealTableViewController.swift */; };
@@ -119,6 +120,7 @@
 				0E68CBE2275CEC1800C766BF /* SkeletonView in Frameworks */,
 				0E6C856D275A8D7F00DB7309 /* Lottie in Frameworks */,
 				0E6C856F275A8D7F00DB7309 /* Stripe in Frameworks */,
+				0E169F20276891E700E1EB06 /* DropDown in Frameworks */,
 				0E6C8573275A8D7F00DB7309 /* FacebookCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -325,6 +327,7 @@
 				0E6C8576275A8D7F00DB7309 /* FacebookShare */,
 				0E6C8578275A8D7F00DB7309 /* SwiftyJSON */,
 				0E68CBE1275CEC1800C766BF /* SkeletonView */,
+				0E169F1F276891E700E1EB06 /* DropDown */,
 			);
 			productName = FoodTaskerMobile;
 			productReference = 0EA7F240275257AE00A4216B /* FoodTaskerMobile.app */;
@@ -362,6 +365,7 @@
 				0E409DF0275A44F10003A5A8 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 				0E409DF7275A451F0003A5A8 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				0E68CBE0275CEC1800C766BF /* XCRemoteSwiftPackageReference "SkeletonView" */,
+				0E169F1E276891E700E1EB06 /* XCRemoteSwiftPackageReference "DropDown" */,
 			);
 			productRefGroup = 0EA7F241275257AE00A4216B /* Products */;
 			projectDirPath = "";
@@ -664,6 +668,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		0E169F1E276891E700E1EB06 /* XCRemoteSwiftPackageReference "DropDown" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AssistoLab/DropDown.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		0E409DEA275A44010003A5A8 /* XCRemoteSwiftPackageReference "stripe-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/stripe/stripe-ios";
@@ -715,6 +727,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0E169F1F276891E700E1EB06 /* DropDown */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0E169F1E276891E700E1EB06 /* XCRemoteSwiftPackageReference "DropDown" */;
+			productName = DropDown;
+		};
 		0E68CBE1275CEC1800C766BF /* SkeletonView */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0E68CBE0275CEC1800C766BF /* XCRemoteSwiftPackageReference "SkeletonView" */;

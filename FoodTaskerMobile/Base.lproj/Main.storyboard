@@ -1637,29 +1637,79 @@
                                     <constraint firstAttribute="width" constant="100" id="vLo-N8-9wA"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pl6-GB-loZ">
-                                <rect key="frame" x="174" y="410" width="42" height="106"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Driver name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lK5-8w-HEK">
                                 <rect key="frame" x="20" y="258" width="350" height="29"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LeD-hG-Nlr">
+                                <rect key="frame" x="70" y="337" width="250" height="125"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="125" id="OoY-rw-xf8"/>
+                                    <constraint firstAttribute="width" constant="250" id="qd1-cZ-kZX"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qzP-Xl-Dvc">
+                                <rect key="frame" x="50" y="487" width="290" height="50"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="JF6-3q-XeC"/>
+                                </constraints>
+                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Select Car">
+                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="15"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="selectCarButtonPressed:" destination="Ptn-3N-Pac" eventType="touchUpInside" id="U0j-n0-5VL"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Plate Nnumber" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OZu-Gd-yqn">
+                                <rect key="frame" x="50" y="587" width="290" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="tTe-YH-JRf"/>
+                                </constraints>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y5e-Gd-CWj">
+                                <rect key="frame" x="10" y="740" width="370" height="60"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="gsj-WG-Vag"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Update Profile">
+                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="20"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="updateProfileButtonPressed:" destination="Ptn-3N-Pac" eventType="touchUpInside" id="EvZ-Bz-xpJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="opm-zW-fP0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="opm-zW-fP0" firstAttribute="trailing" secondItem="qzP-Xl-Dvc" secondAttribute="trailing" constant="50" id="0zW-8F-pf5"/>
                             <constraint firstItem="lK5-8w-HEK" firstAttribute="centerX" secondItem="eyl-cW-Mjf" secondAttribute="centerX" id="CCk-QW-Mjo"/>
+                            <constraint firstItem="qzP-Xl-Dvc" firstAttribute="leading" secondItem="opm-zW-fP0" secondAttribute="leading" constant="50" id="Eic-DD-ST2"/>
                             <constraint firstItem="J4S-d5-yIs" firstAttribute="top" secondItem="opm-zW-fP0" secondAttribute="top" constant="50" id="FRP-3i-llL"/>
+                            <constraint firstItem="OZu-Gd-yqn" firstAttribute="top" secondItem="qzP-Xl-Dvc" secondAttribute="bottom" constant="50" id="K2m-4N-b4y"/>
+                            <constraint firstItem="opm-zW-fP0" firstAttribute="trailing" secondItem="y5e-Gd-CWj" secondAttribute="trailing" constant="10" id="Lsc-Ak-GKH"/>
+                            <constraint firstItem="qzP-Xl-Dvc" firstAttribute="top" secondItem="LeD-hG-Nlr" secondAttribute="bottom" constant="25" id="MAx-56-f7n"/>
+                            <constraint firstItem="OZu-Gd-yqn" firstAttribute="leading" secondItem="opm-zW-fP0" secondAttribute="leading" constant="50" id="NAH-xk-xCR"/>
                             <constraint firstItem="lK5-8w-HEK" firstAttribute="top" secondItem="J4S-d5-yIs" secondAttribute="bottom" constant="20" id="OaE-4P-z6e"/>
+                            <constraint firstItem="opm-zW-fP0" firstAttribute="trailing" secondItem="OZu-Gd-yqn" secondAttribute="trailing" constant="50" id="Zs0-PF-cIt"/>
                             <constraint firstItem="opm-zW-fP0" firstAttribute="trailing" secondItem="lK5-8w-HEK" secondAttribute="trailing" constant="20" id="bb0-yn-Ajf"/>
                             <constraint firstItem="lK5-8w-HEK" firstAttribute="leading" secondItem="opm-zW-fP0" secondAttribute="leading" constant="20" id="hjc-Qe-1A3"/>
+                            <constraint firstItem="LeD-hG-Nlr" firstAttribute="top" secondItem="lK5-8w-HEK" secondAttribute="bottom" constant="50" id="kjB-U6-O3E"/>
+                            <constraint firstItem="opm-zW-fP0" firstAttribute="bottom" secondItem="y5e-Gd-CWj" secondAttribute="bottom" constant="10" id="lBr-LM-eCO"/>
                             <constraint firstItem="J4S-d5-yIs" firstAttribute="centerX" secondItem="eyl-cW-Mjf" secondAttribute="centerX" id="oYz-xj-vRE"/>
+                            <constraint firstItem="LeD-hG-Nlr" firstAttribute="centerX" secondItem="eyl-cW-Mjf" secondAttribute="centerX" id="slA-vh-ueq"/>
+                            <constraint firstItem="y5e-Gd-CWj" firstAttribute="leading" secondItem="opm-zW-fP0" secondAttribute="leading" constant="10" id="v2o-YR-fgT"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="sPT-rv-xNC">
@@ -1669,7 +1719,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="avatarImageView" destination="J4S-d5-yIs" id="Lit-eR-JMR"/>
+                        <outlet property="carDropdownButton" destination="qzP-Xl-Dvc" id="x33-BW-hjc"/>
+                        <outlet property="carImageView" destination="LeD-hG-Nlr" id="xwy-aJ-pgO"/>
                         <outlet property="menuBarButtonItem" destination="ber-yQ-2hZ" id="zSO-hh-yFm"/>
+                        <outlet property="plateNumberTextfield" destination="OZu-Gd-yqn" id="aYn-ph-HqZ"/>
+                        <outlet property="updateProfileButton" destination="y5e-Gd-CWj" id="t3t-1W-aH0"/>
                         <outlet property="usernameLabel" destination="lK5-8w-HEK" id="Y7O-6Y-O0j"/>
                     </connections>
                 </viewController>
