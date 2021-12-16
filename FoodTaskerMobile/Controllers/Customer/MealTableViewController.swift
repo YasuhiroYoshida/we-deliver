@@ -23,7 +23,7 @@ class MealTableViewController: UITableViewController {
 
     navigationItem.title = restaurant!.name
 
-    mealTableView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .concrete), animation: nil, transition: .crossDissolve(0.25))
+    mealTableView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .concrete))
 
     loadMeals()
     initCartBbutton()
@@ -38,7 +38,7 @@ class MealTableViewController: UITableViewController {
       }
 
       self.mealTableView.stopSkeletonAnimation()
-      self.view.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.25))
+      self.view.hideSkeleton()
       self.mealTableView.reloadData()
     }
   }

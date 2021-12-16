@@ -42,7 +42,7 @@ class CustomerDeliveryController: UIViewController {
 
   private func updateLocations() {
 
-    APIClient.shared.findLatestOrder { json in
+    APIClient.shared.latestOrder { json in
       let latestOrder = json!["latest_order"]
       let restaurantAddress = latestOrder["restaurant"]["address"].string!
       let deliveryAddress = latestOrder["address"].string!
@@ -60,7 +60,7 @@ class CustomerDeliveryController: UIViewController {
 
   private func updateStatus() {
 
-    APIClient.shared.findLatestOrderStatus { json in
+    APIClient.shared.latestOrderStatus { json in
 
       if let status = json!["latest_order_status"]["status"].string {
 

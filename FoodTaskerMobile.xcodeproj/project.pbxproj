@@ -51,6 +51,8 @@
 		0EA7F24D275257AF00A4216B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EA7F24C275257AF00A4216B /* Assets.xcassets */; };
 		0EA7F250275257AF00A4216B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EA7F24E275257AF00A4216B /* LaunchScreen.storyboard */; };
 		0EA7F25A275262C600A4216B /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EA7F259275262C600A4216B /* SWRevealViewController.m */; settings = {COMPILER_FLAGS = "-w"; }; };
+		0EEE702A276B37F1009D92E9 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEE7029276B37F1009D92E9 /* Order.swift */; };
+		0EEE702C276B460D009D92E9 /* OrdersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEE702B276B460D009D92E9 /* OrdersTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -106,6 +108,8 @@
 		0EA7F257275262C600A4216B /* FoodTaskerMobile-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FoodTaskerMobile-Bridging-Header.h"; sourceTree = "<group>"; };
 		0EA7F258275262C600A4216B /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		0EA7F259275262C600A4216B /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		0EEE7029276B37F1009D92E9 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		0EEE702B276B460D009D92E9 /* OrdersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +155,7 @@
 				0E25FABF2767DCE600F83796 /* ProfileViewController.swift */,
 				0EA635902767D7FB005A8F63 /* EarningsViewController.swift */,
 				0E143060276752C9009EE043 /* OrdersTableViewController.swift */,
+				0EEE702B276B460D009D92E9 /* OrdersTableViewCell.swift */,
 				0E143069276761BD009EE043 /* DriverMenuTableViewController.swift */,
 				0EA6358E2767C78E005A8F63 /* DriverDeliveryViewController.swift */,
 			);
@@ -186,6 +191,7 @@
 				0E409DFD275A6C1A0003A5A8 /* User.swift */,
 				0E68CBF5275F50B700C766BF /* CartItem.swift */,
 				0E68CBF7275F56C900C766BF /* Cart.swift */,
+				0EEE7029276B37F1009D92E9 /* Order.swift */,
 				0E68CBDC275BDD3500C766BF /* Restaurant.swift */,
 				0E68CBE3275CFC6600C766BF /* Meal.swift */,
 			);
@@ -397,6 +403,7 @@
 			files = (
 				0E409DFB275A4E9C0003A5A8 /* LoginViewController.swift in Sources */,
 				0E7FBEAE275ABA4200E514BC /* APIClient.swift in Sources */,
+				0EEE702A276B37F1009D92E9 /* Order.swift in Sources */,
 				0E470A77276125C200323EBA /* CartViewCartTableViewCell.swift in Sources */,
 				0E68CBF6275F50B700C766BF /* CartItem.swift in Sources */,
 				0E2F417827555EB000E0304A /* MealDetailsViewController.swift in Sources */,
@@ -421,6 +428,7 @@
 				0E14305F2766689B009EE043 /* Enums.swift in Sources */,
 				0E68CBEB275D3ED100C766BF /* Utils.swift in Sources */,
 				0E14306A276761BD009EE043 /* DriverMenuTableViewController.swift in Sources */,
+				0EEE702C276B460D009D92E9 /* OrdersTableViewCell.swift in Sources */,
 				0E68CBDF275CAD3900C766BF /* RestaurantTableViewCell.swift in Sources */,
 				0E51F2A9275A12E50048F8CA /* MetaClient.swift in Sources */,
 				0E68CBF4275EAC5600C766BF /* NumberFormatter.swift in Sources */,

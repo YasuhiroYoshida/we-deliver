@@ -11,7 +11,7 @@ import DropDown
 class ProfileViewController: UIViewController {
   // MARK: - Vars
   let carDropdown = DropDown()
-  let cars = ["Mazda": "car_1", "Honda": "car_2", "Chevrolet": "car_3"]
+  let cars = ["Mazda": "car_1", "Tesla": "car_2", "Audi": "car_3"]
 
   // MARK: - IBOutlets
   @IBOutlet weak var menuBarButtonItem: UIBarButtonItem!
@@ -47,6 +47,16 @@ class ProfileViewController: UIViewController {
       avatarImageView.clipsToBounds = true
     }
     usernameLabel.text = User.current.name
+
+    APIClient.shared.driver { json in
+      if let driver_profile = json?["driver_profile"] {
+        if let carModel = driver_profile["car_model"].string, self.cars.keys.contains(carModel) {
+          self.carDropdownButton.setTitle(carModel, for: .normal)
+          self.carImageView.image = UIImage(named: self.cars[carModel]!)
+        }
+        self.plateNumberTextfield.text = driver_profile["plate_number"].string
+      }
+    }
   }
 
   private func loadCarsOntoDropdown() {
@@ -64,7 +74,17 @@ class ProfileViewController: UIViewController {
   }
 
   @IBAction func updateProfileButtonPressed(_ sender: Any) {
-  }
+    let carModel = carDropdownButton.title(for: .selected)!
+    let plateNumber = plateNumberTextfield.text!
 
-  // MARK: - Navigation
+    APIClient.shared.updateDriver(carModel: carModel, plateNumber: plateNumber) { json in
+      guard json?["driver_profile"] != nil else { return }
+
+      self.plateNumberTextfield.resignFirstResponder()
+      let alertController = UIAlertController(title: "😌", message: "Update successful!", preferredStyle: .alert)
+      let okAction = UIAlertAction(title: "OK", style: .default)
+      alertController.addAction(okAction)
+      self.present(alertController, animated: true)
+    }
+  }
 }

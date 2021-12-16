@@ -114,6 +114,7 @@ class APIClient {
     }
   }
 
+  // MARK: - CUSTOMER
   func restaurants(completion: @escaping (JSON?) -> Void) {
     request(by: .get, to: "api/customer/restaurants/", with: nil, completion: completion)
   }
@@ -146,7 +147,7 @@ class APIClient {
     }
   }
 
-  func findLatestOrder(completion: @escaping (JSON?) -> Void) {
+  func latestOrder(completion: @escaping (JSON?) -> Void) {
     let url = "api/customer/order/latest/"
     let params = [
       "access_token": accessToken
@@ -154,11 +155,49 @@ class APIClient {
     request(by: .get, to: url, with: params, completion: completion)
   }
 
-  func findLatestOrderStatus(completion: @escaping (JSON?) -> Void) {
+  func latestOrderStatus(completion: @escaping (JSON?) -> Void) {
     let url = "api/customer/order/latest_status/"
     let params = [
       "access_token": accessToken
     ]
     request(by: .get, to: url, with: params, completion: completion)
+  }
+
+  // MARK: - DRIVER
+  func driver(completion: @escaping (JSON?) -> Void) {
+    let url = "api/driver/profile/"
+    let params = [
+      "access_token": accessToken
+    ]
+
+    request(by: .get, to: url, with: params, completion: completion)
+  }
+
+  func updateDriver(carModel: String, plateNumber: String, completion: @escaping (JSON?) -> Void) {
+    let url = "api/driver/profile/update/"
+    let params = [
+      "access_token": accessToken,
+      "car_model": carModel,
+      "plate_number": plateNumber
+    ]
+
+    request(by: .patch, to: url, with: params, completion: completion)
+  }
+
+  func unownedOrders(completion: @escaping (JSON?) -> Void) {
+    let url = "api/driver/orders/unowned/"
+    // let params // no access token required
+
+    request(by: .get, to: url, with: nil, completion: completion)
+  }
+
+  func pickOrder(orderID: Int, completion: @escaping (JSON?) -> Void) {
+    let url = "api/driver/order/pick/"
+    let params: [String: Any] = [
+      "access_token": accessToken,
+      "order_id": orderID
+    ]
+
+    request(by: .patch, to: url, with: params, completion: completion)
   }
 }
