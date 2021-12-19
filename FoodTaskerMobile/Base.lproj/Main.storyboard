@@ -355,18 +355,6 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="UED-eh-fuH">
                                 <rect key="frame" x="0.0" y="88" width="390" height="756"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uxl-SJ-USn">
-                                <rect key="frame" x="10" y="764" width="370" height="60"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="FRf-MF-jkB"/>
-                                </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Complete Order">
-                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="20"/>
-                                </buttonConfiguration>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aos-K0-4um">
                                 <rect key="frame" x="10" y="674" width="370" height="80"/>
                                 <subviews>
@@ -404,6 +392,21 @@
                                     <constraint firstAttribute="height" constant="80" id="x9s-SY-jgk"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uxl-SJ-USn">
+                                <rect key="frame" x="10" y="764" width="370" height="60"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="FRf-MF-jkB"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Complete Order">
+                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="20"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="completeOrderButtonPressed:" destination="z1p-SB-u1C" eventType="touchUpInside" id="1Si-g8-AAW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1qK-3U-amB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -428,6 +431,12 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="avatarImageView" destination="EBf-5q-dae" id="IE2-Cu-vUZ"/>
+                        <outlet property="completeOrderButton" destination="uxl-SJ-USn" id="SAM-sR-8aE"/>
+                        <outlet property="customerAddressLabel" destination="R0J-cV-HL8" id="WMr-S3-5iv"/>
+                        <outlet property="customerInfoView" destination="Aos-K0-4um" id="dNZ-qS-19R"/>
+                        <outlet property="customerNameLabel" destination="tZo-G2-2rx" id="v5e-N7-ibf"/>
+                        <outlet property="mapMapView" destination="UED-eh-fuH" id="Cyz-f4-076"/>
                         <outlet property="menuBarButtonItem" destination="ry1-6F-0YK" id="wwE-Rp-BGT"/>
                     </connections>
                 </viewController>
@@ -989,7 +998,7 @@
                         <outlet property="cartTableView" destination="40R-3D-9gE" id="yAM-LA-Apm"/>
                         <outlet property="checkoutButton" destination="xDS-WR-kQt" id="6qV-5L-hYJ"/>
                         <outlet property="mapMapView" destination="3vK-cs-eit" id="88K-6w-TYp"/>
-                        <outlet property="menuBarButton" destination="Fzl-g3-F1s" id="zUU-d6-oDw"/>
+                        <outlet property="menuBarButtonItem" destination="Fzl-g3-F1s" id="3Td-GW-YY7"/>
                         <outlet property="totalLabel" destination="rhS-ZR-N1H" id="zSB-4J-eyj"/>
                         <outlet property="totalView" destination="v1S-Fp-v2b" id="55F-Si-XVb"/>
                         <segue destination="YZU-5l-EMs" kind="show" identifier="CartView2PaymentView" id="VuB-AK-0JQ"/>
@@ -1585,7 +1594,7 @@
                         <outlet property="acceptedImageView" destination="4s0-CO-c92" id="0Bw-3v-sIX"/>
                         <outlet property="driverInfoView" destination="rwL-ek-voP" id="VAa-ze-vKc"/>
                         <outlet property="mapMapView" destination="6lz-s1-dFW" id="7LC-go-PjK"/>
-                        <outlet property="menuBarButton" destination="lxf-qw-vcn" id="249-pe-JpS"/>
+                        <outlet property="menuBarButtonItem" destination="lxf-qw-vcn" id="d1x-v8-DfB"/>
                         <outlet property="onTheWayImageView" destination="VOM-Lc-t4R" id="3Sk-gi-fJG"/>
                         <outlet property="readyImageView" destination="mfA-o7-0AJ" id="d98-Qd-NN1"/>
                         <outlet property="statusView" destination="OSM-oV-PbI" id="rh9-PT-BpQ"/>

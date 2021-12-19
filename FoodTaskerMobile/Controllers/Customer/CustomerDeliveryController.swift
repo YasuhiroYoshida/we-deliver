@@ -11,8 +11,10 @@ import MapKit
 class CustomerDeliveryController: UIViewController {
   // MARK: - Vars
   var status: String?
-  var sourcePlacemark: MKPlacemark? // source == origin == restaurant
-  var destinationPlacemark: MKPlacemark? // destination == customer
+  var sourceMKPlacemark: MKPlacemark?
+  var destinationMKPlacemark: MKPlacemark?
+  var driverDropPinAnnotation: MKPointAnnotation!
+  var driverLocationCoordinate: CLLocationCoordinate2D!
 
   // MARK: - IBOutlet
   @IBOutlet weak var menuBarButtonItem: UIBarButtonItem!
@@ -33,26 +35,38 @@ class CustomerDeliveryController: UIViewController {
       self.view.addGestureRecognizer(revealViewController().panGestureRecognizer())
     }
 
-    updateLocations()
+    updateMap()
 
     Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { timer in
       self.updateStatus()
     }
   }
 
-  private func updateLocations() {
+  private func updateMap() {
 
-    APIClient.shared.latestOrder { json in
-      let latestOrder = json!["latest_order"]
-      let restaurantAddress = latestOrder["restaurant"]["address"].string!
-      let deliveryAddress = latestOrder["address"].string!
+    APIClient.shared.latestOrderByCustomer { json in
+      if let latestOrder = json?["latest_order"] {
+        let sourceAddress = latestOrder["restaurant"]["address"].string!
+        let destinationAddress = latestOrder["address"].string!
 
-      self.updatePlacemrk(restaurantAddress, title: "Restaurant") { restaurantMapKitPlacemark in
-        self.sourcePlacemark = restaurantMapKitPlacemark
+        self.convertAddressToCLPlacemark(sourceAddress) { sourceCLPlacemark in
 
-        self.updatePlacemrk(deliveryAddress, title: "Customer") { customerMapKitPlacemark in
-          self.destinationPlacemark = customerMapKitPlacemark
-          self.updateDirection()
+          if let sourceLocation = sourceCLPlacemark.location {
+
+            self.setDropPinAnnotation(at: sourceLocation, titled: "Restaurant")
+            self.sourceMKPlacemark = MKPlacemark(placemark: sourceCLPlacemark)
+
+            self.convertAddressToCLPlacemark(destinationAddress) { destinationCLPlacemark in
+
+              if let destinationLocation = destinationCLPlacemark.location {
+
+                self.setDropPinAnnotation(at: destinationLocation, titled: "Customer")
+                self.destinationMKPlacemark = MKPlacemark(placemark: destinationCLPlacemark)
+
+                self.drawRoutes()
+              }
+            }
+          }
         }
       }
     }
@@ -89,7 +103,9 @@ class CustomerDeliveryController: UIViewController {
   }
 }
 
+// MARK: - MKMapViewDelegate
 extension CustomerDeliveryController: MKMapViewDelegate {
+
   func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
     let renderer = MKPolylineRenderer(overlay: overlay)
     renderer.strokeColor = .black
@@ -97,53 +113,53 @@ extension CustomerDeliveryController: MKMapViewDelegate {
     return renderer
   }
 
-  func updatePlacemrk(_ address: String, title: String, completion: @escaping (MKPlacemark) -> Void) {
+  func convertAddressToCLPlacemark(_ address: String, completion: @escaping (CLPlacemark) -> Void) {
 
-    CLGeocoder().geocodeAddressString(address) { placemarks, error in
+    CLGeocoder().geocodeAddressString(address) { cLPlacemarks, error in
       guard error == nil else {
-        print("Error for \(title): ", error!.localizedDescription)
+        print("Address conversion failed: ", error!.localizedDescription)
         return
       }
 
-      if let placemark = placemarks!.first {
-        if let location = placemark.location {
-
-          let dropPinAnnotation = MKPointAnnotation()
-          dropPinAnnotation.coordinate = location.coordinate
-          dropPinAnnotation.title = title
-          self.mapMapView.addAnnotation(dropPinAnnotation)
-
-          let mapKitPlacemark = MKPlacemark(placemark: placemark)
-          completion(mapKitPlacemark)
-        }
+      if let clPlacemark = cLPlacemarks?.first {
+        completion(clPlacemark)
       }
     }
   }
 
-  func updateDirection() {
-    let request = MKDirections.Request()
-    request.source = MKMapItem(placemark: sourcePlacemark!)
-    request.destination = MKMapItem(placemark: destinationPlacemark!)
-    request.requestsAlternateRoutes = false
+  private func setDropPinAnnotation(at location: CLLocation, titled title: String?) {
+    let dropPinAnnotation = MKPointAnnotation()
+    dropPinAnnotation.coordinate = location.coordinate
+    if let _title = title {
+      dropPinAnnotation.title = _title
+    }
+    mapMapView.addAnnotation(dropPinAnnotation)
+  }
 
-    let directions = MKDirections(request: request)
-    directions.calculate { response, error in
+  private func drawRoutes() {
+    let request = requestForRoutes()
+    MKDirections(request: request).calculate { response, error in
       guard error == nil else {
         print(error!.localizedDescription)
         return
       }
-
-      self.showRoutes(response!)
+      self.renderRoutesOnMap(response!.routes)
     }
   }
 
-  func showRoutes(_ response: MKDirections.Response) {
-    for route in response.routes {
+  private func requestForRoutes() -> MKDirections.Request {
+    let request = MKDirections.Request()
+    request.source = MKMapItem(placemark: sourceMKPlacemark!)
+    request.destination = MKMapItem(placemark: destinationMKPlacemark!)
+    request.requestsAlternateRoutes = false
+    return request
+  }
+
+  private func renderRoutesOnMap(_ routes: [MKRoute]) {
+    for route in routes {
       mapMapView.addOverlay(route.polyline, level: MKOverlayLevel.aboveRoads)
     }
     mapMapView.layoutMargins = UIEdgeInsets(top: CGFloat(10.0), left: CGFloat(10.0), bottom: CGFloat(10.0), right: CGFloat(10.0))
     mapMapView.showAnnotations(mapMapView.annotations, animated: true)
-
   }
 }
-

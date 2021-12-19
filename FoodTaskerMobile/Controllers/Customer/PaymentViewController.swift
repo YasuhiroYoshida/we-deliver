@@ -40,7 +40,7 @@ class PaymentViewController: UIViewController {
   // MARK: - IBActions
   @IBAction func placeOrderButtonPressed(_ sender: Any) {
 
-    APIClient.shared.latestOrder { json in
+    APIClient.shared.latestOrderByCustomer { json in
       
       if json!["latest_order"]["restaurant"]["name"] == "" // user has never placed an order or,
           || json!["latest_order"]["status"] == "Delivered" { // user has no outstanding order

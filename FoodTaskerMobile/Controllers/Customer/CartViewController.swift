@@ -77,6 +77,7 @@ class CartViewController: UIViewController {
   }
 }
 
+// MARK: - UITableViewDataSource, UITableViewDelegate
 extension CartViewController: UITableViewDataSource, UITableViewDelegate {
   func numberOfSections(in tableView: UITableView) -> Int {
     return 1
@@ -97,21 +98,23 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
   }
 }
 
+// MARK: - CLLocationManagerDelegate
 extension CartViewController: CLLocationManagerDelegate {
 
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 
     if let location = locations.last {
 
-      let coordinates = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+      let coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
 
-      let region = MKCoordinateRegion(center: coordinates, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+      let region = MKCoordinateRegion(center: coordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
 
       mapMapView.setRegion(region, animated: true)
     }
   }
 }
 
+// MARK: - UITextFieldDelegate
 extension CartViewController: UITextFieldDelegate {
 
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -129,15 +132,15 @@ extension CartViewController: UITextFieldDelegate {
         {
           if let placemark = placemarks!.first {
 
-            if let coordinates = placemark.location?.coordinate {
+            if let coordinate = placemark.location?.coordinate {
 
-              let region = MKCoordinateRegion(center: coordinates, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+              let region = MKCoordinateRegion(center: coordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
 
               self.mapMapView.setRegion(region, animated: true)
               self.locationMgr.stopUpdatingLocation()
 
               let dropPin = MKPointAnnotation()
-              dropPin.coordinate = coordinates
+              dropPin.coordinate = coordinate
               self.mapMapView.addAnnotation(dropPin)
             }
           }

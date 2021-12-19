@@ -10,6 +10,7 @@ import Alamofire
 import SwiftyJSON
 import FBSDKLoginKit
 import SwiftUI
+import MapKit
 
 class APIClient {
   // MARK: - Vars
@@ -147,7 +148,7 @@ class APIClient {
     }
   }
 
-  func latestOrder(completion: @escaping (JSON?) -> Void) {
+  func latestOrderByCustomer(completion: @escaping (JSON?) -> Void) {
     let url = "api/customer/order/latest/"
     let params = [
       "access_token": accessToken
@@ -160,6 +161,15 @@ class APIClient {
     let params = [
       "access_token": accessToken
     ]
+    request(by: .get, to: url, with: params, completion: completion)
+  }
+
+  func orderLocation(completion: @escaping (JSON?) -> Void) {
+    let url = "api/customer/order_location/"
+    let params = [
+      "access_token": accessToken
+    ]
+
     request(by: .get, to: url, with: params, completion: completion)
   }
 
@@ -196,6 +206,25 @@ class APIClient {
     let params: [String: Any] = [
       "access_token": accessToken,
       "order_id": orderID
+    ]
+
+    request(by: .patch, to: url, with: params, completion: completion)
+  }
+
+  func latestOrderForDriver(completion: @escaping (JSON?) -> Void) {
+    let url = "api/driver/order/latest/"
+    let params = [
+      "access_token": accessToken
+    ]
+
+    request(by: .get, to: url, with: params, completion: completion)
+  }
+
+  func updateDriverLocation(_ location: CLLocationCoordinate2D, completion: @escaping (JSON?) -> Void) {
+    let url = "api/driver/location/update/"
+    let params: [String: Any] = [
+      "access_token": accessToken,
+      "location": "\(location.latitude),\(location.longitude)"
     ]
 
     request(by: .patch, to: url, with: params, completion: completion)
