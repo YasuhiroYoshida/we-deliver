@@ -37,7 +37,7 @@ class ProfileViewController: UIViewController {
       view.addGestureRecognizer(revealViewController().panGestureRecognizer())
     }
 
-    if let imageURL = User.current.pictureURL {
+    if let imageURL = User.current.imageURL {
       if let image = try? UIImage(data: Data(contentsOf: URL(string: imageURL)!)) {
         avatarImageView.image = image
       }

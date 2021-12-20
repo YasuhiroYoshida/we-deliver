@@ -16,7 +16,7 @@ class DriverMenuTableViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    if let image = try? UIImage(data: Data(contentsOf: URL(string: User.current.pictureURL!)!)) {
+    if let image = try? UIImage(data: Data(contentsOf: URL(string: User.current.imageURL!)!)) {
       avatarImageView.image = image
     }
     avatarImageView.layer.cornerRadius = avatarImageView.frame.width / 2
@@ -30,7 +30,7 @@ class DriverMenuTableViewController: UITableViewController {
     if segue.identifier == "DriverLogout2LoginView" {
       APIClient.shared.logOut { error in
         if error == nil {
-          MetaClient.shared.logOut() // AccessToken.current will be lost
+          FBAuthClient.shared.logOut() // AccessToken.current will be lost
           User.current.resetAttrs()
 
           self.view.window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController")
@@ -38,9 +38,4 @@ class DriverMenuTableViewController: UITableViewController {
       }
     }
   }
-
-
-  // MARK: - Table view data source
-
-
 }

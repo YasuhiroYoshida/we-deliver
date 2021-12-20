@@ -78,7 +78,6 @@ class MealDetailsViewController: UIViewController {
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "MealDetails2Cart" {
-      let cartVC = segue.destination as! CartViewController
       performSegue(withIdentifier: "MealDetails2Cart", sender: self)
     }
   }

@@ -9,32 +9,33 @@ import UIKit
 
 class CustomerMenuTableViewController: UITableViewController {
   // MARK: - IBOutlets
-  @IBOutlet weak var avatarView: UIImageView!
+  @IBOutlet weak var avatarImageView: UIImageView!
   @IBOutlet weak var usernameLabel: UILabel!
 
   // MARK: - Lifecycles
   override func viewDidLoad() {
+    print("あああ4")
     super.viewDidLoad()
 
-    if let image = try? UIImage(data: Data(contentsOf: URL(string: User.current.pictureURL!)!)) {
-      avatarView.image = image
+    if let image = try? UIImage(data: Data(contentsOf: URL(string: User.current.imageURL!)!)) {
+      avatarImageView.image = image
     }
-    avatarView.layer.cornerRadius = avatarView.frame.width / 2
-    avatarView.layer.borderWidth = 1
-    avatarView.layer.borderColor = UIColor.white.cgColor
-    avatarView.layer.masksToBounds = true
+    avatarImageView.layer.cornerRadius = avatarImageView.frame.width / 2
+    avatarImageView.layer.borderWidth = 1
+    avatarImageView.layer.borderColor = UIColor.white.cgColor
+    avatarImageView.layer.masksToBounds = true
     usernameLabel.text = User.current.name!
   }
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "CustomerLogout2LoginView" {
+    if segue.identifier == "CustomerMenuLogout2LoginView" {
       APIClient.shared.logOut { error in
-        if error == nil {
-          MetaClient.shared.logOut() // AccessToken.current will be lost
-          User.current.resetAttrs()
+        guard error == nil else { return }
 
-          self.view.window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController")
-        }
+        FBAuthClient.shared.logOut() // AccessToken.current will be lost
+        User.current.resetAttrs()
+
+        self.view.window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController")
       }
     }
   }

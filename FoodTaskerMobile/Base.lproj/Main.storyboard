@@ -13,17 +13,17 @@
             <objects>
                 <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="FoodTaskerMobile" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1tl-zM-pZS">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_img" translatesAutoresizingMaskIntoConstraints="NO" id="kE5-yJ-uo1">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="background_img" translatesAutoresizingMaskIntoConstraints="NO" id="kE5-yJ-uo1">
+                                        <rect key="frame" x="0.0" y="-57" width="390" height="850"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QJX-8T-ZqG">
-                                        <rect key="frame" x="20" y="690" width="350" height="50"/>
+                                        <rect key="frame" x="20" y="744" width="350" height="50"/>
                                         <color key="backgroundColor" red="0.30588235294117649" green="0.69019607843137254" blue="0.29803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="aEM-g6-Msb"/>
@@ -50,7 +50,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="l9o-HE-v6f">
-                                        <rect key="frame" x="20" y="624" width="350" height="32"/>
+                                        <rect key="frame" x="20" y="678" width="350" height="32"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <segments>
                                             <segment title="Customer"/>
@@ -96,13 +96,13 @@
                     <connections>
                         <outlet property="loginButton" destination="QJX-8T-ZqG" id="mEn-25-fVI"/>
                         <outlet property="userSegmentedControl" destination="l9o-HE-v6f" id="lth-Xw-2hs"/>
-                        <segue destination="1ta-f6-TZG" kind="presentation" identifier="LoginView2SWRevealForCustomer" modalPresentationStyle="fullScreen" id="zyx-CX-GtW"/>
                         <segue destination="XzL-6d-RST" kind="presentation" identifier="LoginView2SWRevealForDriver" modalPresentationStyle="fullScreen" id="Fve-UT-8ru"/>
+                        <segue destination="RPr-xl-eUg" kind="presentation" identifier="LoginView2SWReveal" modalPresentationStyle="fullScreen" id="H9k-I2-QIL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1711" y="-818"/>
+            <point key="canvasLocation" x="-1712.3076923076922" y="-818.24644549763025"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="XzE-OA-XfX">
@@ -162,7 +162,7 @@
                         <sections>
                             <tableViewSection headerTitle="Table View Section" id="DsC-PT-AnV">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="80" id="IdA-O1-58a" userLabel="RestaurantTableViewCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="80" id="IdA-O1-58a" userLabel="RestaurantsTableViewCell">
                                         <rect key="frame" x="0.0" y="184.66666603088379" width="390" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IdA-O1-58a" id="Pn1-Gv-mKH">
@@ -570,25 +570,6 @@
             </objects>
             <point key="canvasLocation" x="1517" y="-3092"/>
         </scene>
-        <!--Reveal View Controller-->
-        <scene sceneID="oHW-SQ-fs7">
-            <objects>
-                <viewController id="1ta-f6-TZG" customClass="SWRevealViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="bUM-Jl-NyE">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="bQE-YR-7h7"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <connections>
-                        <segue destination="4rJ-6O-zKZ" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="C4f-PW-Fjr"/>
-                        <segue destination="Vxf-od-N2H" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="Fgg-u5-Y6B"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GFz-W1-Fdr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-752" y="180"/>
-        </scene>
         <!--Customer Menu Table View Controller-->
         <scene sceneID="U1H-xV-XXw">
             <objects>
@@ -628,7 +609,7 @@
                         <sections>
                             <tableViewSection headerTitle="Section-1" id="3Mg-KJ-p69">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="80" id="xkU-rp-27x" userLabel="RestaurantTableViewCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="80" id="xkU-rp-27x" userLabel="RestaurantsTableViewCell">
                                         <rect key="frame" x="0.0" y="184.66666603088379" width="390" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xkU-rp-27x" id="HX3-RM-Mhx">
@@ -658,7 +639,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Vxf-od-N2H" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="wpH-RY-abS"/>
+                                            <segue destination="dRx-O4-PET" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="CZr-RK-1vN"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="80" id="pPF-oq-1xg" userLabel="CartTableViewCell">
@@ -757,7 +738,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="presentation" identifier="CustomerLogout2LoginView" modalPresentationStyle="fullScreen" id="Pfp-fZ-96w"/>
+                                            <segue destination="BYZ-38-t0r" kind="presentation" identifier="CustomerMenuLogout2LoginView" modalPresentationStyle="fullScreen" id="Pfp-fZ-96w"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -769,31 +750,13 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <outlet property="avatarView" destination="0QU-Ni-9vt" id="jKB-tK-lwj"/>
+                        <outlet property="avatarImageView" destination="0QU-Ni-9vt" id="Ugu-0f-943"/>
                         <outlet property="usernameLabel" destination="B9L-NW-otu" id="1cj-0W-2zF"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PNv-fX-3Kg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-43" y="180"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Jeb-vg-akW">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Vxf-od-N2H" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="G6C-L7-pDc">
-                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="na0-dQ-7Qe" kind="relationship" relationship="rootViewController" id="eCt-1t-ybo"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aIg-zS-sbG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="805" y="1245"/>
         </scene>
         <!--Cart View Controller-->
         <scene sceneID="deu-n1-Oeb">
@@ -1008,10 +971,10 @@
             </objects>
             <point key="canvasLocation" x="4763.0769230769229" y="548.8151658767772"/>
         </scene>
-        <!--Restaurant View Controller-->
+        <!--Restaurants View Controller-->
         <scene sceneID="egk-C7-qws">
             <objects>
-                <viewController id="na0-dQ-7Qe" customClass="RestaurantViewController" customModule="FoodTaskerMobile" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="na0-dQ-7Qe" customClass="RestaurantsViewController" customModule="FoodTaskerMobile" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="R37-9R-1sA">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1024,11 +987,11 @@
                                     <outlet property="delegate" destination="na0-dQ-7Qe" id="uCp-8T-DOU"/>
                                 </connections>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="240" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="O4a-0h-9dm" userLabel="RestaurantTableView">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="240" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="O4a-0h-9dm">
                                 <rect key="frame" x="0.0" y="147" width="390" height="697"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RestaurantTableViewCell" id="QTS-2y-pNs" customClass="RestaurantTableViewCell" customModule="FoodTaskerMobile" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RestaurantsTableViewCell" id="QTS-2y-pNs" customClass="RestaurantsTableViewCell" customModule="FoodTaskerMobile" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="240"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QTS-2y-pNs" id="JG3-lX-HlH">
@@ -1131,13 +1094,14 @@
                     </navigationItem>
                     <connections>
                         <outlet property="menuBarButton" destination="EIz-g4-VYV" id="pgL-ra-Ehx"/>
-                        <outlet property="restaurantTableView" destination="O4a-0h-9dm" id="QrX-m3-vgT"/>
+                        <outlet property="menuBarButtonItem" destination="EIz-g4-VYV" id="9Ho-KV-Ow9"/>
+                        <outlet property="restaurantsTableView" destination="O4a-0h-9dm" id="QrX-m3-vgT"/>
                         <outlet property="searchBar" destination="gUH-4H-fwc" id="YSx-nu-hHy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h9M-TC-ExL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1548" y="1245"/>
+            <point key="canvasLocation" x="1517" y="1245"/>
         </scene>
         <!--Meal Table View Controller-->
         <scene sceneID="mdt-kw-Vxv">
@@ -1238,7 +1202,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ofv-zw-Jnb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2302" y="1245"/>
+            <point key="canvasLocation" x="2271" y="1245"/>
         </scene>
         <!--Meal Details View Controller-->
         <scene sceneID="1wL-EP-m8P">
@@ -1401,7 +1365,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nrR-C5-uZO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3057" y="1245"/>
+            <point key="canvasLocation" x="3026" y="1245"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="90C-4z-v8v">
@@ -1883,14 +1847,51 @@
             </objects>
             <point key="canvasLocation" x="774" y="-1692"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="2Rc-Qx-XRJ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dRx-O4-PET" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3aD-IO-WvL">
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="na0-dQ-7Qe" kind="relationship" relationship="rootViewController" id="Bmw-yB-Etb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nro-rp-MiP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="805" y="1245"/>
+        </scene>
+        <!--Reveal View Controller-->
+        <scene sceneID="4T3-D8-v6P">
+            <objects>
+                <viewController id="RPr-xl-eUg" customClass="SWRevealViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qlI-Rv-pSf">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="GAS-Pe-DUM"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <segue destination="dRx-O4-PET" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="aWS-qZ-KhN"/>
+                        <segue destination="4rJ-6O-zKZ" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="PGV-vR-m5v"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pe5-j9-POh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-752" y="180"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="RVG-PG-aBI"/>
-        <segue reference="azQ-kl-6pd"/>
-        <segue reference="Fgg-u5-Y6B"/>
+        <segue reference="aWS-qZ-KhN"/>
+        <segue reference="ZsY-u6-qpe"/>
+        <segue reference="4MH-XS-XxM"/>
         <segue reference="ybf-d2-XGY"/>
         <segue reference="Tgv-gA-WTN"/>
-        <segue reference="h6T-K8-WVr"/>
+        <segue reference="Pfp-fZ-96w"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="avatar" width="215" height="211"/>

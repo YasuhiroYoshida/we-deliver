@@ -1,5 +1,5 @@
 //
-//  RestaurantTableViewCell.swift
+//  RestaurantsTableViewCell.swift
 //  FoodTaskerMobile
 //
 //  Created by Yasuhiro Yoshida on 2021-12-05.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RestaurantTableViewCell: UITableViewCell {
+class RestaurantsTableViewCell: UITableViewCell {
   // MARK: - IBOutelets
   @IBOutlet weak var logoImageView: UIImageView!
   @IBOutlet weak var nameLabel: UILabel!

@@ -15,6 +15,7 @@ class CustomerDeliveryController: UIViewController {
   var destinationMKPlacemark: MKPlacemark?
   var driverDropPinAnnotation: MKPointAnnotation!
   var driverLocationCoordinate: CLLocationCoordinate2D!
+  var locationMgr = CLLocationManager()
 
   // MARK: - IBOutlet
   @IBOutlet weak var menuBarButtonItem: UIBarButtonItem!
@@ -37,8 +38,31 @@ class CustomerDeliveryController: UIViewController {
 
     updateMap()
 
+    // Enable a timer to update the order status
     Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { timer in
       self.updateStatus()
+    }
+  }
+
+  private func updateOrderLocaion() {
+    APIClient.shared.orderLocation { json in
+      if let orderLocation = json!["order_location"].string, !orderLocation.isEmpty {
+        let coordinatePoints = orderLocation.split(separator: ",")
+        if let latitude = CLLocationDegrees(coordinatePoints[0]), let longitude = CLLocationDegrees(coordinatePoints[1]) {
+          self.driverLocationCoordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+
+          if self.driverDropPinAnnotation != nil {
+            self.driverDropPinAnnotation.coordinate = self.driverLocationCoordinate
+          } else {
+            self.driverDropPinAnnotation = MKPointAnnotation()
+            self.driverDropPinAnnotation.coordinate = self.driverLocationCoordinate
+            self.mapMapView.addAnnotation(self.driverDropPinAnnotation)
+          }
+
+          self.mapMapView.layoutMargins = UIEdgeInsets(top: CGFloat(10.0), left: CGFloat(10.0), bottom: CGFloat(10.0), right: CGFloat(10.0))
+          self.mapMapView.showAnnotations(self.mapMapView.annotations, animated: true)
+        }
+      }
     }
   }
 
@@ -46,27 +70,42 @@ class CustomerDeliveryController: UIViewController {
 
     APIClient.shared.latestOrderByCustomer { json in
       if let latestOrder = json?["latest_order"] {
-        let sourceAddress = latestOrder["restaurant"]["address"].string!
-        let destinationAddress = latestOrder["address"].string!
 
-        self.convertAddressToCLPlacemark(sourceAddress) { sourceCLPlacemark in
+        if latestOrder["status"] == "On the way" {
 
-          if let sourceLocation = sourceCLPlacemark.location {
+          let sourceAddress = latestOrder["restaurant"]["address"].string!
+          let destinationAddress = latestOrder["address"].string!
 
-            self.setDropPinAnnotation(at: sourceLocation, titled: "Restaurant")
-            self.sourceMKPlacemark = MKPlacemark(placemark: sourceCLPlacemark)
+          self.convertAddressToCLPlacemark(sourceAddress) { sourceCLPlacemark in
 
-            self.convertAddressToCLPlacemark(destinationAddress) { destinationCLPlacemark in
+            if let sourceLocation = sourceCLPlacemark.location {
 
-              if let destinationLocation = destinationCLPlacemark.location {
+              self.setDropPinAnnotation(at: sourceLocation, titled: "Restaurant")
+              self.sourceMKPlacemark = MKPlacemark(placemark: sourceCLPlacemark)
 
-                self.setDropPinAnnotation(at: destinationLocation, titled: "Customer")
-                self.destinationMKPlacemark = MKPlacemark(placemark: destinationCLPlacemark)
+              self.convertAddressToCLPlacemark(destinationAddress) { destinationCLPlacemark in
 
-                self.drawRoutes()
+                if let destinationLocation = destinationCLPlacemark.location {
+
+                  self.setDropPinAnnotation(at: destinationLocation, titled: "Customer")
+                  self.destinationMKPlacemark = MKPlacemark(placemark: destinationCLPlacemark)
+
+                  self.drawRoutes()
+                }
               }
             }
           }
+
+          // Enable a timer once to update an on-the-way order location once such thing is discovered
+          Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { timer in
+            self.updateOrderLocaion()
+          }
+        } else {
+          let label = UILabel(frame: CGRect(x: CGFloat(0.0), y: CGFloat(0.0), width: self.view.frame.size.width, height: CGFloat(40.0)))
+          label.center = self.view.center
+          label.textAlignment = .center
+          label.text = "There is no outstanding order for you"
+          self.view.addSubview(label)
         }
       }
     }
@@ -76,7 +115,7 @@ class CustomerDeliveryController: UIViewController {
 
     APIClient.shared.latestOrderStatus { json in
 
-      if let status = json!["latest_order_status"]["status"].string {
+      if let status = json?["latest_order_status"]["status"].string {
 
         self.status = status
 

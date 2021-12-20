@@ -111,7 +111,7 @@ class DriverDeliveryViewController: UIViewController {
     customerInfoView.isHidden = true
     completeOrderButton.isHidden = true
 
-    let label = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 40))
+    let label = UILabel(frame: CGRect(x: CGFloat(0.0), y: CGFloat(0.0), width: view.frame.size.width, height: CGFloat(40.0)))
     label.center = view.center
     label.textAlignment = .center
     label.text = "You have no outstanding order"

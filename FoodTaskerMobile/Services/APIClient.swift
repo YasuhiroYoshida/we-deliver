@@ -16,7 +16,7 @@ class APIClient {
   // MARK: - Vars
   static let shared = APIClient()
 
-  let baseURL = URL(string: BaseURL)
+  let baseURL = URL(string: BaseURL)!
   var accessToken = ""
   var refreshToken = ""
   var expirationDate = Date()
@@ -26,7 +26,7 @@ class APIClient {
 
   func logIn(_ userType: String, completion: @escaping (Error?) -> Void) {
     let path = "api/social/convert-token/"
-    let url = baseURL?.appendingPathComponent(path)
+    let url = baseURL.appendingPathComponent(path)
     let params: [String: Any] = [
       "grant_type": "convert_token",
       "client_id": ClientID,
@@ -36,7 +36,7 @@ class APIClient {
       "user_type": userType
     ]
 
-    AF.request(url!, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
+    AF.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
 
       switch response.result {
       case .success(let value):
@@ -46,41 +46,41 @@ class APIClient {
         self.expirationDate = Date().addingTimeInterval(TimeInterval(json["expires_in"].int!))
         completion(nil)
       case .failure(let error):
-        completion(error as Error)
+        completion(error as AFError)
       }
     }
   }
 
   func logOut(completion: @escaping (Error?) -> Void) {
     let path = "api/social/revoke-token/"
-    let url = baseURL?.appendingPathComponent(path)
+    let url = baseURL.appendingPathComponent(path)
     let params: [String: Any] = [
       "client_id": ClientID,
       "client_secret": ClientSecret,
-      "token": accessToken,
+      "token": AccessToken.current!.tokenString,
     ]
 
-    AF.request(url!, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
+    AF.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
 
       switch response.result {
       case .success:
         completion(nil)
       case .failure(let error):
-        completion(error as Error)
+        completion(error as AFError)
       }
     }
   }
 
   func refreshToken(completion: @escaping () -> Void) {
     let path = "api/social/refresh-token/"
-    let url = baseURL?.appendingPathComponent(path)
+    let url = baseURL.appendingPathComponent(path)
     let params: [String: Any] = [
       "access_token": accessToken,
       "refresh_token": refreshToken
     ]
 
     if Date() > expirationDate {
-      AF.request(url!, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON { resoponse in
+      AF.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON { resoponse in
 
         switch resoponse.result {
         case .success(let value):
@@ -99,10 +99,10 @@ class APIClient {
 
   func request(by method: Alamofire.HTTPMethod, to path: String, with params: [String: Any]?, encoding: ParameterEncoding = URLEncoding.default, completion: @escaping (JSON?) -> Void) {
 
-    let url = baseURL?.appendingPathComponent(path)
+    let url = baseURL.appendingPathComponent(path)
 
     refreshToken {
-      AF.request(url!, method: method, parameters: params, encoding: encoding, headers: nil).responseJSON { response in
+      AF.request(url, method: method, parameters: params, encoding: encoding, headers: nil).responseJSON { response in
         switch response.result {
         case .success(let value):
           let json = JSON(value)

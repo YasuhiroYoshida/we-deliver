@@ -8,20 +8,20 @@
 import UIKit
 import SkeletonView
 
-class RestaurantViewController: UIViewController {
+class RestaurantsViewController: UIViewController {
   // MARK: - Vars
   var restaurants: [Restaurant] = []
   var filteredRestaurants: [Restaurant] = []
 
   // MARK: - IBOutlets
-  @IBOutlet weak var restaurantTableView: UITableView!
   @IBOutlet weak var menuBarButtonItem: UIBarButtonItem!
   @IBOutlet weak var searchBar: UISearchBar!
+  @IBOutlet var restaurantsTableView: UITableView!
 
   // MARK: - Lifecycles
   override func viewDidLoad() {
     super.viewDidLoad()
-
+print("あRestaurantview")
     if revealViewController() != nil {
       menuBarButtonItem.target = revealViewController()
       menuBarButtonItem.action = #selector(SWRevealViewController.revealToggle(_:))
@@ -30,7 +30,7 @@ class RestaurantViewController: UIViewController {
 
     searchBar.delegate = self
 
-    restaurantTableView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .concrete), animation: nil, transition: .crossDissolve(0.25))
+    restaurantsTableView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .concrete), animation: nil, transition: .crossDissolve(0.25))
 
     loadRestaurants()
   }
@@ -43,9 +43,9 @@ class RestaurantViewController: UIViewController {
         self.restaurants.append(Restaurant(restaurant))
       }
 
-      self.restaurantTableView.stopSkeletonAnimation()
+      self.restaurantsTableView.stopSkeletonAnimation()
       self.view.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.25))
-      self.restaurantTableView.reloadData()
+      self.restaurantsTableView.reloadData()
     }
   }
 
@@ -53,12 +53,12 @@ class RestaurantViewController: UIViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "Restaurant2Meals" {
       let mealVC = segue.destination as! MealTableViewController
-      mealVC.restaurant = restaurants[restaurantTableView.indexPathForSelectedRow!.row]
+      mealVC.restaurant = restaurants[restaurantsTableView.indexPathForSelectedRow!.row]
     }
   }
 }
 
-extension RestaurantViewController: SkeletonTableViewDataSource {
+extension RestaurantsViewController: SkeletonTableViewDataSource {
 
   func numberOfSections(in tableView: UITableView) -> Int {
     return 1
@@ -71,7 +71,7 @@ extension RestaurantViewController: SkeletonTableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let restaurant = searchBar.text!.isEmpty ? restaurants[indexPath.row] : filteredRestaurants[indexPath.row]
 
-    let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantTableViewCell", for: indexPath) as! RestaurantTableViewCell
+    let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantsTableViewCell", for: indexPath) as! RestaurantsTableViewCell
     cell.nameLabel.text = restaurant.name
     cell.addressLabel.text = restaurant.address
     if let logoURL = restaurant.logo {
@@ -81,16 +81,16 @@ extension RestaurantViewController: SkeletonTableViewDataSource {
   }
 
   func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
-    return "RestaurantTableViewCell"
+    return "RestaurantsTableViewCell"
   }
 }
 
-extension RestaurantViewController: UISearchBarDelegate {
+extension RestaurantsViewController: UISearchBarDelegate {
   func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
     filteredRestaurants = restaurants.filter({ (restaurant) -> Bool in
       return restaurant.name?.lowercased().range(of: searchText.lowercased()) != nil
     })
 
-    restaurantTableView.reloadData()
+    restaurantsTableView.reloadData()
   }
 }

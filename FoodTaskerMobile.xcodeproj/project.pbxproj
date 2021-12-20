@@ -10,9 +10,8 @@
 		0E14305F2766689B009EE043 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E14305E2766689B009EE043 /* Enums.swift */; };
 		0E143061276752C9009EE043 /* OrdersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E143060276752C9009EE043 /* OrdersTableViewController.swift */; };
 		0E14306A276761BD009EE043 /* DriverMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E143069276761BD009EE043 /* DriverMenuTableViewController.swift */; };
-		0E169F20276891E700E1EB06 /* DropDown in Frameworks */ = {isa = PBXBuildFile; productRef = 0E169F1F276891E700E1EB06 /* DropDown */; };
 		0E25FAC02767DCE600F83796 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E25FABF2767DCE600F83796 /* ProfileViewController.swift */; };
-		0E2F41722753E75D00E0304A /* RestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2F41712753E75D00E0304A /* RestaurantViewController.swift */; };
+		0E2F41722753E75D00E0304A /* RestaurantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2F41712753E75D00E0304A /* RestaurantsViewController.swift */; };
 		0E2F417627553B9D00E0304A /* MealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2F417527553B9D00E0304A /* MealTableViewController.swift */; };
 		0E2F417827555EB000E0304A /* MealDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2F417727555EB000E0304A /* MealDetailsViewController.swift */; };
 		0E409DFB275A4E9C0003A5A8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E409DFA275A4E9C0003A5A8 /* LoginViewController.swift */; };
@@ -22,24 +21,16 @@
 		0E4C63902756A079003008F5 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4C638F2756A079003008F5 /* CartViewController.swift */; };
 		0E50CE762758158500EACDC6 /* CustomerDeliveryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E50CE752758158500EACDC6 /* CustomerDeliveryController.swift */; };
 		0E51F243275931370048F8CA /* 27630-credit-card-blue.json in Resources */ = {isa = PBXBuildFile; fileRef = 0E51F242275931360048F8CA /* 27630-credit-card-blue.json */; };
-		0E51F2A9275A12E50048F8CA /* MetaClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E51F2A8275A12E50048F8CA /* MetaClient.swift */; };
+		0E51F2A9275A12E50048F8CA /* FBAuthClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E51F2A8275A12E50048F8CA /* FBAuthClient.swift */; };
 		0E68CBDB275BA4BA00C766BF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68CBDA275BA4BA00C766BF /* Constants.swift */; };
 		0E68CBDD275BDD3500C766BF /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68CBDC275BDD3500C766BF /* Restaurant.swift */; };
-		0E68CBDF275CAD3900C766BF /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68CBDE275CAD3900C766BF /* RestaurantTableViewCell.swift */; };
-		0E68CBE2275CEC1800C766BF /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 0E68CBE1275CEC1800C766BF /* SkeletonView */; };
+		0E68CBDF275CAD3900C766BF /* RestaurantsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68CBDE275CAD3900C766BF /* RestaurantsTableViewCell.swift */; };
 		0E68CBE4275CFC6600C766BF /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68CBE3275CFC6600C766BF /* Meal.swift */; };
 		0E68CBE6275CFF0400C766BF /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68CBE5275CFF0400C766BF /* MealTableViewCell.swift */; };
 		0E68CBEB275D3ED100C766BF /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68CBEA275D3ED100C766BF /* Utils.swift */; };
 		0E68CBF4275EAC5600C766BF /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68CBF3275EAC5600C766BF /* NumberFormatter.swift */; };
 		0E68CBF6275F50B700C766BF /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68CBF5275F50B700C766BF /* CartItem.swift */; };
 		0E68CBF8275F56C900C766BF /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68CBF7275F56C900C766BF /* Cart.swift */; };
-		0E6C856D275A8D7F00DB7309 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 0E6C856C275A8D7F00DB7309 /* Lottie */; };
-		0E6C856F275A8D7F00DB7309 /* Stripe in Frameworks */ = {isa = PBXBuildFile; productRef = 0E6C856E275A8D7F00DB7309 /* Stripe */; };
-		0E6C8571275A8D7F00DB7309 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0E6C8570275A8D7F00DB7309 /* Alamofire */; };
-		0E6C8573275A8D7F00DB7309 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 0E6C8572275A8D7F00DB7309 /* FacebookCore */; };
-		0E6C8575275A8D7F00DB7309 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 0E6C8574275A8D7F00DB7309 /* FacebookLogin */; };
-		0E6C8577275A8D7F00DB7309 /* FacebookShare in Frameworks */ = {isa = PBXBuildFile; productRef = 0E6C8576275A8D7F00DB7309 /* FacebookShare */; };
-		0E6C8579275A8D7F00DB7309 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 0E6C8578275A8D7F00DB7309 /* SwiftyJSON */; };
 		0E720D042763BE06004FDC8D /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E720D032763BE06004FDC8D /* Errors.swift */; };
 		0E7FBEAE275ABA4200E514BC /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7FBEAD275ABA4200E514BC /* APIClient.swift */; };
 		0E8D3A882758CBD20082DD0F /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8D3A872758CBD20082DD0F /* PaymentViewController.swift */; };
@@ -51,6 +42,18 @@
 		0EA7F24D275257AF00A4216B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EA7F24C275257AF00A4216B /* Assets.xcassets */; };
 		0EA7F250275257AF00A4216B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EA7F24E275257AF00A4216B /* LaunchScreen.storyboard */; };
 		0EA7F25A275262C600A4216B /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EA7F259275262C600A4216B /* SWRevealViewController.m */; settings = {COMPILER_FLAGS = "-w"; }; };
+		0EDCBA8F2770E2C7009D47A7 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 0EDCBA8E2770E2C7009D47A7 /* SkeletonView */; };
+		0EDCBA922770E2E5009D47A7 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0EDCBA912770E2E5009D47A7 /* Alamofire */; };
+		0EDCBA9E2770E347009D47A7 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 0EDCBA9D2770E347009D47A7 /* SwiftyJSON */; };
+		0EDCBAA12770E362009D47A7 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 0EDCBAA02770E362009D47A7 /* Lottie */; };
+		0EDCBAA42770E375009D47A7 /* Stripe in Frameworks */ = {isa = PBXBuildFile; productRef = 0EDCBAA32770E375009D47A7 /* Stripe */; };
+		0EDCBAAC2770EC9B009D47A7 /* DropDown in Frameworks */ = {isa = PBXBuildFile; productRef = 0EDCBAAB2770EC9B009D47A7 /* DropDown */; };
+		0EDCBAAF2770ED20009D47A7 /* FacebookAEM in Frameworks */ = {isa = PBXBuildFile; productRef = 0EDCBAAE2770ED20009D47A7 /* FacebookAEM */; };
+		0EDCBAB12770ED20009D47A7 /* FacebookBasics in Frameworks */ = {isa = PBXBuildFile; productRef = 0EDCBAB02770ED20009D47A7 /* FacebookBasics */; };
+		0EDCBAB32770ED20009D47A7 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 0EDCBAB22770ED20009D47A7 /* FacebookCore */; };
+		0EDCBAB52770ED20009D47A7 /* FacebookGamingServices in Frameworks */ = {isa = PBXBuildFile; productRef = 0EDCBAB42770ED20009D47A7 /* FacebookGamingServices */; };
+		0EDCBAB72770ED20009D47A7 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 0EDCBAB62770ED20009D47A7 /* FacebookLogin */; };
+		0EDCBAB92770ED21009D47A7 /* FacebookShare in Frameworks */ = {isa = PBXBuildFile; productRef = 0EDCBAB82770ED21009D47A7 /* FacebookShare */; };
 		0EEE702A276B37F1009D92E9 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEE7029276B37F1009D92E9 /* Order.swift */; };
 		0EEE702C276B460D009D92E9 /* OrdersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEE702B276B460D009D92E9 /* OrdersTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -73,7 +76,7 @@
 		0E143060276752C9009EE043 /* OrdersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersTableViewController.swift; sourceTree = "<group>"; };
 		0E143069276761BD009EE043 /* DriverMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverMenuTableViewController.swift; sourceTree = "<group>"; };
 		0E25FABF2767DCE600F83796 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		0E2F41712753E75D00E0304A /* RestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewController.swift; sourceTree = "<group>"; };
+		0E2F41712753E75D00E0304A /* RestaurantsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsViewController.swift; sourceTree = "<group>"; };
 		0E2F417527553B9D00E0304A /* MealTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewController.swift; sourceTree = "<group>"; };
 		0E2F417727555EB000E0304A /* MealDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailsViewController.swift; sourceTree = "<group>"; };
 		0E409DFA275A4E9C0003A5A8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -83,10 +86,10 @@
 		0E4C638F2756A079003008F5 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		0E50CE752758158500EACDC6 /* CustomerDeliveryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerDeliveryController.swift; sourceTree = "<group>"; };
 		0E51F242275931360048F8CA /* 27630-credit-card-blue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "27630-credit-card-blue.json"; sourceTree = "<group>"; };
-		0E51F2A8275A12E50048F8CA /* MetaClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaClient.swift; sourceTree = "<group>"; };
+		0E51F2A8275A12E50048F8CA /* FBAuthClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBAuthClient.swift; sourceTree = "<group>"; };
 		0E68CBDA275BA4BA00C766BF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0E68CBDC275BDD3500C766BF /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
-		0E68CBDE275CAD3900C766BF /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
+		0E68CBDE275CAD3900C766BF /* RestaurantsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsTableViewCell.swift; sourceTree = "<group>"; };
 		0E68CBE3275CFC6600C766BF /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		0E68CBE5275CFF0400C766BF /* MealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
 		0E68CBEA275D3ED100C766BF /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -117,15 +120,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E6C8575275A8D7F00DB7309 /* FacebookLogin in Frameworks */,
-				0E6C8579275A8D7F00DB7309 /* SwiftyJSON in Frameworks */,
-				0E6C8571275A8D7F00DB7309 /* Alamofire in Frameworks */,
-				0E6C8577275A8D7F00DB7309 /* FacebookShare in Frameworks */,
-				0E68CBE2275CEC1800C766BF /* SkeletonView in Frameworks */,
-				0E6C856D275A8D7F00DB7309 /* Lottie in Frameworks */,
-				0E6C856F275A8D7F00DB7309 /* Stripe in Frameworks */,
-				0E169F20276891E700E1EB06 /* DropDown in Frameworks */,
-				0E6C8573275A8D7F00DB7309 /* FacebookCore in Frameworks */,
+				0EDCBAAC2770EC9B009D47A7 /* DropDown in Frameworks */,
+				0EDCBAAF2770ED20009D47A7 /* FacebookAEM in Frameworks */,
+				0EDCBAB92770ED21009D47A7 /* FacebookShare in Frameworks */,
+				0EDCBA9E2770E347009D47A7 /* SwiftyJSON in Frameworks */,
+				0EDCBAB52770ED20009D47A7 /* FacebookGamingServices in Frameworks */,
+				0EDCBA8F2770E2C7009D47A7 /* SkeletonView in Frameworks */,
+				0EDCBAB72770ED20009D47A7 /* FacebookLogin in Frameworks */,
+				0EDCBA922770E2E5009D47A7 /* Alamofire in Frameworks */,
+				0EDCBAB12770ED20009D47A7 /* FacebookBasics in Frameworks */,
+				0EDCBAA12770E362009D47A7 /* Lottie in Frameworks */,
+				0EDCBAB32770ED20009D47A7 /* FacebookCore in Frameworks */,
+				0EDCBAA42770E375009D47A7 /* Stripe in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,8 +149,8 @@
 				0E68CBE5275CFF0400C766BF /* MealTableViewCell.swift */,
 				0E2F417527553B9D00E0304A /* MealTableViewController.swift */,
 				0E8D3A872758CBD20082DD0F /* PaymentViewController.swift */,
-				0E68CBDE275CAD3900C766BF /* RestaurantTableViewCell.swift */,
-				0E2F41712753E75D00E0304A /* RestaurantViewController.swift */,
+				0E68CBDE275CAD3900C766BF /* RestaurantsTableViewCell.swift */,
+				0E2F41712753E75D00E0304A /* RestaurantsViewController.swift */,
 			);
 			path = Customer;
 			sourceTree = "<group>";
@@ -247,7 +253,7 @@
 		0E6C857B275AB6D000DB7309 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				0E51F2A8275A12E50048F8CA /* MetaClient.swift */,
+				0E51F2A8275A12E50048F8CA /* FBAuthClient.swift */,
 				0E7FBEAD275ABA4200E514BC /* APIClient.swift */,
 			);
 			path = Services;
@@ -274,6 +280,7 @@
 		0EA7F237275257AD00A4216B = {
 			isa = PBXGroup;
 			children = (
+				0EDCBAA92770EB33009D47A7 /* Packages */,
 				0EA7F242275257AE00A4216B /* FoodTaskerMobile */,
 				0E6C8569275A8D2A00DB7309 /* Frameworks */,
 				0EA7F241275257AE00A4216B /* Products */,
@@ -307,6 +314,13 @@
 			path = FoodTaskerMobile;
 			sourceTree = "<group>";
 		};
+		0EDCBAA92770EB33009D47A7 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -325,15 +339,18 @@
 			);
 			name = FoodTaskerMobile;
 			packageProductDependencies = (
-				0E6C856C275A8D7F00DB7309 /* Lottie */,
-				0E6C856E275A8D7F00DB7309 /* Stripe */,
-				0E6C8570275A8D7F00DB7309 /* Alamofire */,
-				0E6C8572275A8D7F00DB7309 /* FacebookCore */,
-				0E6C8574275A8D7F00DB7309 /* FacebookLogin */,
-				0E6C8576275A8D7F00DB7309 /* FacebookShare */,
-				0E6C8578275A8D7F00DB7309 /* SwiftyJSON */,
-				0E68CBE1275CEC1800C766BF /* SkeletonView */,
-				0E169F1F276891E700E1EB06 /* DropDown */,
+				0EDCBA8E2770E2C7009D47A7 /* SkeletonView */,
+				0EDCBA912770E2E5009D47A7 /* Alamofire */,
+				0EDCBA9D2770E347009D47A7 /* SwiftyJSON */,
+				0EDCBAA02770E362009D47A7 /* Lottie */,
+				0EDCBAA32770E375009D47A7 /* Stripe */,
+				0EDCBAAB2770EC9B009D47A7 /* DropDown */,
+				0EDCBAAE2770ED20009D47A7 /* FacebookAEM */,
+				0EDCBAB02770ED20009D47A7 /* FacebookBasics */,
+				0EDCBAB22770ED20009D47A7 /* FacebookCore */,
+				0EDCBAB42770ED20009D47A7 /* FacebookGamingServices */,
+				0EDCBAB62770ED20009D47A7 /* FacebookLogin */,
+				0EDCBAB82770ED21009D47A7 /* FacebookShare */,
 			);
 			productName = FoodTaskerMobile;
 			productReference = 0EA7F240275257AE00A4216B /* FoodTaskerMobile.app */;
@@ -365,13 +382,13 @@
 			);
 			mainGroup = 0EA7F237275257AD00A4216B;
 			packageReferences = (
-				0E51F2DA275A43040048F8CA /* XCRemoteSwiftPackageReference "lottie-ios" */,
-				0E409DEA275A44010003A5A8 /* XCRemoteSwiftPackageReference "stripe-ios" */,
-				0E409DED275A445A0003A5A8 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				0E409DF0275A44F10003A5A8 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
-				0E409DF7275A451F0003A5A8 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
-				0E68CBE0275CEC1800C766BF /* XCRemoteSwiftPackageReference "SkeletonView" */,
-				0E169F1E276891E700E1EB06 /* XCRemoteSwiftPackageReference "DropDown" */,
+				0EDCBA8D2770E2C7009D47A7 /* XCRemoteSwiftPackageReference "SkeletonView" */,
+				0EDCBA902770E2E5009D47A7 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				0EDCBA9C2770E347009D47A7 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				0EDCBA9F2770E362009D47A7 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				0EDCBAA22770E375009D47A7 /* XCRemoteSwiftPackageReference "stripe-ios" */,
+				0EDCBAA52770E3DD009D47A7 /* XCRemoteSwiftPackageReference "DropDown" */,
+				0EDCBAAD2770ED20009D47A7 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 			);
 			productRefGroup = 0EA7F241275257AE00A4216B /* Products */;
 			projectDirPath = "";
@@ -413,7 +430,7 @@
 				0E68CBDD275BDD3500C766BF /* Restaurant.swift in Sources */,
 				0E50CE762758158500EACDC6 /* CustomerDeliveryController.swift in Sources */,
 				0E68CBDB275BA4BA00C766BF /* Constants.swift in Sources */,
-				0E2F41722753E75D00E0304A /* RestaurantViewController.swift in Sources */,
+				0E2F41722753E75D00E0304A /* RestaurantsViewController.swift in Sources */,
 				0E25FAC02767DCE600F83796 /* ProfileViewController.swift in Sources */,
 				0EA7F244275257AE00A4216B /* AppDelegate.swift in Sources */,
 				0E68CBF8275F56C900C766BF /* Cart.swift in Sources */,
@@ -429,8 +446,8 @@
 				0E68CBEB275D3ED100C766BF /* Utils.swift in Sources */,
 				0E14306A276761BD009EE043 /* DriverMenuTableViewController.swift in Sources */,
 				0EEE702C276B460D009D92E9 /* OrdersTableViewCell.swift in Sources */,
-				0E68CBDF275CAD3900C766BF /* RestaurantTableViewCell.swift in Sources */,
-				0E51F2A9275A12E50048F8CA /* MetaClient.swift in Sources */,
+				0E68CBDF275CAD3900C766BF /* RestaurantsTableViewCell.swift in Sources */,
+				0E51F2A9275A12E50048F8CA /* FBAuthClient.swift in Sources */,
 				0E68CBF4275EAC5600C766BF /* NumberFormatter.swift in Sources */,
 				0EA7F25A275262C600A4216B /* SWRevealViewController.m in Sources */,
 				0E143061276752C9009EE043 /* OrdersTableViewController.swift in Sources */,
@@ -676,55 +693,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		0E169F1E276891E700E1EB06 /* XCRemoteSwiftPackageReference "DropDown" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AssistoLab/DropDown.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-		0E409DEA275A44010003A5A8 /* XCRemoteSwiftPackageReference "stripe-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/stripe/stripe-ios";
-			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 21.9.0;
-			};
-		};
-		0E409DED275A445A0003A5A8 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
-			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 5.4.0;
-			};
-		};
-		0E409DF0275A44F10003A5A8 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/facebook/facebook-ios-sdk.git";
-			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 12.1.0;
-			};
-		};
-		0E409DF7275A451F0003A5A8 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
-			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 5.0.1;
-			};
-		};
-		0E51F2DA275A43040048F8CA /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/airbnb/lottie-ios";
-			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 3.2.0;
-			};
-		};
-		0E68CBE0275CEC1800C766BF /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+		0EDCBA8D2770E2C7009D47A7 /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
 			requirement = {
@@ -732,53 +701,116 @@
 				minimumVersion = 1.26.0;
 			};
 		};
+		0EDCBA902770E2E5009D47A7 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 5.4.0;
+			};
+		};
+		0EDCBA9C2770E347009D47A7 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+		0EDCBA9F2770E362009D47A7 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 3.2.0;
+			};
+		};
+		0EDCBAA22770E375009D47A7 /* XCRemoteSwiftPackageReference "stripe-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stripe/stripe-ios";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 21.9.0;
+			};
+		};
+		0EDCBAA52770E3DD009D47A7 /* XCRemoteSwiftPackageReference "DropDown" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AssistoLab/DropDown.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		0EDCBAAD2770ED20009D47A7 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/facebook-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0E169F1F276891E700E1EB06 /* DropDown */ = {
+		0EDCBA8E2770E2C7009D47A7 /* SkeletonView */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0E169F1E276891E700E1EB06 /* XCRemoteSwiftPackageReference "DropDown" */;
-			productName = DropDown;
-		};
-		0E68CBE1275CEC1800C766BF /* SkeletonView */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0E68CBE0275CEC1800C766BF /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			package = 0EDCBA8D2770E2C7009D47A7 /* XCRemoteSwiftPackageReference "SkeletonView" */;
 			productName = SkeletonView;
 		};
-		0E6C856C275A8D7F00DB7309 /* Lottie */ = {
+		0EDCBA912770E2E5009D47A7 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0E51F2DA275A43040048F8CA /* XCRemoteSwiftPackageReference "lottie-ios" */;
-			productName = Lottie;
-		};
-		0E6C856E275A8D7F00DB7309 /* Stripe */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0E409DEA275A44010003A5A8 /* XCRemoteSwiftPackageReference "stripe-ios" */;
-			productName = Stripe;
-		};
-		0E6C8570275A8D7F00DB7309 /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0E409DED275A445A0003A5A8 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = 0EDCBA902770E2E5009D47A7 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
-		0E6C8572275A8D7F00DB7309 /* FacebookCore */ = {
+		0EDCBA9D2770E347009D47A7 /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0E409DF0275A44F10003A5A8 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			package = 0EDCBA9C2770E347009D47A7 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+		0EDCBAA02770E362009D47A7 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0EDCBA9F2770E362009D47A7 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+		0EDCBAA32770E375009D47A7 /* Stripe */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0EDCBAA22770E375009D47A7 /* XCRemoteSwiftPackageReference "stripe-ios" */;
+			productName = Stripe;
+		};
+		0EDCBAAB2770EC9B009D47A7 /* DropDown */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0EDCBAA52770E3DD009D47A7 /* XCRemoteSwiftPackageReference "DropDown" */;
+			productName = DropDown;
+		};
+		0EDCBAAE2770ED20009D47A7 /* FacebookAEM */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0EDCBAAD2770ED20009D47A7 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookAEM;
+		};
+		0EDCBAB02770ED20009D47A7 /* FacebookBasics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0EDCBAAD2770ED20009D47A7 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookBasics;
+		};
+		0EDCBAB22770ED20009D47A7 /* FacebookCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0EDCBAAD2770ED20009D47A7 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
 			productName = FacebookCore;
 		};
-		0E6C8574275A8D7F00DB7309 /* FacebookLogin */ = {
+		0EDCBAB42770ED20009D47A7 /* FacebookGamingServices */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0E409DF0275A44F10003A5A8 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			package = 0EDCBAAD2770ED20009D47A7 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookGamingServices;
+		};
+		0EDCBAB62770ED20009D47A7 /* FacebookLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0EDCBAAD2770ED20009D47A7 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
 			productName = FacebookLogin;
 		};
-		0E6C8576275A8D7F00DB7309 /* FacebookShare */ = {
+		0EDCBAB82770ED21009D47A7 /* FacebookShare */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0E409DF0275A44F10003A5A8 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			package = 0EDCBAAD2770ED20009D47A7 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
 			productName = FacebookShare;
-		};
-		0E6C8578275A8D7F00DB7309 /* SwiftyJSON */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0E409DF7275A451F0003A5A8 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
-			productName = SwiftyJSON;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
