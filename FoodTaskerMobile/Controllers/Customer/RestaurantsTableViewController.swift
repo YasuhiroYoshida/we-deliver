@@ -58,7 +58,8 @@ print("あRestaurantview")
   }
 }
 
-extension RestaurantsViewController: SkeletonTableViewDataSource {
+// MARK: - UITableViewDelegate, UITableViewDataSource
+extension RestaurantsViewController: UITableViewDelegate, UITableViewDataSource {
 
   func numberOfSections(in tableView: UITableView) -> Int {
     return 1
@@ -79,12 +80,17 @@ extension RestaurantsViewController: SkeletonTableViewDataSource {
     }
     return cell
   }
+}
+
+// MARK: - SkeletonTableViewDataSource
+extension RestaurantsViewController: SkeletonTableViewDataSource {
 
   func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
     return "RestaurantsTableViewCell"
   }
 }
 
+// MARK: - UISearchBarDelegate
 extension RestaurantsViewController: UISearchBarDelegate {
   func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
     filteredRestaurants = restaurants.filter({ (restaurant) -> Bool in

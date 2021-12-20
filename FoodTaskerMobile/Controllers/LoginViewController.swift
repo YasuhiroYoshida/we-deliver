@@ -39,7 +39,7 @@ class LoginViewController: UIViewController {
     if let token = AccessToken.current, !token.isExpired {
       switch userType {
       case UserTypeCustomer:
-        performSegue(withIdentifier: "LoginView2SWReveal", sender: self)
+        performSegue(withIdentifier: "LoginView2SWRevealForCustomer", sender: self)
       case UserTypeDriver:
         performSegue(withIdentifier: "LoginView2SWRevealForDriver", sender: self)
       default:

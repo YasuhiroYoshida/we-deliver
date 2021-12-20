@@ -22,21 +22,6 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="background_img" translatesAutoresizingMaskIntoConstraints="NO" id="kE5-yJ-uo1">
                                         <rect key="frame" x="0.0" y="-57" width="390" height="850"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QJX-8T-ZqG">
-                                        <rect key="frame" x="20" y="744" width="350" height="50"/>
-                                        <color key="backgroundColor" red="0.30588235294117649" green="0.69019607843137254" blue="0.29803921568627451" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="aEM-g6-Msb"/>
-                                        </constraints>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Log in with Facebook">
-                                            <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Aiq-8K-QWM"/>
-                                        </connections>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FoodTasker" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dL-aX-1c1">
                                         <rect key="frame" x="20" y="135" width="350" height="67"/>
                                         <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="49"/>
@@ -62,6 +47,22 @@
                                             <action selector="userSegmentedControlPressed:" destination="BYZ-38-t0r" eventType="valueChanged" id="Rzc-YM-5ME"/>
                                         </connections>
                                     </segmentedControl>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QJX-8T-ZqG">
+                                        <rect key="frame" x="20" y="744" width="350" height="50"/>
+                                        <color key="backgroundColor" red="0.30588235294117649" green="0.69019607843137254" blue="0.29803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="aEM-g6-Msb"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Log in with Facebook">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Aiq-8K-QWM"/>
+                                            <segue destination="RPr-xl-eUg" kind="presentation" identifier="LoginView2SWRevealForCustomer" id="yZS-Jy-kIa"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <constraints>
@@ -97,7 +98,6 @@
                         <outlet property="loginButton" destination="QJX-8T-ZqG" id="mEn-25-fVI"/>
                         <outlet property="userSegmentedControl" destination="l9o-HE-v6f" id="lth-Xw-2hs"/>
                         <segue destination="XzL-6d-RST" kind="presentation" identifier="LoginView2SWRevealForDriver" modalPresentationStyle="fullScreen" id="Fve-UT-8ru"/>
-                        <segue destination="RPr-xl-eUg" kind="presentation" identifier="LoginView2SWReveal" modalPresentationStyle="fullScreen" id="H9k-I2-QIL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -573,7 +573,7 @@
         <!--Customer Menu Table View Controller-->
         <scene sceneID="U1H-xV-XXw">
             <objects>
-                <tableViewController id="4rJ-6O-zKZ" customClass="CustomerMenuTableViewController" customModule="FoodTaskerMobile" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController definesPresentationContext="YES" modalPresentationStyle="overCurrentContext" id="4rJ-6O-zKZ" customClass="CustomerMenuTableViewController" customModule="FoodTaskerMobile" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="QY9-Mo-roJ">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -639,7 +639,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="dRx-O4-PET" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="CZr-RK-1vN"/>
+                                            <segue destination="dRx-O4-PET" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="ubz-m8-gUG"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="80" id="pPF-oq-1xg" userLabel="CartTableViewCell">
@@ -971,10 +971,10 @@
             </objects>
             <point key="canvasLocation" x="4763.0769230769229" y="548.8151658767772"/>
         </scene>
-        <!--Restaurants View Controller-->
+        <!--Restaurants Table View Controller-->
         <scene sceneID="egk-C7-qws">
             <objects>
-                <viewController id="na0-dQ-7Qe" customClass="RestaurantsViewController" customModule="FoodTaskerMobile" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController definesPresentationContext="YES" modalPresentationStyle="overCurrentContext" id="na0-dQ-7Qe" customClass="RestaurantsTableViewController" customModule="FoodTaskerMobile" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="R37-9R-1sA">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1093,7 +1093,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="menuBarButton" destination="EIz-g4-VYV" id="pgL-ra-Ehx"/>
                         <outlet property="menuBarButtonItem" destination="EIz-g4-VYV" id="9Ho-KV-Ow9"/>
                         <outlet property="restaurantsTableView" destination="O4a-0h-9dm" id="QrX-m3-vgT"/>
                         <outlet property="searchBar" destination="gUH-4H-fwc" id="YSx-nu-hHy"/>
@@ -1850,7 +1849,7 @@
         <!--Navigation Controller-->
         <scene sceneID="2Rc-Qx-XRJ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dRx-O4-PET" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" definesPresentationContext="YES" modalPresentationStyle="overCurrentContext" id="dRx-O4-PET" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3aD-IO-WvL">
                         <rect key="frame" x="0.0" y="44" width="390" height="44"/>
@@ -1868,7 +1867,8 @@
         <!--Reveal View Controller-->
         <scene sceneID="4T3-D8-v6P">
             <objects>
-                <viewController id="RPr-xl-eUg" customClass="SWRevealViewController" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pe5-j9-POh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController definesPresentationContext="YES" providesPresentationContextTransitionStyle="YES" modalPresentationStyle="overFullScreen" id="RPr-xl-eUg" customClass="SWRevealViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qlI-Rv-pSf">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1880,7 +1880,6 @@
                         <segue destination="4rJ-6O-zKZ" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="PGV-vR-m5v"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Pe5-j9-POh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-752" y="180"/>
         </scene>
@@ -1889,7 +1888,7 @@
         <segue reference="aWS-qZ-KhN"/>
         <segue reference="ZsY-u6-qpe"/>
         <segue reference="4MH-XS-XxM"/>
-        <segue reference="ybf-d2-XGY"/>
+        <segue reference="orV-e4-knY"/>
         <segue reference="Tgv-gA-WTN"/>
         <segue reference="Pfp-fZ-96w"/>
     </inferredMetricsTieBreakers>

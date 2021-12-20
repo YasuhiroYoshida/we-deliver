@@ -11,13 +11,14 @@
 		0E143061276752C9009EE043 /* OrdersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E143060276752C9009EE043 /* OrdersTableViewController.swift */; };
 		0E14306A276761BD009EE043 /* DriverMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E143069276761BD009EE043 /* DriverMenuTableViewController.swift */; };
 		0E25FAC02767DCE600F83796 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E25FABF2767DCE600F83796 /* ProfileViewController.swift */; };
-		0E2F41722753E75D00E0304A /* RestaurantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2F41712753E75D00E0304A /* RestaurantsViewController.swift */; };
+		0E2F41722753E75D00E0304A /* RestaurantsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2F41712753E75D00E0304A /* RestaurantsTableViewController.swift */; };
 		0E2F417627553B9D00E0304A /* MealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2F417527553B9D00E0304A /* MealTableViewController.swift */; };
 		0E2F417827555EB000E0304A /* MealDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2F417727555EB000E0304A /* MealDetailsViewController.swift */; };
 		0E409DFB275A4E9C0003A5A8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E409DFA275A4E9C0003A5A8 /* LoginViewController.swift */; };
 		0E409DFE275A6C1A0003A5A8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E409DFD275A6C1A0003A5A8 /* User.swift */; };
 		0E409E00275A76A40003A5A8 /* CustomerMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E409DFF275A76A40003A5A8 /* CustomerMenuTableViewController.swift */; };
 		0E470A77276125C200323EBA /* CartViewCartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E470A76276125C200323EBA /* CartViewCartTableViewCell.swift */; };
+		0E48B81327712515007F4B4B /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 0E48B81227712515007F4B4B /* SideMenu */; };
 		0E4C63902756A079003008F5 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4C638F2756A079003008F5 /* CartViewController.swift */; };
 		0E50CE762758158500EACDC6 /* CustomerDeliveryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E50CE752758158500EACDC6 /* CustomerDeliveryController.swift */; };
 		0E51F243275931370048F8CA /* 27630-credit-card-blue.json in Resources */ = {isa = PBXBuildFile; fileRef = 0E51F242275931360048F8CA /* 27630-credit-card-blue.json */; };
@@ -76,7 +77,7 @@
 		0E143060276752C9009EE043 /* OrdersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersTableViewController.swift; sourceTree = "<group>"; };
 		0E143069276761BD009EE043 /* DriverMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverMenuTableViewController.swift; sourceTree = "<group>"; };
 		0E25FABF2767DCE600F83796 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		0E2F41712753E75D00E0304A /* RestaurantsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsViewController.swift; sourceTree = "<group>"; };
+		0E2F41712753E75D00E0304A /* RestaurantsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsTableViewController.swift; sourceTree = "<group>"; };
 		0E2F417527553B9D00E0304A /* MealTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewController.swift; sourceTree = "<group>"; };
 		0E2F417727555EB000E0304A /* MealDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailsViewController.swift; sourceTree = "<group>"; };
 		0E409DFA275A4E9C0003A5A8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +127,7 @@
 				0EDCBA9E2770E347009D47A7 /* SwiftyJSON in Frameworks */,
 				0EDCBAB52770ED20009D47A7 /* FacebookGamingServices in Frameworks */,
 				0EDCBA8F2770E2C7009D47A7 /* SkeletonView in Frameworks */,
+				0E48B81327712515007F4B4B /* SideMenu in Frameworks */,
 				0EDCBAB72770ED20009D47A7 /* FacebookLogin in Frameworks */,
 				0EDCBA922770E2E5009D47A7 /* Alamofire in Frameworks */,
 				0EDCBAB12770ED20009D47A7 /* FacebookBasics in Frameworks */,
@@ -150,7 +152,7 @@
 				0E2F417527553B9D00E0304A /* MealTableViewController.swift */,
 				0E8D3A872758CBD20082DD0F /* PaymentViewController.swift */,
 				0E68CBDE275CAD3900C766BF /* RestaurantsTableViewCell.swift */,
-				0E2F41712753E75D00E0304A /* RestaurantsViewController.swift */,
+				0E2F41712753E75D00E0304A /* RestaurantsTableViewController.swift */,
 			);
 			path = Customer;
 			sourceTree = "<group>";
@@ -351,6 +353,7 @@
 				0EDCBAB42770ED20009D47A7 /* FacebookGamingServices */,
 				0EDCBAB62770ED20009D47A7 /* FacebookLogin */,
 				0EDCBAB82770ED21009D47A7 /* FacebookShare */,
+				0E48B81227712515007F4B4B /* SideMenu */,
 			);
 			productName = FoodTaskerMobile;
 			productReference = 0EA7F240275257AE00A4216B /* FoodTaskerMobile.app */;
@@ -389,6 +392,7 @@
 				0EDCBAA22770E375009D47A7 /* XCRemoteSwiftPackageReference "stripe-ios" */,
 				0EDCBAA52770E3DD009D47A7 /* XCRemoteSwiftPackageReference "DropDown" */,
 				0EDCBAAD2770ED20009D47A7 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
+				0E48B81127712515007F4B4B /* XCRemoteSwiftPackageReference "SideMenu" */,
 			);
 			productRefGroup = 0EA7F241275257AE00A4216B /* Products */;
 			projectDirPath = "";
@@ -430,7 +434,7 @@
 				0E68CBDD275BDD3500C766BF /* Restaurant.swift in Sources */,
 				0E50CE762758158500EACDC6 /* CustomerDeliveryController.swift in Sources */,
 				0E68CBDB275BA4BA00C766BF /* Constants.swift in Sources */,
-				0E2F41722753E75D00E0304A /* RestaurantsViewController.swift in Sources */,
+				0E2F41722753E75D00E0304A /* RestaurantsTableViewController.swift in Sources */,
 				0E25FAC02767DCE600F83796 /* ProfileViewController.swift in Sources */,
 				0EA7F244275257AE00A4216B /* AppDelegate.swift in Sources */,
 				0E68CBF8275F56C900C766BF /* Cart.swift in Sources */,
@@ -693,6 +697,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		0E48B81127712515007F4B4B /* XCRemoteSwiftPackageReference "SideMenu" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jonkykong/SideMenu";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 		0EDCBA8D2770E2C7009D47A7 /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
@@ -752,6 +764,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0E48B81227712515007F4B4B /* SideMenu */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0E48B81127712515007F4B4B /* XCRemoteSwiftPackageReference "SideMenu" */;
+			productName = SideMenu;
+		};
 		0EDCBA8E2770E2C7009D47A7 /* SkeletonView */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0EDCBA8D2770E2C7009D47A7 /* XCRemoteSwiftPackageReference "SkeletonView" */;
