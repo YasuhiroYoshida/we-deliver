@@ -68,7 +68,7 @@ class CustomerDeliveryViewController: UIViewController {
 
   private func updateMap() {
 
-    APIClient.shared.latestOrderByCustomer { json in
+    APIClient.shared.order { json in
       if let latestOrder = json?["latest_order"] {
 
         if latestOrder["status"] == "On the way" {
@@ -113,7 +113,7 @@ class CustomerDeliveryViewController: UIViewController {
 
   private func updateStatus() {
 
-    APIClient.shared.latestOrderStatus { json in
+    APIClient.shared.orderStatus { json in
 
       if let status = json?["latest_order_status"]["status"].string {
 

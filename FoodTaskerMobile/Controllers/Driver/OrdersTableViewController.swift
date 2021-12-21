@@ -33,7 +33,7 @@ class OrdersTableViewController: UITableViewController {
   }
 
   private func loadDriverAndOrders() {
-    APIClient.shared.driver { json in
+    APIClient.shared.profile { json in
 
       if let driver_profile = json?["driver_profile"] {
         if !driver_profile["car_model"].string!.isEmpty && !driver_profile["plate_number"].string!.isEmpty {
@@ -83,7 +83,7 @@ class OrdersTableViewController: UITableViewController {
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let order = orders[indexPath.row]
 
-    APIClient.shared.pickOrder(orderID: order.id!) { json in
+    APIClient.shared.updateOrder(id: order.id!, newStatus: .onTheWay) { json in
       let _json = json!
       switch _json["status"].string {
       case "Success":

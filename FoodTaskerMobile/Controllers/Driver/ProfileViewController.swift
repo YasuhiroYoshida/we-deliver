@@ -48,7 +48,7 @@ class ProfileViewController: UIViewController {
     }
     usernameLabel.text = User.current.name
 
-    APIClient.shared.driver { json in
+    APIClient.shared.profile { json in
       if let driver_profile = json?["driver_profile"] {
         if let carModel = driver_profile["car_model"].string, self.cars.keys.contains(carModel) {
           self.carDropdownButton.setTitle(carModel, for: .normal)
@@ -77,7 +77,7 @@ class ProfileViewController: UIViewController {
     let carModel = carDropdownButton.title(for: .selected)!
     let plateNumber = plateNumberTextfield.text!
 
-    APIClient.shared.updateDriver(carModel: carModel, plateNumber: plateNumber) { json in
+    APIClient.shared.updateProfile(carModel: carModel, plateNumber: plateNumber) { json in
       guard json?["driver_profile"] != nil else { return }
 
       self.plateNumberTextfield.resignFirstResponder()

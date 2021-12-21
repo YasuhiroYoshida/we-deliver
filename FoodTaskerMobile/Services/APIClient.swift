@@ -22,7 +22,7 @@ class APIClient {
 
   private init() {}
 
-  // MARK: Auth
+  // MARK: - Auth
   func logIn(_ userType: String, completion: @escaping (Error?) -> Void) {
     let path = "api/social/convert-token/"
     let url = baseURL.appendingPathComponent(path)
@@ -70,6 +70,7 @@ class APIClient {
     }
   }
 
+  // tokens are always updated whenever a non-auth request is made and they have become stale
   func refreshToken(completion: @escaping () -> Void) {
     let path = "api/social/refresh-token/"
     let url = baseURL.appendingPathComponent(path)
@@ -78,7 +79,9 @@ class APIClient {
       "refresh_token": refreshToken
     ]
 
-    if expiredAt < Date() {
+    if Date() <= expiredAt {
+      completion()
+    } else {
       AF.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON { resoponse in
 
         switch resoponse.result {
@@ -91,12 +94,10 @@ class APIClient {
           print("Refreshing access token was necessary but failed")
         }
       }
-    } else {
-      completion()
     }
   }
 
-  // MARK: Non-Auth
+  // MARK: - Non-Auth
   func request(by method: Alamofire.HTTPMethod, to path: String, with params: [String: Any]?, encoding: ParameterEncoding = URLEncoding.default, completion: @escaping (JSON?) -> Void) {
 
     let url = baseURL.appendingPathComponent(path)
@@ -115,29 +116,29 @@ class APIClient {
     }
   }
 
-  // MARK: Non-Auth - CUSTOMER
+  // MARK: - Non-Auth - CUSTOMER
   func restaurants(completion: @escaping (JSON?) -> Void) {
-    request(by: .get, to: "api/customer/restaurants/", with: nil, completion: completion)
+    let url = "api/customer/restaurants/"
+    request(by: .get, to: url, with: nil, completion: completion)
   }
 
   func meals(restaurantId: Int, completion: @escaping (JSON?) -> Void) {
-    request(by: .get, to: "api/customer/restaurants/\(restaurantId)/meals/", with: nil, completion: completion)
+    let url = "api/customer/restaurants/\(restaurantId)/meals/"
+    request(by: .get, to: url, with: nil, completion: completion)
   }
 
   func createPaymentIntent(nonZeroDecimalCurrency: Bool = true, completion: @escaping (JSON?) -> Void) {
-    let url = "api/customer/payment_intent/"
+    let url = "api/customer/create_payment_intent/"
     let params: [String: Any] = [
       "access_token": accessToken,
       "total": nonZeroDecimalCurrency ? Int(Cart.currentCart.total * 100) : Int(Cart.currentCart.total),
     ]
-
     request(by: .post, to: url, with: params, completion: completion)
   }
 
   func createOrder(completion: @escaping (JSON?) -> Void) {
-
     if let order_details = try? Cart.currentCart.cartItemsStringified {
-      let url = "api/customer/order/add/"
+      let url = "api/customer/create_order/"
       let params: [String: Any] = [
         "access_token": accessToken,
         "restaurant_id": (Cart.currentCart.restaurant?.id)!,
@@ -146,18 +147,21 @@ class APIClient {
       ]
       request(by: .post, to: url, with: params, completion: completion)
     }
+    else {
+      completion(nil) // an unlikely event
+    }
   }
 
-  func latestOrderByCustomer(completion: @escaping (JSON?) -> Void) {
-    let url = "api/customer/order/latest/"
+  func order(completion: @escaping (JSON?) -> Void) {
+    let url = "api/customer/order/"
     let params = [
       "access_token": accessToken
     ]
     request(by: .get, to: url, with: params, completion: completion)
   }
 
-  func latestOrderStatus(completion: @escaping (JSON?) -> Void) {
-    let url = "api/customer/order/latest_status/"
+  func orderStatus(completion: @escaping (JSON?) -> Void) {
+    let url = "api/customer/order_status/"
     let params = [
       "access_token": accessToken
     ]
@@ -169,59 +173,34 @@ class APIClient {
     let params = [
       "access_token": accessToken
     ]
+    request(by: .get, to: url, with: params, completion: completion)
+  }
+
+  // MARK: - Non-Auth - DRIVER
+  func delivery(completion: @escaping (JSON?) -> Void) {
+    let url = "api/driver/delivery/"
+    let params = [
+      "access_token": accessToken
+    ]
 
     request(by: .get, to: url, with: params, completion: completion)
   }
 
-  // MARK: Non-Auth - DRIVER
-  func driver(completion: @escaping (JSON?) -> Void) {
+  func profile(completion: @escaping (JSON?) -> Void) {
     let url = "api/driver/profile/"
     let params = [
       "access_token": accessToken
     ]
-
     request(by: .get, to: url, with: params, completion: completion)
-  }
-
-  func updateDriver(carModel: String, plateNumber: String, completion: @escaping (JSON?) -> Void) {
-    let url = "api/driver/profile/update/"
-    let params = [
-      "access_token": accessToken,
-      "car_model": carModel,
-      "plate_number": plateNumber
-    ]
-
-    request(by: .patch, to: url, with: params, completion: completion)
   }
 
   func unownedOrders(completion: @escaping (JSON?) -> Void) {
-    let url = "api/driver/orders/unowned/"
-    // let params // no access token required
-
+    let url = "api/driver/unowned_orders/"
     request(by: .get, to: url, with: nil, completion: completion)
   }
 
-  func pickOrder(orderID: Int, completion: @escaping (JSON?) -> Void) {
-    let url = "api/driver/order/pick/"
-    let params: [String: Any] = [
-      "access_token": accessToken,
-      "order_id": orderID
-    ]
-
-    request(by: .patch, to: url, with: params, completion: completion)
-  }
-
-  func latestOrderForDriver(completion: @escaping (JSON?) -> Void) {
-    let url = "api/driver/order/latest/"
-    let params = [
-      "access_token": accessToken
-    ]
-
-    request(by: .get, to: url, with: params, completion: completion)
-  }
-
-  func updateDriverLocation(_ location: CLLocationCoordinate2D, completion: @escaping (JSON?) -> Void) {
-    let url = "api/driver/location/update/"
+  func updateLocation(_ location: CLLocationCoordinate2D, completion: @escaping (JSON?) -> Void) {
+    let url = "api/driver/update_location/"
     let params: [String: Any] = [
       "access_token": accessToken,
       "location": "\(location.latitude),\(location.longitude)"
@@ -229,4 +208,35 @@ class APIClient {
 
     request(by: .patch, to: url, with: params, completion: completion)
   }
+
+  func updateOrder(id orderID: Int, newStatus: OrderStatus, completion: @escaping (JSON?) -> Void) {
+    let url = "api/driver/update_order/"
+    let params: [String: Any] = [
+      "access_token": accessToken,
+      "order_id": orderID,
+      "status": newStatus
+    ]
+
+    request(by: .patch, to: url, with: params, completion: completion)
+  }
+
+  func updateProfile(carModel: String, plateNumber: String, completion: @escaping (JSON?) -> Void) {
+    let url = "api/driver/update_profile/"
+    let params = [
+      "access_token": accessToken,
+      "car_model": carModel,
+      "plate_number": plateNumber
+    ]
+    request(by: .patch, to: url, with: params, completion: completion)
+  }
+
+//  func pickOrder(orderID: Int, completion: @escaping (JSON?) -> Void) {
+//    let url = "api/driver/update_order/"
+//    let params: [String: Any] = [
+//      "access_token": accessToken,
+//      "order_id": orderID
+//    ]
+//
+//    request(by: .patch, to: url, with: params, completion: completion)
+//  }
 }

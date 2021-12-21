@@ -12,7 +12,7 @@
 		0E14306A276761BD009EE043 /* DriverMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E143069276761BD009EE043 /* DriverMenuTableViewController.swift */; };
 		0E25FAC02767DCE600F83796 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E25FABF2767DCE600F83796 /* ProfileViewController.swift */; };
 		0E2F41722753E75D00E0304A /* RestaurantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2F41712753E75D00E0304A /* RestaurantsViewController.swift */; };
-		0E2F417627553B9D00E0304A /* MealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2F417527553B9D00E0304A /* MealTableViewController.swift */; };
+		0E2F417627553B9D00E0304A /* MealsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2F417527553B9D00E0304A /* MealsTableViewController.swift */; };
 		0E2F417827555EB000E0304A /* MealDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2F417727555EB000E0304A /* MealDetailsViewController.swift */; };
 		0E409DFB275A4E9C0003A5A8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E409DFA275A4E9C0003A5A8 /* LoginViewController.swift */; };
 		0E409DFE275A6C1A0003A5A8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E409DFD275A6C1A0003A5A8 /* User.swift */; };
@@ -73,7 +73,7 @@
 		0E143069276761BD009EE043 /* DriverMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverMenuTableViewController.swift; sourceTree = "<group>"; };
 		0E25FABF2767DCE600F83796 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		0E2F41712753E75D00E0304A /* RestaurantsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsViewController.swift; sourceTree = "<group>"; };
-		0E2F417527553B9D00E0304A /* MealTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewController.swift; sourceTree = "<group>"; };
+		0E2F417527553B9D00E0304A /* MealsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsTableViewController.swift; sourceTree = "<group>"; };
 		0E2F417727555EB000E0304A /* MealDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailsViewController.swift; sourceTree = "<group>"; };
 		0E409DFA275A4E9C0003A5A8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0E409DFD275A6C1A0003A5A8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -139,7 +139,7 @@
 				0E50CE752758158500EACDC6 /* CustomerDeliveryViewController.swift */,
 				0E2F417727555EB000E0304A /* MealDetailsViewController.swift */,
 				0E68CBE5275CFF0400C766BF /* MealTableViewCell.swift */,
-				0E2F417527553B9D00E0304A /* MealTableViewController.swift */,
+				0E2F417527553B9D00E0304A /* MealsTableViewController.swift */,
 				0E8D3A872758CBD20082DD0F /* PaymentViewController.swift */,
 				0E68CBDE275CAD3900C766BF /* RestaurantsTableViewCell.swift */,
 				0E2F41712753E75D00E0304A /* RestaurantsViewController.swift */,
@@ -429,7 +429,7 @@
 				0EA6358F2767C78E005A8F63 /* DriverDeliveryViewController.swift in Sources */,
 				0EA7F246275257AE00A4216B /* SceneDelegate.swift in Sources */,
 				0E409DFE275A6C1A0003A5A8 /* User.swift in Sources */,
-				0E2F417627553B9D00E0304A /* MealTableViewController.swift in Sources */,
+				0E2F417627553B9D00E0304A /* MealsTableViewController.swift in Sources */,
 				0EA635912767D7FB005A8F63 /* EarningsViewController.swift in Sources */,
 				0E14305F2766689B009EE043 /* Enums.swift in Sources */,
 				0E68CBEB275D3ED100C766BF /* Utils.swift in Sources */,

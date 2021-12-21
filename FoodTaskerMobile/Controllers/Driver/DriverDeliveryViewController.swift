@@ -56,12 +56,12 @@ class DriverDeliveryViewController: UIViewController {
   private func updateDriverLocation() {
     guard driverLocationCoordinate != nil else { return }
 
-    APIClient.shared.updateDriverLocation(driverLocationCoordinate) {_ in }
+    APIClient.shared.updateLocation(driverLocationCoordinate) {_ in }
   }
 
   private func loadLatestOrderForDriver() {
 
-    APIClient.shared.latestOrderForDriver { json in
+    APIClient.shared.delivery { json in
 
       if let latest_order = json?["latest_order"], latest_order["status"].string == "On the way" {
         self.orderId = latest_order["id"].int!

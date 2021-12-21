@@ -1,5 +1,5 @@
 //
-//  RestaurantViewController.swift
+//  RestaurantsViewController.swift
 //  FoodTaskerMobile
 //
 //  Created by Yasuhiro Yoshida on 2021-11-28.
@@ -28,14 +28,13 @@ class RestaurantsViewController: UIViewController {
     restaurantsTableView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .concrete), animation: nil, transition: .crossDissolve(0.25))
 
     loadRestaurants()
-
   }
 
   private func loadRestaurants() {
     APIClient.shared.restaurants { json in
-      guard json != nil else { return }
+      guard let _json = json else { return }
 
-      for restaurant in json!["restaurants"].array! {
+      for restaurant in _json["restaurants"].array! {
         self.restaurants.append(Restaurant(restaurant))
       }
 
@@ -48,8 +47,8 @@ class RestaurantsViewController: UIViewController {
   // MARK: - Navigation
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "RestaurantsView2MealTableView" {
-      let mealVC = segue.destination as! MealTableViewController
-      mealVC.restaurant = restaurants[restaurantsTableView.indexPathForSelectedRow!.row]
+      let mealsTableViewController = segue.destination as! MealsTableViewController
+      mealsTableViewController.restaurant = restaurants[restaurantsTableView.indexPathForSelectedRow!.row]
     }
   }
 }
@@ -86,7 +85,7 @@ extension RestaurantsViewController: SkeletonTableViewDataSource {
   }
 }
 
-// MARK: - UISearchBarDelegate
+// MARK: UISearchBarDelegate
 extension RestaurantsViewController: UISearchBarDelegate {
   func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
     filteredRestaurants = restaurants.filter({ (restaurant) -> Bool in

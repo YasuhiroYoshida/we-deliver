@@ -1,5 +1,5 @@
 //
-//  MealTableViewController.swift
+//  MealsTableViewController.swift
 //  FoodTaskerMobile
 //
 //  Created by Yasuhiro Yoshida on 2021-11-29.
@@ -8,7 +8,7 @@
 import UIKit
 import SkeletonView
 
-class MealTableViewController: UITableViewController {
+class MealsTableViewController: UITableViewController {
   // MARK: - Vars
   var restaurant: Restaurant?
   var meals: [Meal] = []
@@ -108,7 +108,7 @@ class MealTableViewController: UITableViewController {
   }
 }
 
-extension MealTableViewController: SkeletonTableViewDataSource {
+extension MealsTableViewController: SkeletonTableViewDataSource {
   func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
     return "MealTableViewCell"
   }

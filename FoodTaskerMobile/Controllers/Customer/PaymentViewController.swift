@@ -40,7 +40,7 @@ class PaymentViewController: UIViewController {
   // MARK: - IBActions
   @IBAction func placeOrderButtonPressed(_ sender: Any) {
 
-    APIClient.shared.latestOrderByCustomer { json in
+    APIClient.shared.order { json in
       
       if json!["latest_order"]["restaurant"]["name"] == "" // user has never placed an order or,
           || json!["latest_order"]["status"] == "Delivered" { // user has no outstanding order
@@ -57,9 +57,11 @@ class PaymentViewController: UIViewController {
         STPPaymentHandler.shared().confirmPayment(paymentIntentParams, with: self) { status, intent, error in
           switch status {
           case .succeeded:
-            print("Payment succeeded: \(intent?.description ?? "")")
             APIClient.shared.createOrder { json in
-              print(json!)
+              guard json != nil else {
+                print("Payment succeeded but creating an order failed")
+                return
+              }
               Cart.currentCart.reset()
               self.performSegue(withIdentifier: "PaymentView2CustomerDelivery", sender: self)
             }
@@ -69,9 +71,9 @@ class PaymentViewController: UIViewController {
             print("Payment failed: \(error?.localizedDescription ?? "")")
           }
         }
-      }
-      else
-      {
+
+      } else {
+
         let alertController = UIAlertController(title: "Last order still in progress", message: "A new order cannot be accepted before your last order is fulfilled. Would you like to see the last order?", preferredStyle: .alert)
         let yesAction = UIAlertAction(title: "Yes", style: .default) { _ in
           self.performSegue(withIdentifier: "PaymentView2CustomerDelivery", sender: self)
