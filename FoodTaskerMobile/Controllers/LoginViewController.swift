@@ -7,14 +7,27 @@
 
 import UIKit
 import FBSDKLoginKit
+
 /*
 Login procedure:
   1. Check if there is a user access token stored in the app, if so, keep it and change the title of the login button
   2. User presees the login button
-    2-1. With the access token present, let the user log in and redirect to SWReveal
-    2-2. With the access token missing, let the fb client
+    1. With the access token present, communicate with FB, fetch access token
+      1. If errors, nothing further, NO LOGIN
+      2. If no errors, update access token and let the use in
+        1. If customer, let the customer land on restaurants view
+        2. If driver, let the driver land on orders table view
+    2. With the access token missing, let the fb client log the user in
+      1. If errors, nothing further
+      2. If no errors, access token is stored in the app
+        1. Access token is validated
+          1. If errors, nothing further, NO LOGIN
+          2. If no errors, user info is fetched
+            1. If errors, nothing further, NO LOGIN
+            2. If no errors, current user is set with the fetched info and the user is let in
+              1. If customer, let the customer land on restaurants view
+              2. If driver, let the driver land on orders table view
  */
-
 class LoginViewController: UIViewController {
   // MARK: - Vars
   var userType: String = UserTypeCustomer
@@ -35,13 +48,15 @@ class LoginViewController: UIViewController {
     }
   }
 
-  func redirect2Home() {
+  func redirect() {
     if let token = AccessToken.current, !token.isExpired {
       switch userType {
       case UserTypeCustomer:
-        performSegue(withIdentifier: "LoginView2SWRevealForCustomer", sender: self)
+        let destinationView = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RestaurantsViewNavigationController") as! UINavigationController
+        destinationView.modalPresentationStyle = .fullScreen
+        self.present(destinationView, animated: true, completion: nil)
       case UserTypeDriver:
-        performSegue(withIdentifier: "LoginView2SWRevealForDriver", sender: self)
+          performSegue(withIdentifier: "LoginView2SWRevealForDriver", sender: self)
       default:
         break
       }
@@ -62,17 +77,19 @@ class LoginViewController: UIViewController {
   }
 
   @IBAction func loginButtonPressed(_ sender: Any) {
+
     if AccessToken.current != nil {
       APIClient.shared.logIn(userType) { error in
         guard error == nil else { return }
-        self.redirect2Home()
+        self.redirect()
       }
-    } else {
-      FBAuthClient.shared.logIn(permissions: ["public_profile", "email"], from: self) { result, error in
+    }
+    else {
+      FBAuthClient.authenticateUser(permissions: ["public_profile", "email"], from: self) { result, error in
         guard error == nil else { return }
 
         FBAuthClient.fetchUser() {
-          self.redirect2Home()
+          self.redirect()
         } 
       }
     }

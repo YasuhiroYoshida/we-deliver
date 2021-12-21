@@ -8,11 +8,10 @@
 import UIKit
 import FBSDKCoreKit
 import Stripe
-
+import SideMenu
 //@UIApplicationMain
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     StripeAPI.defaultPublishableKey = StripePublicKey

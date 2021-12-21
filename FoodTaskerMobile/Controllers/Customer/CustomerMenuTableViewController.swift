@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SideMenu
 
 class CustomerMenuTableViewController: UITableViewController {
   // MARK: - IBOutlets
@@ -14,7 +15,6 @@ class CustomerMenuTableViewController: UITableViewController {
 
   // MARK: - Lifecycles
   override func viewDidLoad() {
-    print("あああ4")
     super.viewDidLoad()
 
     if let image = try? UIImage(data: Data(contentsOf: URL(string: User.current.imageURL!)!)) {

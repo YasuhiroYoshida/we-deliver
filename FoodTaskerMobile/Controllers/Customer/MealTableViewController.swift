@@ -100,7 +100,7 @@ class MealTableViewController: UITableViewController {
 
   // MARK: - Navigation
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "MealTableViewCell2MealDetail" {
+    if segue.identifier == "MealTableView2MealDetailsView" {
       let mealDetailsVC = segue.destination as! MealDetailsViewController
       mealDetailsVC.meal = meals[mealTableView.indexPathForSelectedRow!.row]
       mealDetailsVC.restaurant = restaurant

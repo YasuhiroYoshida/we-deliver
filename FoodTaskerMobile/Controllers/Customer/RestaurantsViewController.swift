@@ -7,6 +7,7 @@
 
 import UIKit
 import SkeletonView
+import SideMenu
 
 class RestaurantsViewController: UIViewController {
   // MARK: - Vars
@@ -16,23 +17,18 @@ class RestaurantsViewController: UIViewController {
   // MARK: - IBOutlets
   @IBOutlet weak var menuBarButtonItem: UIBarButtonItem!
   @IBOutlet weak var searchBar: UISearchBar!
-  @IBOutlet var restaurantsTableView: UITableView!
+  @IBOutlet weak var restaurantsTableView: UITableView!
 
   // MARK: - Lifecycles
   override func viewDidLoad() {
     super.viewDidLoad()
-print("あRestaurantview")
-    if revealViewController() != nil {
-      menuBarButtonItem.target = revealViewController()
-      menuBarButtonItem.action = #selector(SWRevealViewController.revealToggle(_:))
-      view.addGestureRecognizer(revealViewController().panGestureRecognizer())
-    }
 
     searchBar.delegate = self
 
     restaurantsTableView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .concrete), animation: nil, transition: .crossDissolve(0.25))
 
     loadRestaurants()
+
   }
 
   private func loadRestaurants() {
@@ -51,7 +47,7 @@ print("あRestaurantview")
 
   // MARK: - Navigation
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "Restaurant2Meals" {
+    if segue.identifier == "RestaurantsView2MealTableView" {
       let mealVC = segue.destination as! MealTableViewController
       mealVC.restaurant = restaurants[restaurantsTableView.indexPathForSelectedRow!.row]
     }

@@ -12,18 +12,16 @@ import SwiftyJSON
 class FBAuthClient {
   static let shared = LoginManager()
   private init() {}
-
-  // Use the method provided by FB
-  // func logIn(permissions: [String], from fromViewController: UIViewController?, handler: LoginManagerLoginResultBlock? = nil) {}
-
-  // Use the custom method for fetching the user info
-  public class func fetchUser(completion: @escaping () -> Void) {
-
+  
+  class func authenticateUser(permissions: [String], from fromViewController: UIViewController?, handler: LoginManagerLoginResultBlock? = nil) {
+    shared.logIn(permissions: permissions, from: fromViewController, handler: handler)
+  }
+  
+  class func fetchUser(completion: @escaping () -> Void) {
     if let token = AccessToken.current, !token.isExpired {
       GraphRequest(graphPath: "me", parameters: ["fields": "name, email, picture.type(normal)"]).start { isConnecting, result, error in
-
         guard error == nil else { return }
-
+        
         let json = JSON(result!)
         User.current.setAttrs(json)
         completion()

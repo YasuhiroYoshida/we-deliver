@@ -13,23 +13,22 @@ import SwiftUI
 import MapKit
 
 class APIClient {
-  // MARK: - Vars
   static let shared = APIClient()
 
   let baseURL = URL(string: BaseURL)!
   var accessToken = ""
   var refreshToken = ""
-  var expirationDate = Date()
+  var expiredAt = Date()
 
-  // MARK: - Lifecycles
   private init() {}
 
+  // MARK: Auth
   func logIn(_ userType: String, completion: @escaping (Error?) -> Void) {
     let path = "api/social/convert-token/"
     let url = baseURL.appendingPathComponent(path)
     let params: [String: Any] = [
       "grant_type": "convert_token",
-      "client_id": ClientID,
+      "client_id": ClientID, // client == FB developer account
       "client_secret": ClientSecret,
       "backend": "facebook",
       "token": AccessToken.current!.tokenString,
@@ -43,7 +42,7 @@ class APIClient {
         let json = JSON(value)
         self.accessToken = json["access_token"].string!
         self.refreshToken = json["refresh_token"].string!
-        self.expirationDate = Date().addingTimeInterval(TimeInterval(json["expires_in"].int!))
+        self.expiredAt = Date().addingTimeInterval(TimeInterval(json["expires_in"].int!))
         completion(nil)
       case .failure(let error):
         completion(error as AFError)
@@ -79,14 +78,14 @@ class APIClient {
       "refresh_token": refreshToken
     ]
 
-    if Date() > expirationDate {
+    if expiredAt < Date() {
       AF.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON { resoponse in
 
         switch resoponse.result {
         case .success(let value):
           let json = JSON(value)
           self.accessToken = json["access_token"].string!
-          self.expirationDate = Date().addingTimeInterval(TimeInterval(json["expires_in"].int!))
+          self.expiredAt = Date().addingTimeInterval(TimeInterval(json["expires_in"].int!))
           completion()
         case .failure:
           print("Refreshing access token was necessary but failed")
@@ -97,6 +96,7 @@ class APIClient {
     }
   }
 
+  // MARK: Non-Auth
   func request(by method: Alamofire.HTTPMethod, to path: String, with params: [String: Any]?, encoding: ParameterEncoding = URLEncoding.default, completion: @escaping (JSON?) -> Void) {
 
     let url = baseURL.appendingPathComponent(path)
@@ -115,7 +115,7 @@ class APIClient {
     }
   }
 
-  // MARK: - CUSTOMER
+  // MARK: Non-Auth - CUSTOMER
   func restaurants(completion: @escaping (JSON?) -> Void) {
     request(by: .get, to: "api/customer/restaurants/", with: nil, completion: completion)
   }
@@ -173,7 +173,7 @@ class APIClient {
     request(by: .get, to: url, with: params, completion: completion)
   }
 
-  // MARK: - DRIVER
+  // MARK: Non-Auth - DRIVER
   func driver(completion: @escaping (JSON?) -> Void) {
     let url = "api/driver/profile/"
     let params = [

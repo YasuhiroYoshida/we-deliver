@@ -8,7 +8,7 @@
 import UIKit
 import MapKit
 
-class CustomerDeliveryController: UIViewController {
+class CustomerDeliveryViewController: UIViewController {
   // MARK: - Vars
   var status: String?
   var sourceMKPlacemark: MKPlacemark?
@@ -143,7 +143,7 @@ class CustomerDeliveryController: UIViewController {
 }
 
 // MARK: - MKMapViewDelegate
-extension CustomerDeliveryController: MKMapViewDelegate {
+extension CustomerDeliveryViewController: MKMapViewDelegate {
 
   func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
     let renderer = MKPolylineRenderer(overlay: overlay)

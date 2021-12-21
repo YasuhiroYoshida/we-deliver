@@ -15,7 +15,7 @@ class OrdersTableViewController: UITableViewController {
 
   // MARK: - IBOutlets
   @IBOutlet weak var menuBarButtonItem: UIBarButtonItem!
-  @IBOutlet var ordersTableView: UITableView!
+  @IBOutlet weak var ordersTableView: UITableView!
 
   // MARK: - Lifecycles
   override func viewDidLoad() {
