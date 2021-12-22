@@ -26,13 +26,7 @@ class CartViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    if let controller = revealViewController() {
-      menuBarButtonItem.target = controller
-      menuBarButtonItem.action = #selector(SWRevealViewController.revealToggle(_:))
-      view.addGestureRecognizer(controller.panGestureRecognizer())
-    }
-
-    if Cart.currentCart.cartItems.count == 0 {
+    if Cart.current.cartItems.count == 0 {
       let label = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.size.width , height: 40))
       label.center = view.center
       label.textAlignment = .center
@@ -46,33 +40,33 @@ class CartViewController: UIViewController {
       checkoutButton.isHidden = false
       cartTableView.reloadData()
 
-      totalLabel.text = Cart.currentCart.total.currencyEUR
-    }
+      totalLabel.text = Cart.current.total.currencyEUR
 
-    if CLLocationManager.locationServicesEnabled() {
-      locationMgr.delegate = self
-      locationMgr.desiredAccuracy = kCLLocationAccuracyBest
-      locationMgr.requestAlwaysAuthorization()
-      locationMgr.requestWhenInUseAuthorization()
-      locationMgr.startUpdatingLocation()
-      mapMapView.showsUserLocation = true
+      if CLLocationManager.locationServicesEnabled() {
+        locationMgr.delegate = self
+        locationMgr.desiredAccuracy = kCLLocationAccuracyBest
+        locationMgr.requestAlwaysAuthorization()
+        locationMgr.requestWhenInUseAuthorization()
+        locationMgr.startUpdatingLocation()
+        mapMapView.showsUserLocation = true
+      }
     }
   }
 
   // MARK: - IBActions
   @IBAction func addressTextField(_ sender: Any) {}
+
   @IBAction func goToCheckoutPressed(_ sender: Any) {
     guard let address = addressTextField.text, !address.isEmpty else {
       let action = UIAlertAction(title: "OK", style: .default) { _ in
         self.addressTextField.becomeFirstResponder()
       }
-      let alertController = UIAlertController(title: "Delivery address required", message: "We need your delivery address", preferredStyle: .alert)
+      let alertController = UIAlertController(title: "Delivery address required", message: "Please enter your delivery address", preferredStyle: .alert)
       alertController.addAction(action)
       present(alertController, animated: true)
       return
     }
 
-    Cart.currentCart.deliveryAddress = address
     performSegue(withIdentifier: "CartView2PaymentView", sender: self)
   }
 }
@@ -84,16 +78,16 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
   }
 
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return Cart.currentCart.cartItems.count
+    return Cart.current.cartItems.count
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cartItem = Cart.currentCart.cartItems[indexPath.row]
+    let cartItem = Cart.current.cartItems[indexPath.row]
 
     let cell = tableView.dequeueReusableCell(withIdentifier: "CartViewCartTableViewCell", for: indexPath) as! CartViewCartTableViewCell
     cell.quantityLabel.text = String(cartItem.quantity)
     cell.nameLabel.text = cartItem.meal.name!
-    cell.subTotalLabel.text = (Float(cartItem.quantity) * cartItem.meal.price!).currencyEUR
+    cell.subTotalLabel.text = (cartItem.meal.price! * Float(cartItem.quantity)).currencyEUR
     return cell
   }
 }
@@ -117,32 +111,44 @@ extension CartViewController: CLLocationManagerDelegate {
 // MARK: - UITextFieldDelegate
 extension CartViewController: UITextFieldDelegate {
 
+  // This will always return true.
+  // When there is an error, an alert will be displayed before returning true.
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 
     if let address = textField.text {
-      Cart.currentCart.deliveryAddress = address
 
-      let geocoder = CLGeocoder()
-      geocoder.geocodeAddressString(address, completionHandler: { (placemarks, error) -> Void in
+      Cart.current.deliveryAddress = address
+
+      CLGeocoder().geocodeAddressString(address, completionHandler: { (placemarks, error) -> Void in
+
+        let alertcontroller = UIAlertController(title: "Address not found", message: "Please provide an address commonly used.", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .cancel)
+        alertcontroller.addAction(action)
 
         if let _error = error {
+
           print(_error.localizedDescription)
-        }
-        else
-        {
-          if let placemark = placemarks!.first {
 
-            if let coordinate = placemark.location?.coordinate {
+          self.present(alertcontroller, animated: true)
 
-              let region = MKCoordinateRegion(center: coordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        } else {
 
-              self.mapMapView.setRegion(region, animated: true)
-              self.locationMgr.stopUpdatingLocation()
+          if let placemark = placemarks!.first, let coordinate = placemark.location?.coordinate {
 
-              let dropPin = MKPointAnnotation()
-              dropPin.coordinate = coordinate
-              self.mapMapView.addAnnotation(dropPin)
-            }
+            self.locationMgr.stopUpdatingLocation()
+
+            let region = MKCoordinateRegion(center: coordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+
+            self.mapMapView.setRegion(region, animated: true)
+
+            let dropPin = MKPointAnnotation()
+            dropPin.coordinate = coordinate
+            self.mapMapView.addAnnotation(dropPin)
+
+          } else {
+
+            self.present(alertcontroller, animated: true)
+
           }
         }
       })

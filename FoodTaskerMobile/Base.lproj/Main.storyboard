@@ -1154,7 +1154,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" image="icon_hamburger" id="Fzl-g3-F1s" userLabel="Menu Bar Bfutton">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="jJf-2f-XGz" kind="presentation" identifier="CartView2CustomerMenuTableView" id="8Be-cD-Xak"/>
+                                <segue destination="jJf-2f-XGz" kind="presentation" identifier="CartView2CustomerMenuTableView" modalPresentationStyle="fullScreen" id="8Be-cD-Xak"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1387,7 +1387,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MealTableViewCell" id="DYG-Jf-uGT" customClass="MealTableViewCell" customModule="FoodTaskerMobile" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MealsTableViewCell" id="DYG-Jf-uGT" customClass="MealsTableViewCell" customModule="FoodTaskerMobile" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="140"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DYG-Jf-uGT" id="l8b-1H-JrR">
@@ -1457,7 +1457,7 @@
                                     <outlet property="nameLabel" destination="gbP-fV-gId" id="WzE-Ne-lEK"/>
                                     <outlet property="priceLabel" destination="5lS-kx-tnP" id="0XT-gL-DVk"/>
                                     <outlet property="shortDescriptionLabel" destination="G0J-t0-TTC" id="0YE-Ig-8aR"/>
-                                    <segue destination="S7B-Og-CN7" kind="show" identifier="MealTableView2MealDetailsView" id="6n3-kz-Imm"/>
+                                    <segue destination="S7B-Og-CN7" kind="show" identifier="MealsTableView2MealDetailsView" id="y2v-1o-6J8"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1471,8 +1471,8 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="kaa-mh-PUg"/>
                     <connections>
-                        <outlet property="mealTableView" destination="vd7-r8-55w" id="QUd-co-MQN"/>
-                        <segue destination="xRo-Sf-rNK" kind="show" identifier="MealTableView2CartView" id="azQ-kl-6pd"/>
+                        <outlet property="mealsTableView" destination="vd7-r8-55w" id="QUd-co-MQN"/>
+                        <segue destination="CmX-of-v45" kind="show" identifier="MealsTableView2CartView" id="WZE-LM-Pz0"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ofv-zw-Jnb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1619,9 +1619,8 @@
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="button_cart"/>
-                                <buttonConfiguration key="configuration" style="tinted" image="button_cart"/>
                                 <connections>
-                                    <segue destination="xRo-Sf-rNK" kind="show" identifier="MealDetailsView2CartView" id="4MH-XS-XxM"/>
+                                    <segue destination="CmX-of-v45" kind="show" identifier="MealDetailsView2CartView" id="LRA-OP-s4V"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -1906,7 +1905,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="RVG-PG-aBI"/>
-        <segue reference="4MH-XS-XxM"/>
+        <segue reference="WZE-LM-Pz0"/>
         <segue reference="XLc-rh-Qol"/>
         <segue reference="O11-jl-0Ub"/>
         <segue reference="orV-e4-knY"/>

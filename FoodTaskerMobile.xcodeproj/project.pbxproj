@@ -27,7 +27,7 @@
 		0E68CBDD275BDD3500C766BF /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68CBDC275BDD3500C766BF /* Restaurant.swift */; };
 		0E68CBDF275CAD3900C766BF /* RestaurantsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68CBDE275CAD3900C766BF /* RestaurantsTableViewCell.swift */; };
 		0E68CBE4275CFC6600C766BF /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68CBE3275CFC6600C766BF /* Meal.swift */; };
-		0E68CBE6275CFF0400C766BF /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68CBE5275CFF0400C766BF /* MealTableViewCell.swift */; };
+		0E68CBE6275CFF0400C766BF /* MealsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68CBE5275CFF0400C766BF /* MealsTableViewCell.swift */; };
 		0E68CBEB275D3ED100C766BF /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68CBEA275D3ED100C766BF /* Utils.swift */; };
 		0E68CBF4275EAC5600C766BF /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68CBF3275EAC5600C766BF /* NumberFormatter.swift */; };
 		0E68CBF6275F50B700C766BF /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68CBF5275F50B700C766BF /* CartItem.swift */; };
@@ -87,7 +87,7 @@
 		0E68CBDC275BDD3500C766BF /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		0E68CBDE275CAD3900C766BF /* RestaurantsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsTableViewCell.swift; sourceTree = "<group>"; };
 		0E68CBE3275CFC6600C766BF /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
-		0E68CBE5275CFF0400C766BF /* MealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
+		0E68CBE5275CFF0400C766BF /* MealsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsTableViewCell.swift; sourceTree = "<group>"; };
 		0E68CBEA275D3ED100C766BF /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		0E68CBF3275EAC5600C766BF /* NumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatter.swift; sourceTree = "<group>"; };
 		0E68CBF5275F50B700C766BF /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
@@ -138,7 +138,7 @@
 				0E409DFF275A76A40003A5A8 /* CustomerMenuTableViewController.swift */,
 				0E50CE752758158500EACDC6 /* CustomerDeliveryViewController.swift */,
 				0E2F417727555EB000E0304A /* MealDetailsViewController.swift */,
-				0E68CBE5275CFF0400C766BF /* MealTableViewCell.swift */,
+				0E68CBE5275CFF0400C766BF /* MealsTableViewCell.swift */,
 				0E2F417527553B9D00E0304A /* MealsTableViewController.swift */,
 				0E8D3A872758CBD20082DD0F /* PaymentViewController.swift */,
 				0E68CBDE275CAD3900C766BF /* RestaurantsTableViewCell.swift */,
@@ -413,7 +413,7 @@
 				0E470A77276125C200323EBA /* CartViewCartTableViewCell.swift in Sources */,
 				0E68CBF6275F50B700C766BF /* CartItem.swift in Sources */,
 				0E2F417827555EB000E0304A /* MealDetailsViewController.swift in Sources */,
-				0E68CBE6275CFF0400C766BF /* MealTableViewCell.swift in Sources */,
+				0E68CBE6275CFF0400C766BF /* MealsTableViewCell.swift in Sources */,
 				0E409E00275A76A40003A5A8 /* CustomerMenuTableViewController.swift in Sources */,
 				0E68CBE4275CFC6600C766BF /* Meal.swift in Sources */,
 				0E68CBDD275BDD3500C766BF /* Restaurant.swift in Sources */,

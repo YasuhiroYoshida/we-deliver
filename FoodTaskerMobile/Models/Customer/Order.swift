@@ -8,26 +8,20 @@
 import Foundation
 import SwiftyJSON
 
-// Order fields: ("id", "customer", "driver", "restaurant", "order_details", "status", "address", "total", "created_at", "picked_at")
 struct Order {
-  let id: Int?
-  let customerName: String?
-  let customerAvatar: String?
-  let customerAddress: String?
-  let restaurantName: String?
-  let total: Float?
+  let id: Int
+  let customerName: String
+  let customerAvatar: String
+  let customerAddress: String
+  let restaurantName: String
+  let total: Float
 
   init(_ json: JSON) {
-    self.id = json["id"].int
-    self.customerName = json["customer"]["name"].string
-    self.customerAvatar = json["customer"]["avatar"].string
-    self.customerAddress = json["address"].string
-    self.restaurantName = json["restaurant"]["name"].string
-    self.total = json["total"].float
+    self.id = json["id"].int!
+    self.customerName = json["customer"]["name"].string!
+    self.customerAvatar = json["customer"]["avatar"].string!
+    self.customerAddress = json["address"].string!
+    self.restaurantName = json["restaurant"]["name"].string!
+    self.total = json["total"].float!
   }
-
-  mutating func updateStatus() {
-
-  }
-
 }

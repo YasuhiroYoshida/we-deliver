@@ -131,18 +131,18 @@ class APIClient {
     let url = "api/customer/create_payment_intent/"
     let params: [String: Any] = [
       "access_token": accessToken,
-      "total": nonZeroDecimalCurrency ? Int(Cart.currentCart.total * 100) : Int(Cart.currentCart.total),
+      "total": nonZeroDecimalCurrency ? Int(Cart.current.total * 100) : Int(Cart.current.total),
     ]
     request(by: .post, to: url, with: params, completion: completion)
   }
 
   func createOrder(completion: @escaping (JSON?) -> Void) {
-    if let order_details = try? Cart.currentCart.cartItemsStringified {
+    if let order_details = try? Cart.current.cartItemsStringified {
       let url = "api/customer/create_order/"
       let params: [String: Any] = [
         "access_token": accessToken,
-        "restaurant_id": (Cart.currentCart.restaurant?.id)!,
-        "address": Cart.currentCart.deliveryAddress!,
+        "restaurant_id": (Cart.current.restaurant?.id)!,
+        "address": Cart.current.deliveryAddress!,
         "order_details": order_details
       ]
       request(by: .post, to: url, with: params, completion: completion)

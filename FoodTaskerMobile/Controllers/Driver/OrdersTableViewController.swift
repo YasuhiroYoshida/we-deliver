@@ -69,12 +69,10 @@ class OrdersTableViewController: UITableViewController {
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell  = tableView.dequeueReusableCell(withIdentifier: "OrdersTableViewCell", for: indexPath) as! OrdersTableViewCell
-    if let imageURL = orders[indexPath.row].customerAvatar {
-      if let image = try? UIImage(data: Data(contentsOf: URL(string: imageURL)!)) {
-        cell.customerAvatarImageView.image = image
-      }
+    if let image = try? UIImage(data: Data(contentsOf: URL(string: orders[indexPath.row].customerAvatar)!)) {
+      cell.customerAvatarImageView.image = image
     }
-    cell.totalLabel.text = orders[indexPath.row].total!.currencyEUR
+    cell.totalLabel.text = orders[indexPath.row].total.currencyEUR
     cell.customerNameLabel.text = orders[indexPath.row].customerName
     cell.customerAddressLabel.text = orders[indexPath.row].customerAddress
     return cell
@@ -83,7 +81,7 @@ class OrdersTableViewController: UITableViewController {
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let order = orders[indexPath.row]
 
-    APIClient.shared.updateOrder(id: order.id!, newStatus: .onTheWay) { json in
+    APIClient.shared.updateOrder(id: order.id, newStatus: .onTheWay) { json in
       let _json = json!
       switch _json["status"].string {
       case "Success":

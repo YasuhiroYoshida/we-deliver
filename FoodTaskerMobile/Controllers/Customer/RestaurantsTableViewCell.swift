@@ -16,7 +16,6 @@ class RestaurantsTableViewCell: UITableViewCell {
   // MARK: - Lifecycles
   override func awakeFromNib() {
     super.awakeFromNib()
-
   }
 
   // MARK: - Protocols

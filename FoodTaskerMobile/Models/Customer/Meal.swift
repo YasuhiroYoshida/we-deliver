@@ -9,14 +9,14 @@ import Foundation
 import SwiftyJSON
 
 struct Meal {
-  var id: Int?
+  var id: Int
   var name: String?
   var shortDescription: String?
   var image: String?
   var price: Float?
 
   init(_ json: JSON) {
-    id = json["id"].int
+    id = json["id"].int!
     name = json["name"].string
     shortDescription = json["short_description"].string
     image = json["image"].string

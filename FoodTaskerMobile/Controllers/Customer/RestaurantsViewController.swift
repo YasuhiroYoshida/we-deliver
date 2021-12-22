@@ -25,7 +25,7 @@ class RestaurantsViewController: UIViewController {
 
     searchBar.delegate = self
 
-    restaurantsTableView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .concrete), animation: nil, transition: .crossDissolve(0.25))
+    restaurantsTableView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .concrete))
 
     loadRestaurants()
   }

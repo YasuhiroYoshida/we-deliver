@@ -1,5 +1,5 @@
 //
-//  MealTableViewCell.swift
+//  MealsTableViewCell.swift
 //  FoodTaskerMobile
 //
 //  Created by Yasuhiro Yoshida on 2021-12-05.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MealTableViewCell: UITableViewCell {
+class MealsTableViewCell: UITableViewCell {
   // MARK: - IBOutlets
   @IBOutlet weak var mealImageView: UIImageView!
   @IBOutlet weak var nameLabel: UILabel!

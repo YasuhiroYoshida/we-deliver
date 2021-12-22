@@ -9,13 +9,13 @@ import Foundation
 import SwiftyJSON
 
 struct Restaurant {
-  var id: Int?
-  var name: String?
+  var id: Int
+  var name: String!
   var address: String?
   var logo: String?
 
   init(_ json: JSON) {
-    id = json["id"].int
+    id = json["id"].int!
     name = json["name"].string
     address = json["address"].string
     logo = json["logo"].string

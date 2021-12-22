@@ -9,12 +9,17 @@ import UIKit
 
 class MealDetailsViewController: UIViewController {
   // MARK: - Vars
-  var restaurant: Restaurant?
-  var meal: Meal?
+  var restaurant: Restaurant!
+  var meal: Meal!
   var quantity: Int = 1
   var subTotal: String {
-    return (meal!.price! * Float(quantity)).currencyEUR
+    return (meal.price! * Float(quantity)).currencyEUR
   }
+
+  // MARK: - Vars - Badge
+  var badge = UILabel()
+  var badgeBreadth: CGFloat = 24.0
+  var badgeTag = 1_234_567_890 // a random number
 
   // MARK: - IBOutlets
   @IBOutlet weak var cartButton: UIButton!
@@ -27,58 +32,18 @@ class MealDetailsViewController: UIViewController {
   @IBOutlet weak var addToCartButton: UIButton!
   @IBOutlet weak var subTotalLabel: UILabel!
 
-  // MARK: - Badge
-  var badgeLabel = UILabel()
-  var badgeBreadth: CGFloat = 24.0
-  var badgeTag = 9830384
+  func refreshBadge() {
+    Utils.removeBadge(tag: badgeTag, from: cartButton) // reset it first
 
-  func createBadgeLabel(_ count: Int) -> UILabel {
-    let label = UILabel(frame: CGRect(x: 0, y: 0, width: badgeBreadth, height: badgeBreadth))
-    label.tag = badgeTag
-    label.translatesAutoresizingMaskIntoConstraints = false
-    label.layer.cornerRadius = label.bounds.size.height / 2
-    label.layer.masksToBounds = true
-    label.backgroundColor = .greenSea
-    label.text = String(count)
-    label.textAlignment = .center
-    label.textColor = .white
-    label.font = label.font.withSize(12)
-    return label
-  }
+    let totalQuantityInCart = Cart.current.quantity
+    let badgeText = String(totalQuantityInCart)
+    badge = Utils.createBadge(text: badgeText, tag: badgeTag, breadth: badgeBreadth)
 
-  func showBadgeLabel() {
-    cartButton.addSubview(badgeLabel)
-    NSLayoutConstraint.activate([
-      badgeLabel.leftAnchor.constraint(equalTo: cartButton.leftAnchor, constant: 14.0),
-      badgeLabel.topAnchor.constraint(equalTo: cartButton.topAnchor, constant: -6.0),
-      badgeLabel.widthAnchor.constraint(equalToConstant: badgeBreadth),
-      badgeLabel.heightAnchor.constraint(equalToConstant: badgeBreadth),
-    ])
-  }
-
-  func removeBadgeLabel() {
-    if let badgeLabel = cartButton.viewWithTag(badgeTag) {
-      badgeLabel.removeFromSuperview()
-    }
-  }
-
-  func refreshBadgeLabel() {
-    removeBadgeLabel()
-
-    let quantity = Cart.currentCart.quantity
-    badgeLabel = createBadgeLabel(quantity)
-
-    if quantity > 0 {
-      showBadgeLabel()
+    if totalQuantityInCart > 0 {
+      Utils.addBadge(&badge, to: &cartButton)
       cartButton.isEnabled = true
     } else {
       cartButton.isEnabled = false
-    }
-  }
-
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "MealDetailsView2CartView" {
-      performSegue(withIdentifier: "MealDetailsView2CartView", sender: self)
     }
   }
 
@@ -88,7 +53,7 @@ class MealDetailsViewController: UIViewController {
 
     initButtonsAndLabels()
     fetchMeal()
-    refreshBadgeLabel()
+    refreshBadge()
   }
 
   private func initButtonsAndLabels() {
@@ -110,11 +75,11 @@ class MealDetailsViewController: UIViewController {
   }
 
   private func fetchMeal() {
-    if let imageURL = meal?.image {
+    if let imageURL = meal.image {
       Utils.fetchImage(in: mealImageView, from: imageURL)
     }
-    nameLabel.text = meal?.name
-    shortDescriptionLabel.text = meal?.shortDescription
+    nameLabel.text = meal.name
+    shortDescriptionLabel.text = meal.shortDescription
   }
 
   // MARK: - IBActions
@@ -140,25 +105,29 @@ class MealDetailsViewController: UIViewController {
     subTotalLabel.text = subTotal
   }
 
+  // 3 possible behaviors depending on the state of the cart
+  // Case 1. You cart is empty
+  // Case 2. Your cart is filled with items from the current restaurant
+  // Case 3. Your cart is filled with items from another restaurant
   @IBAction func addToCartPressed(_ sender: Any) {
-    let thisCartItem = CartItem(meal!, quantity)
+    let thisCartItem = CartItem(meal, quantity)
 
     // Case 1. You cart is empty
-    // restaurant in cart remains nil and cartItems in cart remains empty until an item is added for the first time.
+    // Both restaurant and cartItems in cart starts out and remains nil until an item is added for the first time.
     // you only need to check either one of them to see if the cart is empty.
     // both properties are cleared when the cart is reset.
-    if Cart.currentCart.restaurant == nil {
-      Cart.currentCart.restaurant = restaurant
-      Cart.currentCart.cartItems.append(thisCartItem)
-      goBackToMealTableView()
+    if Cart.current.restaurant == nil {
+      Cart.current.restaurant = restaurant
+      Cart.current.cartItems.append(thisCartItem)
+      goBackToMealsTableView()
       return
     }
 
     // Case 2. Your cart is filled with items from the current restaurant
-    if Cart.currentCart.restaurant!.id! == restaurant!.id {
-      let foundAt = Cart.currentCart.cartItems.lastIndex { cartItem in
+    if Cart.current.restaurant?.id == restaurant.id {
+      let foundAt = Cart.current.cartItems.firstIndex { cartItem in
         return cartItem.meal.id == thisCartItem.meal.id
-      } // can be firstIndex as there is no meal id that is redundant
+      }
 
       // Case 2-1. Your cart is filled with the same item
       if let index = foundAt {
@@ -169,29 +138,30 @@ class MealDetailsViewController: UIViewController {
         )
 
         let okAction = UIAlertAction(title: "Add more?", style: .default) { action in
-          Cart.currentCart.cartItems[index].quantity += self.quantity
-          self.goBackToMealTableView()
+          Cart.current.cartItems[index].quantity += self.quantity
+          self.goBackToMealsTableView()
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
 
         alertController.addAction(okAction)
         alertController.addAction(cancelAction)
         self.present(alertController, animated: true)
-        // Case 2-2. Your cart is filled with other items
+
+      // Case 2-2. Your cart is filled with other items
       } else {
-        Cart.currentCart.cartItems.append(thisCartItem)
-        goBackToMealTableView()
+        Cart.current.cartItems.append(thisCartItem)
+        goBackToMealsTableView()
       }
 
-      // Case 3. Your cart is filled with items from another restaurant
+    // Case 3. Your cart is filled with items from another restaurant
     } else {
-      let alertController = UIAlertController(title: "Reset your cart?", message: "You already have meals from another restaurant in your cart. Would you like to reset your cart?", preferredStyle: .alert)
+      let alertController = UIAlertController(title: "Reset your cart?", message: "You already have meals from another restaurant in your cart. You can only have meals from one restaurant at a time.", preferredStyle: .alert)
 
       let okAction = UIAlertAction(title: "Reset cart", style: .default) { action in
-        Cart.currentCart.reset(includingDeliveryAddress: false)
-        Cart.currentCart.restaurant = self.restaurant
-        Cart.currentCart.cartItems.append(thisCartItem)
-        self.goBackToMealTableView()
+        Cart.current.reset(includingDeliveryAddress: false)
+        Cart.current.restaurant = self.restaurant
+        Cart.current.cartItems.append(thisCartItem)
+        self.goBackToMealsTableView()
       }
       let cancelAction = UIAlertAction(title: "Cancel", style: .default)
 
@@ -202,7 +172,7 @@ class MealDetailsViewController: UIViewController {
   }
 
   // MARK: - Navigation
-  private func goBackToMealTableView() {
+  private func goBackToMealsTableView() {
     navigationController?.popViewController(animated: true)
   }
 }

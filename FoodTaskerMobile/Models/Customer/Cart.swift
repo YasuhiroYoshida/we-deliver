@@ -9,8 +9,8 @@ import Foundation
 import SwiftUI
 
 class Cart {
-  static let currentCart = Cart()
-  
+  static let current = Cart()
+
   var restaurant: Restaurant?
   var deliveryAddress: String?
   var cartItems: [CartItem] = []
@@ -22,11 +22,11 @@ class Cart {
     return total
   }
   var quantity: Int {
-    return cartItems.reduce(0) { $0 + $1.quantity}
+    return cartItems.reduce(0) { $0 + $1.quantity }
   }
   var cartItemsStringified: String {
     get throws {
-      let _cartItems = cartItems.map { ["meal_id": $0.meal.id!, "quantity": $0.quantity] }
+      let _cartItems = cartItems.map { ["meal_id": $0.meal.id, "quantity": $0.quantity] }
 
       guard JSONSerialization.isValidJSONObject(_cartItems) else {
         throw RuntimeError("cartItems are not convertible to JSON")
@@ -42,6 +42,8 @@ class Cart {
       return String(data: data, encoding: String.Encoding.utf8)!
     }
   }
+
+  private init() {}
 
   func reset(includingDeliveryAddress: Bool = true) {
     restaurant = nil

@@ -39,36 +39,50 @@ class PaymentViewController: UIViewController {
 
   // MARK: - IBActions
   @IBAction func placeOrderButtonPressed(_ sender: Any) {
+    guard paymentIntentSecret != nil else {
+      let alertController = UIAlertController(title: "Payment cannot be processed this time", message: "Please try again later", preferredStyle: .alert)
+      let action = UIAlertAction(title: "OK", style: .cancel)
+      alertController.addAction(action)
+      present(alertController, animated: true)
+      return
+    }
 
     APIClient.shared.order { json in
       
       if json!["latest_order"]["restaurant"]["name"] == "" // user has never placed an order or,
           || json!["latest_order"]["status"] == "Delivered" { // user has no outstanding order
 
-        guard let paymentIntentSecret = self.paymentIntentSecret else {
-          return
-        }
-
         let cardParams = self.cardTextField.cardParams
         let paymentMethodParams = STPPaymentMethodParams(card: cardParams, billingDetails: nil, metadata: nil)
-        let paymentIntentParams = STPPaymentIntentParams(clientSecret: paymentIntentSecret)
+        let paymentIntentParams = STPPaymentIntentParams(clientSecret: self.paymentIntentSecret!)
         paymentIntentParams.paymentMethodParams = paymentMethodParams
 
         STPPaymentHandler.shared().confirmPayment(paymentIntentParams, with: self) { status, intent, error in
+
           switch status {
           case .succeeded:
             APIClient.shared.createOrder { json in
               guard json != nil else {
-                print("Payment succeeded but creating an order failed")
+                let alertController = UIAlertController(title: "Order processing failed", message: "Payment will be refunded within the next few days", preferredStyle: .alert)
+                let action = UIAlertAction(title: "OK", style: .cancel)
+                alertController.addAction(action)
+                self.present(alertController, animated: true)
                 return
               }
-              Cart.currentCart.reset()
+
+              Cart.current.reset()
               self.performSegue(withIdentifier: "PaymentView2CustomerDelivery", sender: self)
             }
           case .canceled:
-            print("Payment canceled: \(error?.localizedDescription ?? "")")
+            let alertController = UIAlertController(title: "Payment processing canceled", message: (error?.localizedDescription ?? ""), preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .cancel)
+            alertController.addAction(action)
+            self.present(alertController, animated: true)
           case .failed:
-            print("Payment failed: \(error?.localizedDescription ?? "")")
+            let alertController = UIAlertController(title: "Payment processing failed", message: (error?.localizedDescription ?? ""), preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .cancel)
+            alertController.addAction(action)
+            self.present(alertController, animated: true)
           }
         }
 
@@ -82,6 +96,7 @@ class PaymentViewController: UIViewController {
         alertController.addAction(yesAction)
         alertController.addAction(noAction)
         self.present(alertController, animated: true)
+        
       }
     }
   }
