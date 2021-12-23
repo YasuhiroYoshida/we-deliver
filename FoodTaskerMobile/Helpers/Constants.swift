@@ -13,4 +13,6 @@ public let ClientSecret = "kBh3XcRUcpZToWmpwOr43pt73a1hGM9sccgxf4bviUtujJYcis9gH
 public let UserTypeCustomer = "customer"
 public let UserTypeDriver = "driver"
 public let StripePublicKey = "pk_test_51K582rBoeD1TAwFpB9gtD3ZiFOSXwdYYm1wF3MU5AJwAcJPuFKTDecIubZuOW3YhOzDEV2lBPCMSbUEcWNosZ9lw00vmVdfwEB "
+internal var UpdateLocaionTimer: Timer!
+internal var UpdateStatusTimer: Timer!
 

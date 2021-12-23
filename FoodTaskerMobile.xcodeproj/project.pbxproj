@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0E14305F2766689B009EE043 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E14305E2766689B009EE043 /* Enums.swift */; };
 		0E143061276752C9009EE043 /* OrdersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E143060276752C9009EE043 /* OrdersTableViewController.swift */; };
-		0E14306A276761BD009EE043 /* DriverMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E143069276761BD009EE043 /* DriverMenuTableViewController.swift */; };
+		0E14306A276761BD009EE043 /* DeliveryMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E143069276761BD009EE043 /* DeliveryMenuTableViewController.swift */; };
 		0E25FAC02767DCE600F83796 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E25FABF2767DCE600F83796 /* ProfileViewController.swift */; };
 		0E2F41722753E75D00E0304A /* RestaurantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2F41712753E75D00E0304A /* RestaurantsViewController.swift */; };
 		0E2F417627553B9D00E0304A /* MealsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2F417527553B9D00E0304A /* MealsTableViewController.swift */; };
@@ -35,7 +35,7 @@
 		0E720D042763BE06004FDC8D /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E720D032763BE06004FDC8D /* Errors.swift */; };
 		0E7FBEAE275ABA4200E514BC /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7FBEAD275ABA4200E514BC /* APIClient.swift */; };
 		0E8D3A882758CBD20082DD0F /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8D3A872758CBD20082DD0F /* PaymentViewController.swift */; };
-		0EA6358F2767C78E005A8F63 /* DriverDeliveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6358E2767C78E005A8F63 /* DriverDeliveryViewController.swift */; };
+		0EA6358F2767C78E005A8F63 /* DeliveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6358E2767C78E005A8F63 /* DeliveryViewController.swift */; };
 		0EA635912767D7FB005A8F63 /* EarningsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA635902767D7FB005A8F63 /* EarningsViewController.swift */; };
 		0EA7F244275257AE00A4216B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA7F243275257AE00A4216B /* AppDelegate.swift */; };
 		0EA7F246275257AE00A4216B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA7F245275257AE00A4216B /* SceneDelegate.swift */; };
@@ -52,6 +52,7 @@
 		0EEE702A276B37F1009D92E9 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEE7029276B37F1009D92E9 /* Order.swift */; };
 		0EEE702C276B460D009D92E9 /* OrdersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEE702B276B460D009D92E9 /* OrdersTableViewCell.swift */; };
 		0EF946FB27724490007F09AD /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 0EF946FA27724490007F09AD /* FacebookLogin */; };
+		0EF946FD2774E7D8007F09AD /* MapKitEnabledViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF946FC2774E7D8007F09AD /* MapKitEnabledViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -70,7 +71,7 @@
 /* Begin PBXFileReference section */
 		0E14305E2766689B009EE043 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		0E143060276752C9009EE043 /* OrdersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersTableViewController.swift; sourceTree = "<group>"; };
-		0E143069276761BD009EE043 /* DriverMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverMenuTableViewController.swift; sourceTree = "<group>"; };
+		0E143069276761BD009EE043 /* DeliveryMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryMenuTableViewController.swift; sourceTree = "<group>"; };
 		0E25FABF2767DCE600F83796 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		0E2F41712753E75D00E0304A /* RestaurantsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsViewController.swift; sourceTree = "<group>"; };
 		0E2F417527553B9D00E0304A /* MealsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsTableViewController.swift; sourceTree = "<group>"; };
@@ -95,7 +96,7 @@
 		0E720D032763BE06004FDC8D /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		0E7FBEAD275ABA4200E514BC /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		0E8D3A872758CBD20082DD0F /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
-		0EA6358E2767C78E005A8F63 /* DriverDeliveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverDeliveryViewController.swift; sourceTree = "<group>"; };
+		0EA6358E2767C78E005A8F63 /* DeliveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryViewController.swift; sourceTree = "<group>"; };
 		0EA635902767D7FB005A8F63 /* EarningsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarningsViewController.swift; sourceTree = "<group>"; };
 		0EA7F240275257AE00A4216B /* FoodTaskerMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodTaskerMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EA7F243275257AE00A4216B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +110,7 @@
 		0EA7F259275262C600A4216B /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		0EEE7029276B37F1009D92E9 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		0EEE702B276B460D009D92E9 /* OrdersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersTableViewCell.swift; sourceTree = "<group>"; };
+		0EF946FC2774E7D8007F09AD /* MapKitEnabledViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapKitEnabledViewController.swift; path = FoodTaskerMobile/View/MapKitEnabledViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,12 +152,12 @@
 		0E14306327676087009EE043 /* Driver */ = {
 			isa = PBXGroup;
 			children = (
-				0E25FABF2767DCE600F83796 /* ProfileViewController.swift */,
+				0E143069276761BD009EE043 /* DeliveryMenuTableViewController.swift */,
+				0EA6358E2767C78E005A8F63 /* DeliveryViewController.swift */,
 				0EA635902767D7FB005A8F63 /* EarningsViewController.swift */,
-				0E143060276752C9009EE043 /* OrdersTableViewController.swift */,
 				0EEE702B276B460D009D92E9 /* OrdersTableViewCell.swift */,
-				0E143069276761BD009EE043 /* DriverMenuTableViewController.swift */,
-				0EA6358E2767C78E005A8F63 /* DriverDeliveryViewController.swift */,
+				0E143060276752C9009EE043 /* OrdersTableViewController.swift */,
+				0E25FABF2767DCE600F83796 /* ProfileViewController.swift */,
 			);
 			path = Driver;
 			sourceTree = "<group>";
@@ -272,6 +274,7 @@
 		0EA7F237275257AD00A4216B = {
 			isa = PBXGroup;
 			children = (
+				0EF946FC2774E7D8007F09AD /* MapKitEnabledViewController.swift */,
 				0EDCBAA92770EB33009D47A7 /* Packages */,
 				0EA7F242275257AE00A4216B /* FoodTaskerMobile */,
 				0E6C8569275A8D2A00DB7309 /* Frameworks */,
@@ -419,6 +422,7 @@
 				0E68CBDD275BDD3500C766BF /* Restaurant.swift in Sources */,
 				0E50CE762758158500EACDC6 /* OrderStatusViewController.swift in Sources */,
 				0E68CBDB275BA4BA00C766BF /* Constants.swift in Sources */,
+				0EF946FD2774E7D8007F09AD /* MapKitEnabledViewController.swift in Sources */,
 				0E2F41722753E75D00E0304A /* RestaurantsViewController.swift in Sources */,
 				0E25FAC02767DCE600F83796 /* ProfileViewController.swift in Sources */,
 				0EA7F244275257AE00A4216B /* AppDelegate.swift in Sources */,
@@ -426,14 +430,14 @@
 				0E4C63902756A079003008F5 /* CartViewController.swift in Sources */,
 				0E8D3A882758CBD20082DD0F /* PaymentViewController.swift in Sources */,
 				0E720D042763BE06004FDC8D /* Errors.swift in Sources */,
-				0EA6358F2767C78E005A8F63 /* DriverDeliveryViewController.swift in Sources */,
+				0EA6358F2767C78E005A8F63 /* DeliveryViewController.swift in Sources */,
 				0EA7F246275257AE00A4216B /* SceneDelegate.swift in Sources */,
 				0E409DFE275A6C1A0003A5A8 /* User.swift in Sources */,
 				0E2F417627553B9D00E0304A /* MealsTableViewController.swift in Sources */,
 				0EA635912767D7FB005A8F63 /* EarningsViewController.swift in Sources */,
 				0E14305F2766689B009EE043 /* Enums.swift in Sources */,
 				0E68CBEB275D3ED100C766BF /* Utils.swift in Sources */,
-				0E14306A276761BD009EE043 /* DriverMenuTableViewController.swift in Sources */,
+				0E14306A276761BD009EE043 /* DeliveryMenuTableViewController.swift in Sources */,
 				0EEE702C276B460D009D92E9 /* OrdersTableViewCell.swift in Sources */,
 				0E68CBDF275CAD3900C766BF /* RestaurantsTableViewCell.swift in Sources */,
 				0E51F2A9275A12E50048F8CA /* FBAuthClient.swift in Sources */,

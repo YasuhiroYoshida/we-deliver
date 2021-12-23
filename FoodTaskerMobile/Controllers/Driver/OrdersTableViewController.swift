@@ -33,8 +33,8 @@ class OrdersTableViewController: UITableViewController {
   }
 
   private func loadDriverAndOrders() {
-    APIClient.shared.profile { json in
 
+    APIClient.shared.profile { json in
       if let driver_profile = json?["driver_profile"] {
         if !driver_profile["car_model"].string!.isEmpty && !driver_profile["plate_number"].string!.isEmpty {
           self.loadOrders()
@@ -87,7 +87,7 @@ class OrdersTableViewController: UITableViewController {
       case "Success":
         let alertController = UIAlertController(title: "Success", message: "You have successfully picked the order.", preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default) { action in
-          self.performSegue(withIdentifier: "OrdersTableView2DriverDeliveryView", sender: self)
+          self.performSegue(withIdentifier: "OrdersTableView2DeliveryView", sender: self)
         }
         alertController.addAction(action)
         self.present(alertController, animated: true)

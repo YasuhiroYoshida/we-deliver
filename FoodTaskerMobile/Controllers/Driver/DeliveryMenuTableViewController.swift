@@ -1,5 +1,5 @@
 //
-//  DriverMenuTableViewController.swift
+//  DeliveryMenuTableViewController.swift
 //  FoodTaskerMobile
 //
 //  Created by Yasuhiro Yoshida on 2021-12-13.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DriverMenuTableViewController: UITableViewController {
+class DeliveryMenuTableViewController: UITableViewController {
   // MARK: - IBOutlets
   @IBOutlet weak var avatarImageView: UIImageView!
   @IBOutlet weak var usernameLabel: UILabel!
@@ -27,14 +27,14 @@ class DriverMenuTableViewController: UITableViewController {
   }
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "DriverLogout2LoginView" {
+    if segue.identifier == "DeliveryMenuTableViewLogout2LoginView" {
       APIClient.shared.logOut { error in
-        if error == nil {
-          FBAuthClient.shared.logOut() // AccessToken.current will be lost
-          User.current.resetAttrs()
+        guard error == nil else { return }
 
-          self.view.window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController")
-        }
+        FBAuthClient.shared.logOut() // AccessToken.current will be lost
+        User.current.resetAttrs()
+
+        self.view.window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController")
       }
     }
   }

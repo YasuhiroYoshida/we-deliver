@@ -124,10 +124,10 @@
             </objects>
             <point key="canvasLocation" x="-752" y="-2086"/>
         </scene>
-        <!--Driver Menu Table View Controller-->
+        <!--Delivery Menu Table View Controller-->
         <scene sceneID="Ykg-d1-ZNU">
             <objects>
-                <tableViewController id="h4r-pY-nfu" customClass="DriverMenuTableViewController" customModule="FoodTaskerMobile" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="h4r-pY-nfu" customClass="DeliveryMenuTableViewController" customModule="FoodTaskerMobile" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="PUl-3U-9N4">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -325,7 +325,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="presentation" identifier="DriverLogout2LoginView" id="h6T-K8-WVr"/>
+                                            <segue destination="BYZ-38-t0r" kind="presentation" identifier="DeliveryMenuTableViewLogout2LoginView" id="h6T-K8-WVr"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -345,10 +345,10 @@
             </objects>
             <point key="canvasLocation" x="11" y="-2086"/>
         </scene>
-        <!--Driver Delivery View Controller-->
+        <!--Delivery View Controller-->
         <scene sceneID="FHZ-es-uqI">
             <objects>
-                <viewController id="z1p-SB-u1C" customClass="DriverDeliveryViewController" customModule="FoodTaskerMobile" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="z1p-SB-u1C" customClass="DeliveryViewController" customModule="FoodTaskerMobile" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="esk-fi-3XI">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -428,16 +428,19 @@
                     <navigationItem key="navigationItem" id="dQk-d1-Kql">
                         <barButtonItem key="leftBarButtonItem" image="icon_hamburger" id="ry1-6F-0YK">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="menuBarButtonItemPressed:" destination="z1p-SB-u1C" id="aTF-Dr-A6S"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="avatarImageView" destination="EBf-5q-dae" id="IE2-Cu-vUZ"/>
                         <outlet property="completeOrderButton" destination="uxl-SJ-USn" id="SAM-sR-8aE"/>
-                        <outlet property="customerInfoView" destination="Aos-K0-4um" id="dNZ-qS-19R"/>
                         <outlet property="mapMapView" destination="UED-eh-fuH" id="Cyz-f4-076"/>
                         <outlet property="menuBarButtonItem" destination="ry1-6F-0YK" id="wwE-Rp-BGT"/>
                         <outlet property="recipientAddressLabel" destination="R0J-cV-HL8" id="WMr-S3-5iv"/>
+                        <outlet property="recipientInfoView" destination="Aos-K0-4um" id="dNZ-qS-19R"/>
                         <outlet property="recipientNameLabel" destination="tZo-G2-2rx" id="v5e-N7-ibf"/>
                     </connections>
                 </viewController>
@@ -564,7 +567,7 @@
                     <connections>
                         <outlet property="menuBarButtonItem" destination="hO6-qq-IIm" id="9Is-xJ-4pg"/>
                         <outlet property="ordersTableView" destination="Snt-7I-bPO" id="hfC-51-h8Z"/>
-                        <segue destination="z1p-SB-u1C" kind="show" identifier="OrdersTableView2DriverDeliveryView" id="Tgv-gA-WTN"/>
+                        <segue destination="z1p-SB-u1C" kind="show" identifier="OrdersTableView2DeliveryView" id="Tgv-gA-WTN"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CYt-nr-4My" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -739,7 +742,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="presentation" identifier="OrderMenuLogout2LoginView" modalPresentationStyle="automatic" id="Pfp-fZ-96w"/>
+                                            <segue destination="BYZ-38-t0r" kind="presentation" identifier="OrderMenuTableViewLogout2LoginView" modalPresentationStyle="automatic" id="Pfp-fZ-96w"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -1910,7 +1913,7 @@
         <segue reference="rSP-Oe-MDv"/>
         <segue reference="orV-e4-knY"/>
         <segue reference="Tgv-gA-WTN"/>
-        <segue reference="Pfp-fZ-96w"/>
+        <segue reference="h6T-K8-WVr"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="avatar" width="215" height="211"/>

@@ -28,7 +28,7 @@ class OrderMenuTableViewController: UITableViewController {
   }
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "OrderMenuLogout2LoginView" {
+    if segue.identifier == "OrderMenuTableViewLogout2LoginView" {
       APIClient.shared.logOut { error in
         guard error == nil else { return }
 

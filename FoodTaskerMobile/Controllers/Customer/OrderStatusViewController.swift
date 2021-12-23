@@ -8,14 +8,15 @@
 import UIKit
 import MapKit
 
-class OrderStatusViewController: UIViewController {
+class OrderStatusViewController: MapKitEnabledViewController {
   // MARK: - Vars
-  var status: String?
-  var locationMgr = CLLocationManager()
-  var driverLocationCoordinate: CLLocationCoordinate2D!
-  var sourceMKPlacemark: MKPlacemark?
-  var destinationMKPlacemark: MKPlacemark?
-  var driverDropPinAnnotation: MKPointAnnotation!
+  var status: String!
+  // MARK: - Vars - Inherited
+//var locationMgr = CLLocationManager()
+//var driverLocationCoordinate: CLLocationCoordinate2D!
+//var sourceMKPlacemark: MKPlacemark?
+//var destinationMKPlacemark: MKPlacemark?
+//var driverDropPinAnnotation: MKPointAnnotation!
 
   // MARK: - IBOutlet
   @IBOutlet weak var menuBarButtonItem: UIBarButtonItem!
@@ -30,10 +31,8 @@ class OrderStatusViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    updateMap()
-
     // Enable a timer to update the order status
-    Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { _ in
+    UpdateStatusTimer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { _ in
       self.updateStatus()
     }
   }
@@ -68,23 +67,23 @@ class OrderStatusViewController: UIViewController {
 
           if let sourceLocation = sourceCLPlacemark.location {
 
-            self.setDropPinAnnotation(at: sourceLocation, titled: "Restaurant")
+            self.setDropPinAnnotation(on: &self.mapMapView, at: sourceLocation, titled: "Restaurant")
             self.sourceMKPlacemark = MKPlacemark(placemark: sourceCLPlacemark)
 
             self.convertAddressToCLPlacemark(destinationAddress) { destinationCLPlacemark in
 
               if let destinationLocation = destinationCLPlacemark.location {
 
-                self.setDropPinAnnotation(at: destinationLocation, titled: "Customer")
+                self.setDropPinAnnotation(on: &self.mapMapView, at: destinationLocation, titled: "Customer")
                 self.destinationMKPlacemark = MKPlacemark(placemark: destinationCLPlacemark)
 
-                self.drawRoutes()
+                self.drawRoutes(on: &self.mapMapView)
               }
             }
           }
 
           // Enable a timer to update an on-the-way order
-          Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { _ in
+          UpdateLocaionTimer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { _ in
             self.updateOrderLocaion()
           }
         }
@@ -114,14 +113,13 @@ class OrderStatusViewController: UIViewController {
     }
   }
 
-  // Just status. Not concerning location.
   private func updateStatus() {
 
     APIClient.shared.orderStatus { json in
 
       if let status = json?["order_status"].string {
 
-        self.status = status
+        self.updateMapOnceIfOnTheWay(status)
 
         switch self.status {
         case OrderStatus.cooking.rawValue:
@@ -150,57 +148,21 @@ class OrderStatusViewController: UIViewController {
       }
     }
   }
-}
 
-// MARK: - MKMapViewDelegate
-extension OrderStatusViewController: MKMapViewDelegate {
-
-  func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-    let renderer = MKPolylineRenderer(overlay: overlay)
-    renderer.strokeColor = .black
-    renderer.lineWidth = 5
-    return renderer
-  }
-
-  private func convertAddressToCLPlacemark(_ address: String, completion: @escaping (CLPlacemark) -> Void) {
-
-    CLGeocoder().geocodeAddressString(address) { cLPlacemarks, error in
-      guard error == nil else { return }
-
-      if let clPlacemark = cLPlacemarks?.first {
-        completion(clPlacemark)
-      }
+  private func updateMapOnceIfOnTheWay(_ newStatus: String) {
+    if self.status != newStatus && newStatus == OrderStatus.onTheWay.rawValue {
+      self.updateMap()
     }
+    self.status = newStatus
   }
 
-  private func setDropPinAnnotation(at location: CLLocation, titled title: String = "") {
-    let dropPinAnnotation = MKPointAnnotation()
-    dropPinAnnotation.coordinate = location.coordinate
-    dropPinAnnotation.title = title
-    mapMapView.addAnnotation(dropPinAnnotation)
-  }
-
-  private func drawRoutes() {
-    let request = requestForRoutes()
-    MKDirections(request: request).calculate { response, error in
-      guard error == nil else { return }
-      self.renderRoutesOnMap(response!.routes)
+  // MARK: - Navigation
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "DeliveryView2OrderMenuTableView" {
+      UpdateLocaionTimer.invalidate()
+      UpdateLocaionTimer = nil
+      UpdateStatusTimer.invalidate()
+      UpdateStatusTimer = nil
     }
-  }
-
-  private func requestForRoutes() -> MKDirections.Request {
-    let request = MKDirections.Request()
-    request.source = MKMapItem(placemark: sourceMKPlacemark!)
-    request.destination = MKMapItem(placemark: destinationMKPlacemark!)
-    request.requestsAlternateRoutes = false
-    return request
-  }
-
-  private func renderRoutesOnMap(_ routes: [MKRoute]) {
-    for route in routes {
-      mapMapView.addOverlay(route.polyline, level: MKOverlayLevel.aboveRoads)
-    }
-    mapMapView.layoutMargins = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
-    mapMapView.showAnnotations(mapMapView.annotations, animated: true)
   }
 }

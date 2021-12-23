@@ -214,7 +214,7 @@ class APIClient {
     let params: [String: Any] = [
       "access_token": accessToken,
       "order_id": orderID,
-      "status": newStatus
+      "status": newStatus.rawValue
     ]
 
     request(by: .patch, to: url, with: params, completion: completion)
