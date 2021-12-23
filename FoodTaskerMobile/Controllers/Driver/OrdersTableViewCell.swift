@@ -9,7 +9,7 @@ import UIKit
 
 class OrdersTableViewCell: UITableViewCell {
   // MARK: - IBOutlets
-  @IBOutlet weak var customerAvatarImageView: UIImageView!
+  @IBOutlet weak var recipientAvatarImageView: UIImageView!
   @IBOutlet weak var totalLabel: UILabel!
   @IBOutlet weak var customerNameLabel: UILabel!
   @IBOutlet weak var customerAddressLabel: UILabel!

@@ -84,7 +84,7 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cartItem = Cart.current.cartItems[indexPath.row]
 
-    let cell = tableView.dequeueReusableCell(withIdentifier: "CartViewCartTableViewCell", for: indexPath) as! CartViewCartTableViewCell
+    let cell = tableView.dequeueReusableCell(withIdentifier: "CartItemsTableViewCell", for: indexPath) as! CartItemsTableViewCell
     cell.quantityLabel.text = String(cartItem.quantity)
     cell.nameLabel.text = cartItem.meal.name!
     cell.subTotalLabel.text = (cartItem.meal.price! * Float(cartItem.quantity)).currencyEUR

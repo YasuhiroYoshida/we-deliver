@@ -1,5 +1,5 @@
 //
-//  CustomerMenuTableViewController.swift
+//  OrderMenuTableViewController.swift
 //  FoodTaskerMobile
 //
 //  Created by Yasuhiro Yoshida on 2021-12-03.
@@ -8,7 +8,7 @@
 import UIKit
 import SideMenu
 
-class CustomerMenuTableViewController: UITableViewController {
+class OrderMenuTableViewController: UITableViewController {
   // MARK: - IBOutlets
   @IBOutlet weak var avatarImageView: UIImageView!
   @IBOutlet weak var usernameLabel: UILabel!
@@ -28,7 +28,7 @@ class CustomerMenuTableViewController: UITableViewController {
   }
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "CustomerMenuLogout2LoginView" {
+    if segue.identifier == "OrderMenuLogout2LoginView" {
       APIClient.shared.logOut { error in
         guard error == nil else { return }
 

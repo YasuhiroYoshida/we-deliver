@@ -1,5 +1,5 @@
 //
-//  CartViewCartTableViewCell.swift
+//  CartItemsTableViewCell.swift
 //  FoodTaskerMobile
 //
 //  Created by Yasuhiro Yoshida on 2021-12-08.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CartViewCartTableViewCell: UITableViewCell {
+class CartItemsTableViewCell: UITableViewCell {
   // MARK: - IBOutlets
   @IBOutlet weak var nameLabel: UILabel!
   @IBOutlet weak var subTotalLabel: UILabel!

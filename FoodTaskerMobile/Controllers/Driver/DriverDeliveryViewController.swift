@@ -22,8 +22,8 @@ class DriverDeliveryViewController: UIViewController {
   @IBOutlet weak var menuBarButtonItem: UIBarButtonItem!
   @IBOutlet weak var mapMapView: MKMapView!
   @IBOutlet weak var avatarImageView: UIImageView!
-  @IBOutlet weak var customerNameLabel: UILabel!
-  @IBOutlet weak var customerAddressLabel: UILabel!
+  @IBOutlet weak var recipientNameLabel: UILabel!
+  @IBOutlet weak var recipientAddressLabel: UILabel!
   @IBOutlet weak var customerInfoView: UIView!
   @IBOutlet weak var completeOrderButton: UIButton!
 
@@ -68,8 +68,8 @@ class DriverDeliveryViewController: UIViewController {
         let sourceAddress = latest_order["restaurant"]["address"].string!
         let destinationAddress = latest_order["address"].string!
 
-        let customerAvatarLink = latest_order["customer"]["avatar"].string!
-        if let data = try? Data(contentsOf: URL(string: customerAvatarLink)!) {
+        let recipientAvatarLink = latest_order["customer"]["avatar"].string!
+        if let data = try? Data(contentsOf: URL(string: recipientAvatarLink)!) {
           self.avatarImageView.image = UIImage(data: data)
         }
         self.avatarImageView.layer.cornerRadius = self.avatarImageView.frame.width / 2
@@ -77,9 +77,9 @@ class DriverDeliveryViewController: UIViewController {
         self.avatarImageView.layer.borderWidth = 1
         self.avatarImageView.clipsToBounds = true
         self.avatarImageView.backgroundColor = .clear
-        let customerName = latest_order["customer"]["name"].string!
-        self.customerNameLabel.text = customerName
-        self.customerAddressLabel.text = destinationAddress
+        let recipientName = latest_order["customer"]["name"].string!
+        self.recipientNameLabel.text = recipientName
+        self.recipientAddressLabel.text = destinationAddress
 
         self.convertAddressToCLPlacemark(sourceAddress) { sourceCLPlacemark in
 

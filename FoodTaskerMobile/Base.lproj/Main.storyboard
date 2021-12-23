@@ -434,11 +434,11 @@
                     <connections>
                         <outlet property="avatarImageView" destination="EBf-5q-dae" id="IE2-Cu-vUZ"/>
                         <outlet property="completeOrderButton" destination="uxl-SJ-USn" id="SAM-sR-8aE"/>
-                        <outlet property="customerAddressLabel" destination="R0J-cV-HL8" id="WMr-S3-5iv"/>
                         <outlet property="customerInfoView" destination="Aos-K0-4um" id="dNZ-qS-19R"/>
-                        <outlet property="customerNameLabel" destination="tZo-G2-2rx" id="v5e-N7-ibf"/>
                         <outlet property="mapMapView" destination="UED-eh-fuH" id="Cyz-f4-076"/>
                         <outlet property="menuBarButtonItem" destination="ry1-6F-0YK" id="wwE-Rp-BGT"/>
+                        <outlet property="recipientAddressLabel" destination="R0J-cV-HL8" id="WMr-S3-5iv"/>
+                        <outlet property="recipientNameLabel" destination="tZo-G2-2rx" id="v5e-N7-ibf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y3z-Mt-Moc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -545,8 +545,8 @@
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <connections>
                                     <outlet property="customerAddressLabel" destination="cca-TJ-eRo" id="4MM-ee-fVF"/>
-                                    <outlet property="customerAvatarImageView" destination="i0A-5f-kRT" id="0B3-ZG-Gpl"/>
                                     <outlet property="customerNameLabel" destination="RsE-Ty-zBT" id="t55-hn-QKU"/>
+                                    <outlet property="recipientAvatarImageView" destination="i0A-5f-kRT" id="0B3-ZG-Gpl"/>
                                     <outlet property="totalLabel" destination="hRf-oX-3xS" id="Cqz-0E-8jm"/>
                                 </connections>
                             </tableViewCell>
@@ -571,10 +571,10 @@
             </objects>
             <point key="canvasLocation" x="1517" y="-3092"/>
         </scene>
-        <!--Customer Menu Table View Controller-->
+        <!--Order Menu Table View Controller-->
         <scene sceneID="U1H-xV-XXw">
             <objects>
-                <tableViewController id="4rJ-6O-zKZ" customClass="CustomerMenuTableViewController" customModule="FoodTaskerMobile" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="4rJ-6O-zKZ" customClass="OrderMenuTableViewController" customModule="FoodTaskerMobile" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="QY9-Mo-roJ">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -739,7 +739,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="presentation" identifier="CustomerMenuLogout2LoginView" modalPresentationStyle="automatic" id="Pfp-fZ-96w"/>
+                                            <segue destination="BYZ-38-t0r" kind="presentation" identifier="OrderMenuLogout2LoginView" modalPresentationStyle="automatic" id="Pfp-fZ-96w"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -925,7 +925,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" image="icon_hamburger" id="EIz-g4-VYV">
                             <color key="tintColor" systemColor="labelColor"/>
                             <connections>
-                                <segue destination="jJf-2f-XGz" kind="presentation" identifier="RestaurantsView2CustomerMenuTableView" modalPresentationStyle="fullScreen" id="O11-jl-0Ub"/>
+                                <segue destination="jJf-2f-XGz" kind="presentation" identifier="RestaurantsView2OrderMenuTableView" modalPresentationStyle="fullScreen" id="O11-jl-0Ub"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -973,7 +973,7 @@
                                     <constraint firstAttribute="height" constant="250" id="1L1-y1-DiV"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CartViewCartTableViewCell" id="wh1-dS-RJJ" customClass="CartViewCartTableViewCell" customModule="FoodTaskerMobile" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CartItemsTableViewCell" id="wh1-dS-RJJ" customClass="CartItemsTableViewCell" customModule="FoodTaskerMobile" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wh1-dS-RJJ" id="wY1-QS-Y7W">
@@ -1154,7 +1154,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" image="icon_hamburger" id="Fzl-g3-F1s" userLabel="Menu Bar Bfutton">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="jJf-2f-XGz" kind="presentation" identifier="CartView2CustomerMenuTableView" modalPresentationStyle="fullScreen" id="8Be-cD-Xak"/>
+                                <segue destination="jJf-2f-XGz" kind="presentation" identifier="CartView2OrderMenuTableView" modalPresentationStyle="fullScreen" id="8Be-cD-Xak"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1193,10 +1193,10 @@
             </objects>
             <point key="canvasLocation" x="11" y="1267"/>
         </scene>
-        <!--Customer Delivery View Controller-->
+        <!--Order Status View Controller-->
         <scene sceneID="iKW-eC-RUe">
             <objects>
-                <viewController id="nXh-9I-Ztc" customClass="CustomerDeliveryViewController" customModule="FoodTaskerMobile" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="nXh-9I-Ztc" customClass="OrderStatusViewController" customModule="FoodTaskerMobile" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Okh-bL-TwZ">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1207,7 +1207,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ti-IV-msV">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="50"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_check" translatesAutoresizingMaskIntoConstraints="NO" id="4s0-CO-c92">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_check" translatesAutoresizingMaskIntoConstraints="NO" id="4s0-CO-c92">
                                                 <rect key="frame" x="40" y="14" width="22" height="22"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="22" id="t3c-L2-Dgb"/>
@@ -1360,7 +1360,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" image="icon_hamburger" id="lxf-qw-vcn">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="jJf-2f-XGz" kind="presentation" identifier="DeliveryView2CustomerMenuTableView" modalPresentationStyle="fullScreen" id="rSP-Oe-MDv"/>
+                                <segue destination="jJf-2f-XGz" kind="presentation" identifier="DeliveryView2OrderMenuTableView" modalPresentationStyle="fullScreen" id="rSP-Oe-MDv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1841,7 +1841,7 @@
                     <connections>
                         <outlet property="animationView" destination="p5e-KB-Avb" id="Y8V-uv-U5p"/>
                         <outlet property="cardTextField" destination="aTf-a2-EAQ" id="xpT-gv-kh9"/>
-                        <segue destination="nXh-9I-Ztc" kind="show" identifier="PaymentView2CustomerDelivery" id="RVG-PG-aBI"/>
+                        <segue destination="nXh-9I-Ztc" kind="show" identifier="PaymentView2OrderStatusView" id="RVG-PG-aBI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ER-eM-ceF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1907,7 +1907,7 @@
         <segue reference="RVG-PG-aBI"/>
         <segue reference="WZE-LM-Pz0"/>
         <segue reference="XLc-rh-Qol"/>
-        <segue reference="O11-jl-0Ub"/>
+        <segue reference="rSP-Oe-MDv"/>
         <segue reference="orV-e4-knY"/>
         <segue reference="Tgv-gA-WTN"/>
         <segue reference="Pfp-fZ-96w"/>

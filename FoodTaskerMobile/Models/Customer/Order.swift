@@ -10,17 +10,17 @@ import SwiftyJSON
 
 struct Order {
   let id: Int
-  let customerName: String
-  let customerAvatar: String
-  let customerAddress: String
+  let recipientName: String
+  let recipientAvatar: String
+  let recipientAddress: String
   let restaurantName: String
   let total: Float
 
   init(_ json: JSON) {
     self.id = json["id"].int!
-    self.customerName = json["customer"]["name"].string!
-    self.customerAvatar = json["customer"]["avatar"].string!
-    self.customerAddress = json["address"].string!
+    self.recipientName = json["customer"]["name"].string!
+    self.recipientAvatar = json["customer"]["avatar"].string!
+    self.recipientAddress = json["address"].string!
     self.restaurantName = json["restaurant"]["name"].string!
     self.total = json["total"].float!
   }
