@@ -1714,14 +1714,14 @@
                                 </constraints>
                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Select Car">
+                                <buttonConfiguration key="configuration" style="plain" title="Select Car Model">
                                     <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="15"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="selectCarButtonPressed:" destination="Ptn-3N-Pac" eventType="touchUpInside" id="U0j-n0-5VL"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Plate Nnumber" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OZu-Gd-yqn">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Plate Nnumber" borderStyle="roundedRect" placeholder="Plate Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OZu-Gd-yqn">
                                 <rect key="frame" x="50" y="587" width="290" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="tTe-YH-JRf"/>

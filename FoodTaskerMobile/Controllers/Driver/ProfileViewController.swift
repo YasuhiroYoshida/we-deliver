@@ -54,7 +54,7 @@ class ProfileViewController: UIViewController {
           self.carDropdownButton.setTitle(carModel, for: .normal)
           self.carImageView.image = UIImage(named: self.cars[carModel]!)
         }
-        self.plateNumberTextfield.text = driver_profile["plate_number"].string
+        self.plateNumberTextfield.text = driver_profile["plate_number"].string!
       }
     }
   }
@@ -74,8 +74,14 @@ class ProfileViewController: UIViewController {
   }
 
   @IBAction func updateProfileButtonPressed(_ sender: Any) {
-    let carModel = carDropdownButton.title(for: .selected)!
-    let plateNumber = plateNumberTextfield.text!
+    guard let carModel = carDropdownButton.title(for: .selected), !carModel.isEmpty, let plateNumber = plateNumberTextfield.text, !plateNumber.isEmpty else {
+
+      let alertController = UIAlertController(title: "Car model and plate number required", message: "You need to fill car model and plate number before taking an order.", preferredStyle: .alert)
+      let action = UIAlertAction(title: "OK", style: .default)
+      alertController.addAction(action)
+      present(alertController, animated: true)
+      return
+    }
 
     APIClient.shared.updateProfile(carModel: carModel, plateNumber: plateNumber) { json in
       guard json?["driver_profile"] != nil else { return }

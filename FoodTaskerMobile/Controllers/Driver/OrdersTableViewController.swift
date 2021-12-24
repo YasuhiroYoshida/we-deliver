@@ -52,7 +52,7 @@ class OrdersTableViewController: UITableViewController {
         if !driver_profile["car_model"].string!.isEmpty && !driver_profile["plate_number"].string!.isEmpty {
           self.loadOrders()
         } else {
-          let alertController = UIAlertController(title: "Car model and plate number required", message: "You will be taken to your profile page.", preferredStyle: .alert)
+          let alertController = UIAlertController(title: "Car model and plate number required", message: "You will be taken to your profile.", preferredStyle: .alert)
           let okAction = UIAlertAction(title: "OK", style: .default) { action in
             self.performSegue(withIdentifier: "OrdersTableView2ProfileView", sender: self)
           }
