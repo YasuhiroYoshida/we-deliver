@@ -23,7 +23,7 @@ class APIClient {
   private init() {}
 
   // MARK: - Auth
-  func logIn(_ userType: String, completion: @escaping (Error?) -> Void) {
+  func logIn(_ characterType: CharacterType, completion: @escaping (Error?) -> Void) {
     let path = "api/social/convert-token/"
     let url = baseURL.appendingPathComponent(path)
     let params: [String: Any] = [
@@ -32,7 +32,7 @@ class APIClient {
       "client_secret": ClientSecret,
       "backend": "facebook",
       "token": AccessToken.current!.tokenString,
-      "user_type": userType
+      "character_type": characterType.rawValue
     ]
 
     AF.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON { response in

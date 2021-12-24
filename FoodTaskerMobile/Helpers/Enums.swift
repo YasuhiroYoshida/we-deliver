@@ -13,3 +13,7 @@ enum OrderStatus: String {
   case onTheWay = "On the way"
   case delivered = "Delivered"
 }
+
+enum CharacterType: String {
+  case Recipient, Driver, Restaurant
+}

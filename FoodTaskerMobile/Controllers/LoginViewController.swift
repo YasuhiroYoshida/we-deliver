@@ -31,7 +31,7 @@ Login procedure:
  */
 class LoginViewController: UIViewController {
   // MARK: - Vars
-  var userType: String = UserTypeCustomer
+  var characterType: CharacterType = CharacterType.Recipient
 
   // MARK: - IBOutlets
   @IBOutlet weak var userSegmentedControl: UISegmentedControl!
@@ -51,12 +51,12 @@ class LoginViewController: UIViewController {
 
   func redirect() {
     if let token = AccessToken.current, !token.isExpired {
-      switch userType {
-      case UserTypeCustomer:
+      switch characterType {
+      case CharacterType.Recipient:
         let destinationView = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RestaurantsViewNavigationController") as! UINavigationController
         destinationView.modalPresentationStyle = .fullScreen
         self.present(destinationView, animated: true, completion: nil)
-      case UserTypeDriver:
+      case CharacterType.Driver:
           performSegue(withIdentifier: "LoginView2SWRevealForDriver", sender: self)
       default:
         break
@@ -69,9 +69,9 @@ class LoginViewController: UIViewController {
     let selectedControlIndex = userSegmentedControl.selectedSegmentIndex
     switch selectedControlIndex {
     case 0:
-      userType = UserTypeCustomer
+      characterType = CharacterType.Recipient
     case 1:
-      userType = UserTypeDriver
+      characterType = CharacterType.Driver
     default:
       break
     }
@@ -80,7 +80,7 @@ class LoginViewController: UIViewController {
   @IBAction func loginButtonPressed(_ sender: Any) {
 
     if AccessToken.current != nil {
-      APIClient.shared.logIn(userType) { error in
+      APIClient.shared.logIn(characterType) { error in
         guard error == nil else { return }
         self.redirect()
       }
