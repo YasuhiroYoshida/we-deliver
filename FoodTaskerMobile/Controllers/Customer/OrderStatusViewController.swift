@@ -12,11 +12,11 @@ class OrderStatusViewController: MapKitEnabledViewController {
   // MARK: - Vars
   var status: String!
   // MARK: - Vars - Inherited
-//var locationMgr = CLLocationManager()
-//var driverLocationCoordinate: CLLocationCoordinate2D!
-//var sourceMKPlacemark: MKPlacemark?
-//var destinationMKPlacemark: MKPlacemark?
-//var driverDropPinAnnotation: MKPointAnnotation!
+  //var locationMgr = CLLocationManager()
+  //var driverLocationCoordinate: CLLocationCoordinate2D!
+  //var sourceMKPlacemark: MKPlacemark?
+  //var destinationMKPlacemark: MKPlacemark?
+  //var driverDropPinAnnotation: MKPointAnnotation!
 
   // MARK: - IBOutlet
   @IBOutlet weak var menuBarButtonItem: UIBarButtonItem!
@@ -40,25 +40,8 @@ class OrderStatusViewController: MapKitEnabledViewController {
   private func updateMap() {
 
     APIClient.shared.order { json in
-      guard let order = json?["order"], let status = order["status"].string, status != OrderStatus.delivered.rawValue else {
 
-        self.acceptedImageView.isHidden = true
-        self.readyImageView.isHidden = true
-        self.onTheWayImageView.isHidden = true
-        self.statusView.isHidden = true
-        self.mapMapView.isHidden = true
-        self.driverInfoView.isHidden = true
-
-        let label = UILabel(frame: CGRect(x: 0.0, y: 0.0, width: self.view.frame.size.width, height: 40.0))
-        label.center = self.view.center
-        label.textAlignment = .center
-        label.text = "There is no outstanding order for you"
-        self.view.addSubview(label)
-
-        return
-      }
-
-      if status == OrderStatus.onTheWay.rawValue {
+      if let order = json?["order"], order["status"].string == OrderStatus.onTheWay.rawValue {
 
         let sourceAddress = order["restaurant"]["address"].string!
         let destinationAddress = order["address"].string!
@@ -117,11 +100,9 @@ class OrderStatusViewController: MapKitEnabledViewController {
 
     APIClient.shared.orderStatus { json in
 
-      if let status = json?["order_status"].string {
+      if let orderStatus = json?["order_status"] {
 
-        self.updateMapOnceIfOnTheWay(status)
-
-        switch self.status {
+        switch orderStatus["status"].string {
         case OrderStatus.cooking.rawValue:
           self.acceptedImageView.alpha = 1.0
           self.readyImageView.alpha = 0.2
@@ -137,11 +118,13 @@ class OrderStatusViewController: MapKitEnabledViewController {
           self.readyImageView.alpha = 1.0
           self.onTheWayImageView.alpha = 1.0
           self.driverInfoView.isHidden = false
+          self.updateMap()
         case OrderStatus.delivered.rawValue:
-          self.acceptedImageView.alpha = 0.2
-          self.readyImageView.alpha = 0.2
-          self.onTheWayImageView.alpha = 0.2
-          self.driverInfoView.isHidden = true
+          self.acceptedImageView.alpha = 1.0
+          self.readyImageView.alpha = 1.0
+          self.onTheWayImageView.alpha = 1.0
+          self.driverInfoView.isHidden = false
+          self.closeMapIf30MinutesSince(pickedAt: orderStatus["picked_at"].string!)
         default: // Already exhaustive with the above conditions
           break
         }
@@ -149,20 +132,38 @@ class OrderStatusViewController: MapKitEnabledViewController {
     }
   }
 
-  private func updateMapOnceIfOnTheWay(_ newStatus: String) {
-    if self.status != newStatus && newStatus == OrderStatus.onTheWay.rawValue {
-      self.updateMap()
+  private func closeMapIf30MinutesSince(pickedAt: String) {
+    guard !pickedAt.isEmpty else { return }
+
+    let _pickedAt = ISO8601DateFormatter().date(from: pickedAt)
+    if let closingTime = _pickedAt?.addingTimeInterval(TimeInterval(60.0 * 2)), Date() > closingTime {
+      self.statusView.isHidden = true
+      self.mapMapView.isHidden = true
+      self.driverInfoView.isHidden = true
+
+      let label = UILabel(frame: CGRect(x: 0.0, y: 0.0, width: self.view.frame.size.width, height: 40.0))
+      label.center = self.view.center
+      label.textAlignment = .center
+      label.text = "There is no outstanding order for you"
+      self.view.addSubview(label)
     }
-    self.status = newStatus
+  }
+
+  private func stopTimers() {
+    if UpdateLocaionTimer != nil {
+      UpdateLocaionTimer.invalidate()
+      UpdateLocaionTimer = nil
+    }
+    if UpdateStatusTimer != nil {
+      UpdateStatusTimer.invalidate()
+      UpdateStatusTimer = nil
+    }
   }
 
   // MARK: - Navigation
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "DeliveryView2OrderMenuTableView" {
-      UpdateLocaionTimer.invalidate()
-      UpdateLocaionTimer = nil
-      UpdateStatusTimer.invalidate()
-      UpdateStatusTimer = nil
+      stopTimers()
     }
   }
 }
