@@ -481,16 +481,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restaurant name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWJ-8B-8nc">
-                                            <rect key="frame" x="10" y="10" width="370" height="21"/>
+                                            <rect key="frame" x="10" y="9.9999999999999982" width="370" height="20.333333333333329"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8O6-ak-qsC">
-                                            <rect key="frame" x="10" y="36" width="370" height="81"/>
+                                            <rect key="frame" x="10" y="35.333333333333336" width="370" height="81.666666666666657"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="i0A-5f-kRT">
-                                                    <rect key="frame" x="10" y="10.666666666666664" width="60" height="59.999999999999993"/>
+                                                    <rect key="frame" x="10" y="11" width="60" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="UaE-cb-bIK"/>
                                                         <constraint firstAttribute="height" constant="60" id="vHJ-yi-bon"/>
@@ -548,6 +548,7 @@
                                     <outlet property="recipientAddressLabel" destination="cca-TJ-eRo" id="4MM-ee-fVF"/>
                                     <outlet property="recipientAvatarImageView" destination="i0A-5f-kRT" id="0B3-ZG-Gpl"/>
                                     <outlet property="recipientNameLabel" destination="RsE-Ty-zBT" id="t55-hn-QKU"/>
+                                    <outlet property="restaurantNameLabel" destination="yWJ-8B-8nc" id="aM6-X1-uB7"/>
                                     <outlet property="totalLabel" destination="hRf-oX-3xS" id="Cqz-0E-8jm"/>
                                 </connections>
                             </tableViewCell>
@@ -1913,7 +1914,7 @@
         <segue reference="XLc-rh-Qol"/>
         <segue reference="8Be-cD-Xak"/>
         <segue reference="orV-e4-knY"/>
-        <segue reference="h5D-el-KjR"/>
+        <segue reference="Tgv-gA-WTN"/>
         <segue reference="h6T-K8-WVr"/>
     </inferredMetricsTieBreakers>
     <resources>

@@ -83,13 +83,16 @@ class OrdersTableViewController: UITableViewController {
   }
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let order = orders[indexPath.row]
+
     let cell  = tableView.dequeueReusableCell(withIdentifier: "OrdersTableViewCell", for: indexPath) as! OrdersTableViewCell
-    if let image = try? UIImage(data: Data(contentsOf: URL(string: orders[indexPath.row].recipientAvatar)!)) {
+    cell.restaurantNameLabel.text = order.restaurantName
+    if let image = try? UIImage(data: Data(contentsOf: URL(string: order.recipientAvatar)!)) {
       cell.recipientAvatarImageView.image = image
     }
-    cell.totalLabel.text = orders[indexPath.row].total.currencyEUR
-    cell.recipientNameLabel.text = orders[indexPath.row].recipientName
-    cell.recipientAddressLabel.text = orders[indexPath.row].recipientAddress
+    cell.totalLabel.text = order.total.currencyEUR
+    cell.recipientNameLabel.text = order.recipientName
+    cell.recipientAddressLabel.text = order.recipientAddress
     return cell
   }
 
