@@ -428,9 +428,6 @@
                     <navigationItem key="navigationItem" id="dQk-d1-Kql">
                         <barButtonItem key="leftBarButtonItem" image="icon_hamburger" id="ry1-6F-0YK">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="menuBarButtonItemPressed:" destination="z1p-SB-u1C" id="aTF-Dr-A6S"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>

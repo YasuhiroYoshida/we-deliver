@@ -49,7 +49,6 @@ class DeliveryViewController: MapKitEnabledViewController {
       mapMapView.showsUserLocation = true
     }
     if UpdateLocaionTimer == nil {
-      print("あああ")
       UpdateLocaionTimer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { _ in
         self.updateDriverLocation()
       }
