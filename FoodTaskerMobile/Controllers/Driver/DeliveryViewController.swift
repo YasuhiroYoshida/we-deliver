@@ -38,8 +38,6 @@ class DeliveryViewController: MapKitEnabledViewController {
       view.addGestureRecognizer(revealViewController().panGestureRecognizer())
     }
 
-    loadDelivery()
-
     if CLLocationManager.locationServicesEnabled() {
       locationMgr.delegate = self
       locationMgr.desiredAccuracy = kCLLocationAccuracyBest
@@ -48,12 +46,24 @@ class DeliveryViewController: MapKitEnabledViewController {
       locationMgr.startUpdatingLocation()
       mapMapView.showsUserLocation = true
     }
+  }
 
-    if UpdateLocaionTimer == nil {
-      UpdateLocaionTimer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { _ in
-        self.updateDriverLocation()
-      }
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+
+    loadDelivery()
+  }
+
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+
+    UpdateLocaionTimer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { _ in
+      self.updateDriverLocation()
     }
+  }
+
+  override func viewWillDisappear(_ animated: Bool) {
+    Utils.stopTimers()
   }
 
   private func loadDelivery() {
@@ -121,92 +131,27 @@ class DeliveryViewController: MapKitEnabledViewController {
   }
 
   @IBAction func completeOrderButtonPressed(_ sender: Any) {
-    UpdateLocaionTimer.invalidate()
-    UpdateLocaionTimer = nil
   }
-
-    // MARK: - Navigation
-    //  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //    if segue.identifier == "DeliveryView2OrderMenuTableView" {
-    //      print("ああああああ")
-    //      updateLocaionTimer.invalidate()
-    //      updateLocaionTimer = nil
-    //      updateStatusTimer.invalidate()
-    //      updateStatusTimer = nil
-    //    }
-    //  }
 }
 
-  // MARK: MKMapViewDelegate
-  //extension DeliveryViewController: MKMapViewDelegate {
-  //
-  //  func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-  //    let renderer = MKPolylineRenderer(overlay: overlay)
-  //    renderer.strokeColor = .black
-  //    renderer.lineWidth = 5
-  //    return renderer
-  //  }
-  //
-  //  private func convertAddressToCLPlacemark(_ address: String, completion: @escaping (CLPlacemark) -> Void) {
-  //    CLGeocoder().geocodeAddressString(address) { cLPlacemarks, error in
-  //      guard error == nil else { return }
-  //
-  //      if let cLPlacemark = cLPlacemarks?.first {
-  //        completion(cLPlacemark)
-  //      }
-  //    }
-  //  }
-  //
-  //  private func setDropPinAnnotation(at location: CLLocation, titled title: String = "") {
-  //    let dropPinAnnotation = MKPointAnnotation()
-  //    dropPinAnnotation.coordinate = location.coordinate
-  //    dropPinAnnotation.title = title
-  //    mapMapView.addAnnotation(dropPinAnnotation)
-  //  }
-  //
-  //  private func drawRoutes() {
-  //    let request = requestForRoutes()
-  //    MKDirections(request: request).calculate { response, error in
-  //      guard error == nil else { return }
-  //      self.renderRoutesOnMap(response!.routes)
-  //    }
-  //  }
-  //
-  //  private func requestForRoutes() -> MKDirections.Request {
-  //    let request = MKDirections.Request()
-  //    request.source = MKMapItem(placemark: sourceMKPlacemark!)
-  //    request.destination = MKMapItem(placemark: destinationMKPlacemark!)
-  //    request.requestsAlternateRoutes = false
-  //    return request
-  //  }
-  //
-  //  private func renderRoutesOnMap(_ routes: [MKRoute]) {
-  //    for route in routes {
-  //      mapMapView.addOverlay(route.polyline, level: MKOverlayLevel.aboveRoads)
-  //    }
-  //    mapMapView.layoutMargins = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
-  //    mapMapView.showAnnotations(mapMapView.annotations, animated: true)
-  //  }
-  //}
+// MARK: - CLLocationManagerDelegate
+extension DeliveryViewController: CLLocationManagerDelegate {
 
-  // MARK: - CLLocationManagerDelegate
-  extension DeliveryViewController: CLLocationManagerDelegate {
+  func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    if let location = locations.last {
 
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-      if let location = locations.last {
+      driverLocationCoordinate = location.coordinate
 
-        driverLocationCoordinate = location.coordinate
-
-        if driverDropPinAnnotation != nil {
-          driverDropPinAnnotation.coordinate = driverLocationCoordinate
-        } else {
-          driverDropPinAnnotation = MKPointAnnotation()
-          driverDropPinAnnotation.coordinate = driverLocationCoordinate
-          mapMapView.addAnnotation(driverDropPinAnnotation)
-        }
-
-        mapMapView.layoutMargins = UIEdgeInsets(top: CGFloat(10), left: CGFloat(10), bottom: CGFloat(10), right: CGFloat(10))
-        mapMapView.showAnnotations(mapMapView.annotations, animated: true)
+      if driverDropPinAnnotation != nil {
+        driverDropPinAnnotation.coordinate = driverLocationCoordinate
+      } else {
+        driverDropPinAnnotation = MKPointAnnotation()
+        driverDropPinAnnotation.coordinate = driverLocationCoordinate
+        mapMapView.addAnnotation(driverDropPinAnnotation)
       }
+
+      mapMapView.layoutMargins = UIEdgeInsets(top: CGFloat(10), left: CGFloat(10), bottom: CGFloat(10), right: CGFloat(10))
+      mapMapView.showAnnotations(mapMapView.annotations, animated: true)
     }
   }
+}

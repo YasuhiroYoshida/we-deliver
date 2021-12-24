@@ -110,7 +110,7 @@
 		0EA7F259275262C600A4216B /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		0EEE7029276B37F1009D92E9 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		0EEE702B276B460D009D92E9 /* OrdersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersTableViewCell.swift; sourceTree = "<group>"; };
-		0EF946FC2774E7D8007F09AD /* MapKitEnabledViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapKitEnabledViewController.swift; path = FoodTaskerMobile/View/MapKitEnabledViewController.swift; sourceTree = "<group>"; };
+		0EF946FC2774E7D8007F09AD /* MapKitEnabledViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitEnabledViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				0E409DFA275A4E9C0003A5A8 /* LoginViewController.swift */,
+				0EF946FC2774E7D8007F09AD /* MapKitEnabledViewController.swift */,
 				0E14306227676065009EE043 /* Customer */,
 				0E14306327676087009EE043 /* Driver */,
 				0E6C857C275AB70600DB7309 /* SideMenu */,
@@ -274,7 +275,6 @@
 		0EA7F237275257AD00A4216B = {
 			isa = PBXGroup;
 			children = (
-				0EF946FC2774E7D8007F09AD /* MapKitEnabledViewController.swift */,
 				0EDCBAA92770EB33009D47A7 /* Packages */,
 				0EA7F242275257AE00A4216B /* FoodTaskerMobile */,
 				0E6C8569275A8D2A00DB7309 /* Frameworks */,

@@ -115,6 +115,7 @@
                         <viewLayoutGuide key="safeArea" id="hUX-Oi-8Sv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="7Uh-Md-Jd7"/>
                     <connections>
                         <segue destination="h4r-pY-nfu" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="eze-dx-yvq"/>
                         <segue destination="uGo-q9-wG4" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="orV-e4-knY"/>
@@ -544,9 +545,9 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <connections>
-                                    <outlet property="customerAddressLabel" destination="cca-TJ-eRo" id="4MM-ee-fVF"/>
-                                    <outlet property="customerNameLabel" destination="RsE-Ty-zBT" id="t55-hn-QKU"/>
+                                    <outlet property="recipientAddressLabel" destination="cca-TJ-eRo" id="4MM-ee-fVF"/>
                                     <outlet property="recipientAvatarImageView" destination="i0A-5f-kRT" id="0B3-ZG-Gpl"/>
+                                    <outlet property="recipientNameLabel" destination="RsE-Ty-zBT" id="t55-hn-QKU"/>
                                     <outlet property="totalLabel" destination="hRf-oX-3xS" id="Cqz-0E-8jm"/>
                                 </connections>
                             </tableViewCell>
@@ -565,6 +566,7 @@
                         <outlet property="menuBarButtonItem" destination="hO6-qq-IIm" id="9Is-xJ-4pg"/>
                         <outlet property="ordersTableView" destination="Snt-7I-bPO" id="hfC-51-h8Z"/>
                         <segue destination="z1p-SB-u1C" kind="show" identifier="OrdersTableView2DeliveryView" id="Tgv-gA-WTN"/>
+                        <segue destination="ejy-mL-IcX" kind="show" identifier="OrdersTableView2ProfileView" id="aMK-Ko-h5n"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CYt-nr-4My" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1887,8 +1889,9 @@
         <!--Navigation Controller-->
         <scene sceneID="tOy-Ex-38z">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ejy-mL-IcX" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ProfileViewNavigationController" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="ejy-mL-IcX" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="PLZ-1e-1WL"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5yl-rS-UKb">
                         <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1904,12 +1907,13 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="aMK-Ko-h5n"/>
         <segue reference="RVG-PG-aBI"/>
         <segue reference="WZE-LM-Pz0"/>
         <segue reference="XLc-rh-Qol"/>
-        <segue reference="rSP-Oe-MDv"/>
+        <segue reference="8Be-cD-Xak"/>
         <segue reference="orV-e4-knY"/>
-        <segue reference="Tgv-gA-WTN"/>
+        <segue reference="h5D-el-KjR"/>
         <segue reference="h6T-K8-WVr"/>
     </inferredMetricsTieBreakers>
     <resources>

@@ -11,7 +11,6 @@ import SkeletonView
 class OrdersTableViewController: UITableViewController {
   // MARK: - Vars
   var orders: [Order] = []
-  var driver: User?
 
   // MARK: - IBOutlets
   @IBOutlet weak var menuBarButtonItem: UIBarButtonItem!
@@ -26,10 +25,24 @@ class OrdersTableViewController: UITableViewController {
       menuBarButtonItem.action = #selector(SWRevealViewController.revealToggle(_:))
       view.addGestureRecognizer(revealViewController().panGestureRecognizer())
     }
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
 
     ordersTableView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .concrete, secondaryColor: nil))
+  }
+
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
 
     loadDriverAndOrders()
+  }
+
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+
+    Utils.stopTimers()
   }
 
   private func loadDriverAndOrders() {
@@ -39,8 +52,10 @@ class OrdersTableViewController: UITableViewController {
         if !driver_profile["car_model"].string!.isEmpty && !driver_profile["plate_number"].string!.isEmpty {
           self.loadOrders()
         } else {
-          let alertController = UIAlertController(title: "Car model and plate number required", message: "Please update your profile for your car model and plate number before taking an order.", preferredStyle: .alert)
-          let okAction = UIAlertAction(title: "OK", style: .default)
+          let alertController = UIAlertController(title: "Car model and plate number required", message: "You will be taken to your profile page.", preferredStyle: .alert)
+          let okAction = UIAlertAction(title: "OK", style: .default) { action in
+            self.performSegue(withIdentifier: "OrdersTableView2ProfileView", sender: self)
+          }
           alertController.addAction(okAction)
           self.present(alertController, animated: true)
         }
@@ -73,8 +88,8 @@ class OrdersTableViewController: UITableViewController {
       cell.recipientAvatarImageView.image = image
     }
     cell.totalLabel.text = orders[indexPath.row].total.currencyEUR
-    cell.customerNameLabel.text = orders[indexPath.row].recipientName
-    cell.customerAddressLabel.text = orders[indexPath.row].recipientAddress
+    cell.recipientNameLabel.text = orders[indexPath.row].recipientName
+    cell.recipientAddressLabel.text = orders[indexPath.row].recipientAddress
     return cell
   }
 
@@ -82,17 +97,17 @@ class OrdersTableViewController: UITableViewController {
     let order = orders[indexPath.row]
 
     APIClient.shared.updateOrder(id: order.id, newStatus: .onTheWay) { json in
-      let _json = json!
-      switch _json["status"].string {
+
+      switch json?["status"].string! {
       case "Success":
-        let alertController = UIAlertController(title: "Success", message: "You have successfully picked the order.", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Success", message: "You have successfully picked the order 🚴💨", preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default) { action in
           self.performSegue(withIdentifier: "OrdersTableView2DeliveryView", sender: self)
         }
         alertController.addAction(action)
         self.present(alertController, animated: true)
       case "Failure":
-        let alertController = UIAlertController(title: "Error", message: _json["error"].string, preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Error", message: json?["error"].string!, preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .cancel)
         alertController.addAction(action)
         self.present(alertController, animated: true)

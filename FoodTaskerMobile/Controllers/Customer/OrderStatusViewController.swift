@@ -28,10 +28,9 @@ class OrderStatusViewController: MapKitEnabledViewController {
   @IBOutlet weak var driverInfoView: UIView!
 
   // MARK: - Lifecycles
-  override func viewDidLoad() {
-    super.viewDidLoad()
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
 
-    // Enable a timer to update the order status
     UpdateStatusTimer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { _ in
       self.updateStatus()
     }
@@ -65,7 +64,6 @@ class OrderStatusViewController: MapKitEnabledViewController {
             }
           }
 
-          // Enable a timer to update an on-the-way order
           UpdateLocaionTimer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { _ in
             self.updateOrderLocaion()
           }
@@ -146,24 +144,6 @@ class OrderStatusViewController: MapKitEnabledViewController {
       label.textAlignment = .center
       label.text = "There is no outstanding order for you"
       self.view.addSubview(label)
-    }
-  }
-
-  private func stopTimers() {
-    if UpdateLocaionTimer != nil {
-      UpdateLocaionTimer.invalidate()
-      UpdateLocaionTimer = nil
-    }
-    if UpdateStatusTimer != nil {
-      UpdateStatusTimer.invalidate()
-      UpdateStatusTimer = nil
-    }
-  }
-
-  // MARK: - Navigation
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "DeliveryView2OrderMenuTableView" {
-      stopTimers()
     }
   }
 }

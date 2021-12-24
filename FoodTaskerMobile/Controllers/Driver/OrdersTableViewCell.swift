@@ -11,8 +11,8 @@ class OrdersTableViewCell: UITableViewCell {
   // MARK: - IBOutlets
   @IBOutlet weak var recipientAvatarImageView: UIImageView!
   @IBOutlet weak var totalLabel: UILabel!
-  @IBOutlet weak var customerNameLabel: UILabel!
-  @IBOutlet weak var customerAddressLabel: UILabel!
+  @IBOutlet weak var recipientNameLabel: UILabel!
+  @IBOutlet weak var recipientAddressLabel: UILabel!
 
   // MARK: - Lifecycles
   override func awakeFromNib() {

@@ -8,6 +8,7 @@
 import Foundation
 
 struct Utils {
+  // MARK: - Image
   static func fetchImage(in imageView: UIImageView, from url: String) {
     guard let url = URL(string: url) else { return }
 
@@ -20,6 +21,7 @@ struct Utils {
     }.resume()
   }
 
+  // MARK: - Badge
   static func removeBadge(tag: Int, from button: UIButton) {
     if let badgeLabel = button.viewWithTag(tag) as? UILabel {
       badgeLabel.removeFromSuperview()
@@ -49,5 +51,19 @@ struct Utils {
       badge.widthAnchor.constraint(equalToConstant: badge.bounds.size.width),
       badge.heightAnchor.constraint(equalToConstant: badge.bounds.size.height),
     ])
+  }
+  
+  // MARK: - Timer
+  static func stopTimers() {
+    if UpdateLocaionTimer != nil {
+      print("stopTimers()")
+      UpdateLocaionTimer.invalidate()
+      UpdateLocaionTimer = nil
+    }
+    if UpdateStatusTimer != nil {
+      print("stopTimers()")
+      UpdateStatusTimer.invalidate()
+      UpdateStatusTimer = nil
+    }
   }
 }
