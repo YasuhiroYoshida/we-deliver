@@ -28,6 +28,34 @@ class MapKitEnabledViewController: UIViewController, MKMapViewDelegate {
     return renderer
   }
 
+  func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+    let annotationIdentifier = "Default"
+    var annotationView: MKAnnotationView
+
+    if let dequeuedAnnotationView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier) {
+      dequeuedAnnotationView.annotation = annotation
+      annotationView = dequeuedAnnotationView
+    } else {
+      annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
+    }
+
+    switch annotation.title {
+    case CharacterType.Recipient.rawValue:
+      annotationView.canShowCallout = true
+      annotationView.image = UIImage(named: AnnotationPin.Recipient.rawValue)
+    case CharacterType.Driver.rawValue:
+      annotationView.canShowCallout = true
+      annotationView.image = UIImage(named: AnnotationPin.Driver.rawValue)
+    case CharacterType.Restaurant.rawValue:
+      annotationView.canShowCallout = true
+      annotationView.image = UIImage(named: AnnotationPin.Restaurant.rawValue)
+    default:
+      annotationView.canShowCallout = true
+    }
+
+    return annotationView
+  }
+
   internal func convertAddressToCLPlacemark(_ address: String, completion: @escaping (CLPlacemark) -> Void) {
     CLGeocoder().geocodeAddressString(address) { cLPlacemarks, error in
       guard error == nil else { return }

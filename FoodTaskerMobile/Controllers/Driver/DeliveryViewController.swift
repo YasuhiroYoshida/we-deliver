@@ -147,6 +147,7 @@ extension DeliveryViewController: CLLocationManagerDelegate {
       } else {
         driverDropPinAnnotation = MKPointAnnotation()
         driverDropPinAnnotation.coordinate = driverLocationCoordinate
+        driverDropPinAnnotation.title = "Driver"
         mapMapView.addAnnotation(driverDropPinAnnotation)
       }
 

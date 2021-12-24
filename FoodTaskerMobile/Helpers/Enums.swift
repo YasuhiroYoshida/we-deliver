@@ -17,3 +17,9 @@ enum OrderStatus: String {
 enum CharacterType: String {
   case Recipient, Driver, Restaurant
 }
+
+enum AnnotationPin: String {
+  case Recipient = "recipient_pin"
+  case Driver = "driver_pin"
+  case Restaurant = "restaurant_pin"
+}
