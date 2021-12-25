@@ -27,7 +27,7 @@ class CartViewController: UIViewController {
     super.viewDidLoad()
 
     if Cart.current.cartItems.count == 0 {
-      let label = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.size.width , height: 40))
+      let label = UILabel(frame: CGRect(x: 0.0, y: 0.0, width: view.frame.size.width , height: 40.0))
       label.center = view.center
       label.textAlignment = .center
       label.text = "Your cart is empty. Please select a meal."

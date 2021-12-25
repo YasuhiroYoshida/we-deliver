@@ -163,7 +163,7 @@ class DeliveryViewController: MapKitEnabledViewController {
       self.statusView.isHidden = true
       self.mapMapView.isHidden = true
       self.driverInfoView.isHidden = true
-
+//      UILabel(frame: CGRectMake(0, 0, tableView.bounds.size.width, tableView.bounds.size.height))
       let label = UILabel(frame: CGRect(x: 0.0, y: 0.0, width: self.view.frame.size.width, height: 40.0))
       label.center = self.view.center
       label.textAlignment = .center
