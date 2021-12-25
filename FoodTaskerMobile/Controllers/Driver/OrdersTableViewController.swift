@@ -73,7 +73,16 @@ class OrdersTableViewController: UITableViewController {
           self.orders.append(Order(unowned_order))
         }
       }
-      self.tableView.reloadData()
+
+      if self.orders.count > 0 {
+        self.tableView.reloadData()
+      } else {
+        let label = UILabel(frame: CGRect(x: 0.0, y: 0.0, width: self.view.frame.size.width, height: 40.0))
+        label.center.y = (self.view.center.y / 2.0)
+        label.textAlignment = .center
+        label.text = "There are no orders ready for pickup"
+        self.view.addSubview(label)
+      }
     }
   }
 
