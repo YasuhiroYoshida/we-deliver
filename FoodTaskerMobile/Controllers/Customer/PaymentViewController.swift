@@ -55,7 +55,7 @@ class PaymentViewController: UIViewController {
 
         let alertController = UIAlertController(title: "Last order still in progress", message: "A new order cannot be accepted before your last order is fulfilled. Would you like to see the last order?", preferredStyle: .alert)
         let yesAction = UIAlertAction(title: "Yes", style: .default) { _ in
-          self.performSegue(withIdentifier: "PaymentView2OrderStatusView", sender: self)
+          self.performSegue(withIdentifier: "PaymentView2DeliveryView", sender: self)
         }
         let noAction = UIAlertAction(title: "No", style: .cancel)
         alertController.addAction(yesAction)
@@ -84,7 +84,7 @@ class PaymentViewController: UIViewController {
             }
 
             Cart.current.reset()
-            self.performSegue(withIdentifier: "PaymentView2OrderStatusView", sender: self)
+            self.performSegue(withIdentifier: "PaymentView2DeliveryView", sender: self)
           }
         case .canceled:
           let alertController = UIAlertController(title: "Payment processing canceled", message: (error?.localizedDescription ?? ""), preferredStyle: .alert)

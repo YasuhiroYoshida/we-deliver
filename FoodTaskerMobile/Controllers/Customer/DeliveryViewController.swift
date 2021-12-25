@@ -1,5 +1,5 @@
 //
-//  OrderStatusViewController.swift
+//  DeliveryViewController.swift
 //  FoodTaskerMobile
 //
 //  Created by Yasuhiro Yoshida on 2021-12-01.
@@ -7,8 +7,9 @@
 
 import UIKit
 import MapKit
+import SwiftyJSON
 
-class OrderStatusViewController: MapKitEnabledViewController {
+class DeliveryViewController: MapKitEnabledViewController {
   // MARK: - Vars
   var status: String!
   // MARK: - Vars - Inherited
@@ -26,6 +27,9 @@ class OrderStatusViewController: MapKitEnabledViewController {
   @IBOutlet weak var statusView: UIView!
   @IBOutlet weak var mapMapView: MKMapView!
   @IBOutlet weak var driverInfoView: UIView!
+  @IBOutlet weak var driverAvatarImageView: UIImageView!
+  @IBOutlet weak var driverNameLabel: UILabel!
+  @IBOutlet weak var driverCarModelAndPlateNumberLabel: UILabel!
 
   // MARK: - Lifecycles
   override func viewDidAppear(_ animated: Bool) {
@@ -36,11 +40,17 @@ class OrderStatusViewController: MapKitEnabledViewController {
     }
   }
 
+  override func viewWillDisappear(_ animated: Bool) {
+    Utils.stopTimers()
+  }
+  
   private func updateMap() {
 
     APIClient.shared.order { json in
 
       if let order = json?["order"], order["status"].string == OrderStatus.onTheWay.rawValue {
+
+        self.loadDriverInfo(order["driver"])
 
         let sourceAddress = order["restaurant"]["address"].string!
         let destinationAddress = order["address"].string!
@@ -49,14 +59,14 @@ class OrderStatusViewController: MapKitEnabledViewController {
 
           if let sourceLocation = sourceCLPlacemark.location {
 
-            self.setDropPinAnnotation(on: &self.mapMapView, at: sourceLocation, titled: "Restaurant")
+            self.setDropPinAnnotation(on: &self.mapMapView, at: sourceLocation, titled: CharacterType.Restaurant.rawValue)
             self.sourceMKPlacemark = MKPlacemark(placemark: sourceCLPlacemark)
 
             self.convertAddressToCLPlacemark(destinationAddress) { destinationCLPlacemark in
 
               if let destinationLocation = destinationCLPlacemark.location {
 
-                self.setDropPinAnnotation(on: &self.mapMapView, at: destinationLocation, titled: "Customer")
+                self.setDropPinAnnotation(on: &self.mapMapView, at: destinationLocation, titled: CharacterType.Recipient.rawValue)
                 self.destinationMKPlacemark = MKPlacemark(placemark: destinationCLPlacemark)
 
                 self.drawRoutes(on: &self.mapMapView)
@@ -84,6 +94,7 @@ class OrderStatusViewController: MapKitEnabledViewController {
           } else {
             self.driverDropPinAnnotation = MKPointAnnotation()
             self.driverDropPinAnnotation.coordinate = self.driverLocationCoordinate
+            self.driverDropPinAnnotation.title = CharacterType.Driver.rawValue
             self.mapMapView.addAnnotation(self.driverDropPinAnnotation)
           }
 
@@ -92,6 +103,18 @@ class OrderStatusViewController: MapKitEnabledViewController {
         }
       }
     }
+  }
+
+  private func loadDriverInfo(_ driver: JSON) {
+    if let image = try? UIImage(data: Data(contentsOf: URL(string: driver["avatar"].string!)!)) {
+      self.driverAvatarImageView.image = image
+      self.driverAvatarImageView.layer.cornerRadius = self.driverAvatarImageView.frame.width / 2
+      self.driverAvatarImageView.layer.borderColor = UIColor.white.cgColor
+      self.driverAvatarImageView.layer.borderWidth = 1
+      self.driverAvatarImageView.clipsToBounds = true
+    }
+    self.driverNameLabel.text = driver["name"].string
+    self.driverCarModelAndPlateNumberLabel.text = "\(driver["car_model"]) - \(driver["plate_number"])"
   }
 
   private func updateStatus() {
@@ -116,7 +139,9 @@ class OrderStatusViewController: MapKitEnabledViewController {
           self.readyImageView.alpha = 1.0
           self.onTheWayImageView.alpha = 1.0
           self.driverInfoView.isHidden = false
-          self.updateMap()
+          if UpdateLocaionTimer == nil {
+            self.updateMap()
+          }
         case OrderStatus.delivered.rawValue:
           self.acceptedImageView.alpha = 1.0
           self.readyImageView.alpha = 1.0

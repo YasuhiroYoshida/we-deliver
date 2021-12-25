@@ -1,5 +1,5 @@
 //
-//  DeliveryViewController.swift
+//  RouteViewController.swift
 //  FoodTaskerMobile
 //
 //  Created by Yasuhiro Yoshida on 2021-12-13.
@@ -9,7 +9,7 @@ import UIKit
 import MapKit
 import SwiftyJSON
 
-class DeliveryViewController: MapKitEnabledViewController {
+class RouteViewController: MapKitEnabledViewController {
   // MARK: - Vars
   var orderId: Int?
   // MARK: - Vars - Inherited
@@ -94,14 +94,14 @@ class DeliveryViewController: MapKitEnabledViewController {
 
         if let sourceLocation = sourceCLPlacemark.location {
 
-          self.setDropPinAnnotation(on: &self.mapMapView, at: sourceLocation, titled: "Restaurant")
+          self.setDropPinAnnotation(on: &self.mapMapView, at: sourceLocation, titled: CharacterType.Restaurant.rawValue)
           self.sourceMKPlacemark = MKPlacemark(placemark: sourceCLPlacemark)
 
           self.convertAddressToCLPlacemark(destinationAddress) { destinationCLPlacemark in
 
             if let destinationLocation = destinationCLPlacemark.location {
 
-              self.setDropPinAnnotation(on: &self.mapMapView, at: destinationLocation, titled: "Customer")
+              self.setDropPinAnnotation(on: &self.mapMapView, at: destinationLocation, titled: CharacterType.Recipient.rawValue)
               self.destinationMKPlacemark = MKPlacemark(placemark: destinationCLPlacemark)
 
               self.drawRoutes(on: &self.mapMapView)
@@ -135,9 +135,10 @@ class DeliveryViewController: MapKitEnabledViewController {
 }
 
 // MARK: - CLLocationManagerDelegate
-extension DeliveryViewController: CLLocationManagerDelegate {
+extension RouteViewController: CLLocationManagerDelegate {
 
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+
     if let location = locations.last {
 
       driverLocationCoordinate = location.coordinate
@@ -147,11 +148,11 @@ extension DeliveryViewController: CLLocationManagerDelegate {
       } else {
         driverDropPinAnnotation = MKPointAnnotation()
         driverDropPinAnnotation.coordinate = driverLocationCoordinate
-        driverDropPinAnnotation.title = "Driver"
+        driverDropPinAnnotation.title = CharacterType.Driver.rawValue
         mapMapView.addAnnotation(driverDropPinAnnotation)
       }
 
-      mapMapView.layoutMargins = UIEdgeInsets(top: CGFloat(10), left: CGFloat(10), bottom: CGFloat(10), right: CGFloat(10))
+      mapMapView.layoutMargins = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
       mapMapView.showAnnotations(mapMapView.annotations, animated: true)
     }
   }

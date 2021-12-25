@@ -211,7 +211,7 @@
                                                         <constraint firstAttribute="width" constant="40" id="Px6-BJ-a2E"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DELIVERIES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Re-hB-3dE">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ROUTE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Re-hB-3dE">
                                                     <rect key="frame" x="110" y="30" width="240" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -346,16 +346,19 @@
             </objects>
             <point key="canvasLocation" x="11" y="-2086"/>
         </scene>
-        <!--Delivery View Controller-->
+        <!--Route View Controller-->
         <scene sceneID="FHZ-es-uqI">
             <objects>
-                <viewController id="z1p-SB-u1C" customClass="DeliveryViewController" customModule="FoodTaskerMobile" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="z1p-SB-u1C" customClass="RouteViewController" customModule="FoodTaskerMobile" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="esk-fi-3XI">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="UED-eh-fuH">
                                 <rect key="frame" x="0.0" y="88" width="390" height="756"/>
+                                <connections>
+                                    <outlet property="delegate" destination="z1p-SB-u1C" id="Wlp-nN-NXC"/>
+                                </connections>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aos-K0-4um">
                                 <rect key="frame" x="10" y="674" width="370" height="80"/>
@@ -1196,10 +1199,10 @@
             </objects>
             <point key="canvasLocation" x="11" y="1267"/>
         </scene>
-        <!--Order Status View Controller-->
+        <!--Delivery View Controller-->
         <scene sceneID="iKW-eC-RUe">
             <objects>
-                <viewController id="nXh-9I-Ztc" customClass="OrderStatusViewController" customModule="FoodTaskerMobile" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="nXh-9I-Ztc" customClass="DeliveryViewController" customModule="FoodTaskerMobile" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Okh-bL-TwZ">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1369,7 +1372,10 @@
                     </navigationItem>
                     <connections>
                         <outlet property="acceptedImageView" destination="4s0-CO-c92" id="0Bw-3v-sIX"/>
+                        <outlet property="driverAvatarImageView" destination="6M3-7d-kz9" id="uIw-iO-VkO"/>
+                        <outlet property="driverCarModelAndPlateNumberLabel" destination="Qig-fd-blu" id="EHu-Di-LfX"/>
                         <outlet property="driverInfoView" destination="rwL-ek-voP" id="VAa-ze-vKc"/>
+                        <outlet property="driverNameLabel" destination="go4-Gx-Ecb" id="5Ti-gM-TYR"/>
                         <outlet property="mapMapView" destination="6lz-s1-dFW" id="7LC-go-PjK"/>
                         <outlet property="menuBarButtonItem" destination="lxf-qw-vcn" id="d1x-v8-DfB"/>
                         <outlet property="onTheWayImageView" destination="VOM-Lc-t4R" id="3Sk-gi-fJG"/>
@@ -1844,7 +1850,7 @@
                     <connections>
                         <outlet property="animationView" destination="p5e-KB-Avb" id="Y8V-uv-U5p"/>
                         <outlet property="cardTextField" destination="aTf-a2-EAQ" id="xpT-gv-kh9"/>
-                        <segue destination="nXh-9I-Ztc" kind="show" identifier="PaymentView2OrderStatusView" id="RVG-PG-aBI"/>
+                        <segue destination="nXh-9I-Ztc" kind="show" identifier="PaymentView2DeliveryView" id="RVG-PG-aBI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ER-eM-ceF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1908,12 +1914,12 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="aMK-Ko-h5n"/>
+        <segue reference="nea-XS-4kg"/>
         <segue reference="RVG-PG-aBI"/>
-        <segue reference="WZE-LM-Pz0"/>
-        <segue reference="XLc-rh-Qol"/>
-        <segue reference="8Be-cD-Xak"/>
-        <segue reference="orV-e4-knY"/>
+        <segue reference="ewx-22-K92"/>
+        <segue reference="buB-gq-hhQ"/>
+        <segue reference="rSP-Oe-MDv"/>
+        <segue reference="ybf-d2-XGY"/>
         <segue reference="Tgv-gA-WTN"/>
         <segue reference="h6T-K8-WVr"/>
     </inferredMetricsTieBreakers>

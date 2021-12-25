@@ -20,7 +20,7 @@
 		0E470A77276125C200323EBA /* CartItemsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E470A76276125C200323EBA /* CartItemsTableViewCell.swift */; };
 		0E48B81327712515007F4B4B /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 0E48B81227712515007F4B4B /* SideMenu */; };
 		0E4C63902756A079003008F5 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4C638F2756A079003008F5 /* CartViewController.swift */; };
-		0E50CE762758158500EACDC6 /* OrderStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E50CE752758158500EACDC6 /* OrderStatusViewController.swift */; };
+		0E50CE762758158500EACDC6 /* DeliveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E50CE752758158500EACDC6 /* DeliveryViewController.swift */; };
 		0E51F243275931370048F8CA /* 27630-credit-card-blue.json in Resources */ = {isa = PBXBuildFile; fileRef = 0E51F242275931360048F8CA /* 27630-credit-card-blue.json */; };
 		0E51F2A9275A12E50048F8CA /* FBAuthClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E51F2A8275A12E50048F8CA /* FBAuthClient.swift */; };
 		0E68CBDB275BA4BA00C766BF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68CBDA275BA4BA00C766BF /* Constants.swift */; };
@@ -35,7 +35,7 @@
 		0E720D042763BE06004FDC8D /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E720D032763BE06004FDC8D /* Errors.swift */; };
 		0E7FBEAE275ABA4200E514BC /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7FBEAD275ABA4200E514BC /* APIClient.swift */; };
 		0E8D3A882758CBD20082DD0F /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8D3A872758CBD20082DD0F /* PaymentViewController.swift */; };
-		0EA6358F2767C78E005A8F63 /* DeliveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6358E2767C78E005A8F63 /* DeliveryViewController.swift */; };
+		0EA6358F2767C78E005A8F63 /* RouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA6358E2767C78E005A8F63 /* RouteViewController.swift */; };
 		0EA635912767D7FB005A8F63 /* EarningsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA635902767D7FB005A8F63 /* EarningsViewController.swift */; };
 		0EA7F244275257AE00A4216B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA7F243275257AE00A4216B /* AppDelegate.swift */; };
 		0EA7F246275257AE00A4216B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA7F245275257AE00A4216B /* SceneDelegate.swift */; };
@@ -81,7 +81,7 @@
 		0E409DFF275A76A40003A5A8 /* OrderMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderMenuTableViewController.swift; sourceTree = "<group>"; };
 		0E470A76276125C200323EBA /* CartItemsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemsTableViewCell.swift; sourceTree = "<group>"; };
 		0E4C638F2756A079003008F5 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
-		0E50CE752758158500EACDC6 /* OrderStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderStatusViewController.swift; sourceTree = "<group>"; };
+		0E50CE752758158500EACDC6 /* DeliveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryViewController.swift; sourceTree = "<group>"; };
 		0E51F242275931360048F8CA /* 27630-credit-card-blue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "27630-credit-card-blue.json"; sourceTree = "<group>"; };
 		0E51F2A8275A12E50048F8CA /* FBAuthClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBAuthClient.swift; sourceTree = "<group>"; };
 		0E68CBDA275BA4BA00C766BF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -96,7 +96,7 @@
 		0E720D032763BE06004FDC8D /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		0E7FBEAD275ABA4200E514BC /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		0E8D3A872758CBD20082DD0F /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
-		0EA6358E2767C78E005A8F63 /* DeliveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryViewController.swift; sourceTree = "<group>"; };
+		0EA6358E2767C78E005A8F63 /* RouteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteViewController.swift; sourceTree = "<group>"; };
 		0EA635902767D7FB005A8F63 /* EarningsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarningsViewController.swift; sourceTree = "<group>"; };
 		0EA7F240275257AE00A4216B /* FoodTaskerMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodTaskerMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EA7F243275257AE00A4216B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -141,7 +141,7 @@
 				0E68CBE5275CFF0400C766BF /* MealsTableViewCell.swift */,
 				0E2F417527553B9D00E0304A /* MealsTableViewController.swift */,
 				0E409DFF275A76A40003A5A8 /* OrderMenuTableViewController.swift */,
-				0E50CE752758158500EACDC6 /* OrderStatusViewController.swift */,
+				0E50CE752758158500EACDC6 /* DeliveryViewController.swift */,
 				0E8D3A872758CBD20082DD0F /* PaymentViewController.swift */,
 				0E68CBDE275CAD3900C766BF /* RestaurantsTableViewCell.swift */,
 				0E2F41712753E75D00E0304A /* RestaurantsViewController.swift */,
@@ -153,7 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				0E143069276761BD009EE043 /* DeliveryMenuTableViewController.swift */,
-				0EA6358E2767C78E005A8F63 /* DeliveryViewController.swift */,
+				0EA6358E2767C78E005A8F63 /* RouteViewController.swift */,
 				0EA635902767D7FB005A8F63 /* EarningsViewController.swift */,
 				0EEE702B276B460D009D92E9 /* OrdersTableViewCell.swift */,
 				0E143060276752C9009EE043 /* OrdersTableViewController.swift */,
@@ -420,7 +420,7 @@
 				0E409E00275A76A40003A5A8 /* OrderMenuTableViewController.swift in Sources */,
 				0E68CBE4275CFC6600C766BF /* Meal.swift in Sources */,
 				0E68CBDD275BDD3500C766BF /* Restaurant.swift in Sources */,
-				0E50CE762758158500EACDC6 /* OrderStatusViewController.swift in Sources */,
+				0E50CE762758158500EACDC6 /* DeliveryViewController.swift in Sources */,
 				0E68CBDB275BA4BA00C766BF /* Constants.swift in Sources */,
 				0EF946FD2774E7D8007F09AD /* MapKitEnabledViewController.swift in Sources */,
 				0E2F41722753E75D00E0304A /* RestaurantsViewController.swift in Sources */,
@@ -430,7 +430,7 @@
 				0E4C63902756A079003008F5 /* CartViewController.swift in Sources */,
 				0E8D3A882758CBD20082DD0F /* PaymentViewController.swift in Sources */,
 				0E720D042763BE06004FDC8D /* Errors.swift in Sources */,
-				0EA6358F2767C78E005A8F63 /* DeliveryViewController.swift in Sources */,
+				0EA6358F2767C78E005A8F63 /* RouteViewController.swift in Sources */,
 				0EA7F246275257AE00A4216B /* SceneDelegate.swift in Sources */,
 				0E409DFE275A6C1A0003A5A8 /* User.swift in Sources */,
 				0E2F417627553B9D00E0304A /* MealsTableViewController.swift in Sources */,
