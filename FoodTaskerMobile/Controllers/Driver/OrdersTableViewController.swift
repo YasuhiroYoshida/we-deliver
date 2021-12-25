@@ -84,6 +84,17 @@ class OrdersTableViewController: UITableViewController {
         self.view.addSubview(label)
       }
     }
+
+    APIClient.shared.delivery { json in
+      if let status = json?["delivery"]["status"].string, status == OrderStatus.onTheWay.rawValue {
+        let alertController = UIAlertController(title: "🕵️", message: "You do not seem to have reported your last task. I will take you to Route.", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default) { _ in
+          self.performSegue(withIdentifier: "OrdersTableView2DeliveryView", sender: self)
+        }
+        alertController.addAction(action)
+        self.present(alertController, animated: true)
+      }
+    }
   }
 
   // MARK: - Table view data source
