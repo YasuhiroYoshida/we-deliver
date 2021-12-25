@@ -13,11 +13,11 @@ class RouteViewController: MapKitEnabledViewController {
   // MARK: - Vars
   var orderId: Int?
   // MARK: - Vars - Inherited
-  //var locationMgr = CLLocationManager()
-  //var driverLocationCoordinate: CLLocationCoordinate2D!
-  //var sourceMKPlacemark: MKPlacemark?
-  //var destinationMKPlacemark: MKPlacemark?
-  //var driverDropPinAnnotation: MKPointAnnotation!
+//var locationMgr = CLLocationManager()
+//var driverLocationCoordinate: CLLocationCoordinate2D!
+//var sourceMKPlacemark: MKPlacemark?
+//var destinationMKPlacemark: MKPlacemark?
+//var driverDropPinAnnotation: MKPointAnnotation!
 
   // MARK: - IBOutlets
   @IBOutlet weak var menuBarButtonItem: UIBarButtonItem!
@@ -131,6 +131,25 @@ class RouteViewController: MapKitEnabledViewController {
   }
 
   @IBAction func completeOrderButtonPressed(_ sender: Any) {
+    let confirmationController = UIAlertController(title: "Completed the task?", message: "", preferredStyle: .alert)
+    let yesAction = UIAlertAction(title: "Yes", style: .default, handler: { _ in
+      if let _orderId = self.orderId {
+        APIClient.shared.updateOrder(id: _orderId, newStatus: OrderStatus.delivered) { json in
+          Utils.stopTimers()
+
+          let alertController = UIAlertController(title: "Task Completed!", message: "Congratulations! You will be taken to Orders", preferredStyle: .alert)
+          let action = UIAlertAction(title: "OK", style: .default) { _ in
+            self.performSegue(withIdentifier: "RoutesView2OrdersTableView", sender: self)
+          }
+          alertController.addAction(action)
+          self.present(alertController, animated: true)
+        }
+      }
+    })
+    let noAction = UIAlertAction(title: "No", style: .cancel)
+    confirmationController.addAction(yesAction)
+    confirmationController.addAction(noAction)
+    self.present(confirmationController, animated: true)
   }
 }
 

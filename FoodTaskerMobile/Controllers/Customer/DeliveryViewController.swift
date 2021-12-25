@@ -147,6 +147,7 @@ class DeliveryViewController: MapKitEnabledViewController {
           self.readyImageView.alpha = 1.0
           self.onTheWayImageView.alpha = 1.0
           self.driverInfoView.isHidden = false
+          Utils.stopTimers()
           self.closeMapIf30MinutesSince(pickedAt: orderStatus["picked_at"].string!)
         default: // Already exhaustive with the above conditions
           break
@@ -158,12 +159,17 @@ class DeliveryViewController: MapKitEnabledViewController {
   private func closeMapIf30MinutesSince(pickedAt: String) {
     guard !pickedAt.isEmpty else { return }
 
+    let alertController = UIAlertController(title: "Your order has arrived!", message: "Enjoy your meal! 🥳", preferredStyle: .alert)
+    let action = UIAlertAction(title: "OK", style: .default)
+    alertController.addAction(action)
+    present(alertController, animated: true)
+
     let _pickedAt = ISO8601DateFormatter().date(from: pickedAt)
     if let closingTime = _pickedAt?.addingTimeInterval(TimeInterval(60.0 * 2)), Date() > closingTime {
       self.statusView.isHidden = true
       self.mapMapView.isHidden = true
       self.driverInfoView.isHidden = true
-//      UILabel(frame: CGRectMake(0, 0, tableView.bounds.size.width, tableView.bounds.size.height))
+
       let label = UILabel(frame: CGRect(x: 0.0, y: 0.0, width: self.view.frame.size.width, height: 40.0))
       label.center = self.view.center
       label.textAlignment = .center

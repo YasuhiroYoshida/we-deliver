@@ -70,7 +70,7 @@ class APIClient {
     }
   }
 
-  // tokens are always updated whenever a non-auth request is made and they have become stale
+  // Tokens are always updated whenever a non-auth request is made and they have become stale
   func refreshToken(completion: @escaping () -> Void) {
     let path = "api/social/refresh-token/"
     let url = baseURL.appendingPathComponent(path)
@@ -229,14 +229,4 @@ class APIClient {
     ]
     request(by: .patch, to: url, with: params, completion: completion)
   }
-
-//  func pickOrder(orderID: Int, completion: @escaping (JSON?) -> Void) {
-//    let url = "api/driver/update_order/"
-//    let params: [String: Any] = [
-//      "access_token": accessToken,
-//      "order_id": orderID
-//    ]
-//
-//    request(by: .patch, to: url, with: params, completion: completion)
-//  }
 }
