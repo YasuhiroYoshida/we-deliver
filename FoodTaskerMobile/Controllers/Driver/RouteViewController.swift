@@ -115,7 +115,7 @@ class RouteViewController: MapKitEnabledViewController {
   private func updateDriverLocation() {
     guard driverLocationCoordinate != nil else { return }
 
-    APIClient.shared.updateLocation(driverLocationCoordinate) {_ in }
+    APIClient.shared.updateLocation(driverLocationCoordinate)
   }
 
   private func showMessageOnly() {

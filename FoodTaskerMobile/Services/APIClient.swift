@@ -199,7 +199,7 @@ class APIClient {
     request(by: .get, to: url, with: nil, completion: completion)
   }
 
-  func updateLocation(_ location: CLLocationCoordinate2D, completion: @escaping (JSON?) -> Void) {
+  func updateLocation(_ location: CLLocationCoordinate2D, completion: @escaping (JSON?) -> Void = { _ in }) {
     let url = "api/driver/update_location/"
     let params: [String: Any] = [
       "access_token": accessToken,
