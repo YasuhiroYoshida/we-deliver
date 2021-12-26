@@ -96,7 +96,7 @@ class MapKitEnabledViewController: UIViewController, MKMapViewDelegate {
     for route in routes {
       mapView.addOverlay(route.polyline, level: MKOverlayLevel.aboveRoads)
     }
-    mapView.layoutMargins = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
+    mapView.layoutMargins = UIEdgeInsets(top: 20.0, left: 20.0, bottom: 80.0, right: 20.0)
     mapView.showAnnotations(mapView.annotations, animated: true)
   }
 }

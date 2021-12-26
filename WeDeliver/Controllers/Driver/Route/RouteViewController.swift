@@ -175,7 +175,7 @@ extension RouteViewController: CLLocationManagerDelegate {
         mapMapView.addAnnotation(driverDropPinAnnotation)
       }
 
-      mapMapView.layoutMargins = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
+      mapMapView.layoutMargins = UIEdgeInsets(top: 20.0, left: 20.0, bottom: 80.0, right: 20.0)
       mapMapView.showAnnotations(mapMapView.annotations, animated: true)
     }
   }

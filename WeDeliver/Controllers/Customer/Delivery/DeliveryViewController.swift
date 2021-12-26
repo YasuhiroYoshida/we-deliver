@@ -98,7 +98,8 @@ class DeliveryViewController: MapKitEnabledViewController {
             self.mapMapView.addAnnotation(self.driverDropPinAnnotation)
           }
 
-          self.mapMapView.layoutMargins = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
+          self.mapMapView.layoutMargins = UIEdgeInsets(top: 20.0, left: 20.0, bottom: 80.0, right: 20.0)
+
           self.mapMapView.showAnnotations(self.mapMapView.annotations, animated: true)
         }
       }
