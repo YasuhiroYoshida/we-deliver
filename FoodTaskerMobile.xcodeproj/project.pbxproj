@@ -53,6 +53,7 @@
 		0EEE702C276B460D009D92E9 /* OrdersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEE702B276B460D009D92E9 /* OrdersTableViewCell.swift */; };
 		0EF946FB27724490007F09AD /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 0EF946FA27724490007F09AD /* FacebookLogin */; };
 		0EF946FD2774E7D8007F09AD /* MapKitEnabledViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF946FC2774E7D8007F09AD /* MapKitEnabledViewController.swift */; };
+		0EF947002778472D007F09AD /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 0EF946FF2778472D007F09AD /* Charts */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -122,6 +123,7 @@
 				0EDCBAAC2770EC9B009D47A7 /* DropDown in Frameworks */,
 				0EDCBA9E2770E347009D47A7 /* SwiftyJSON in Frameworks */,
 				0EDCBA8F2770E2C7009D47A7 /* SkeletonView in Frameworks */,
+				0EF947002778472D007F09AD /* Charts in Frameworks */,
 				0E48B81327712515007F4B4B /* SideMenu in Frameworks */,
 				0EDCBA922770E2E5009D47A7 /* Alamofire in Frameworks */,
 				0EDCBAA12770E362009D47A7 /* Lottie in Frameworks */,
@@ -342,6 +344,7 @@
 				0EDCBAAB2770EC9B009D47A7 /* DropDown */,
 				0E48B81227712515007F4B4B /* SideMenu */,
 				0EF946FA27724490007F09AD /* FacebookLogin */,
+				0EF946FF2778472D007F09AD /* Charts */,
 			);
 			productName = FoodTaskerMobile;
 			productReference = 0EA7F240275257AE00A4216B /* FoodTaskerMobile.app */;
@@ -381,6 +384,7 @@
 				0EDCBAA52770E3DD009D47A7 /* XCRemoteSwiftPackageReference "DropDown" */,
 				0E48B81127712515007F4B4B /* XCRemoteSwiftPackageReference "SideMenu" */,
 				0EF946F927724490007F09AD /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
+				0EF946FE2778472D007F09AD /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = 0EA7F241275257AE00A4216B /* Products */;
 			projectDirPath = "";
@@ -750,6 +754,14 @@
 				minimumVersion = 12.1.0;
 			};
 		};
+		0EF946FE2778472D007F09AD /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.6.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -792,6 +804,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0EF946F927724490007F09AD /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
 			productName = FacebookLogin;
+		};
+		0EF946FF2778472D007F09AD /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0EF946FE2778472D007F09AD /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = Charts;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
