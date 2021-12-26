@@ -106,12 +106,9 @@ class DeliveryViewController: MapKitEnabledViewController {
   }
 
   private func loadDriverInfo(_ driver: JSON) {
-    if let image = try? UIImage(data: Data(contentsOf: URL(string: driver["avatar"].string!)!)) {// ✅
-      self.driverAvatarImageView.image = image
-      self.driverAvatarImageView.layer.cornerRadius = self.driverAvatarImageView.frame.width / 2
-      self.driverAvatarImageView.layer.borderColor = UIColor.white.cgColor
-      self.driverAvatarImageView.layer.borderWidth = 1
-      self.driverAvatarImageView.clipsToBounds = true
+
+    if let imageUrl = driver["avatar"].string {
+      Utils.fetchImage(from: imageUrl, in: self.driverAvatarImageView, round: true)
     }
     self.driverNameLabel.text = driver["name"].string
     self.driverCarModelAndPlateNumberLabel.text = "\(driver["car_model"]) - \(driver["plate_number"])"

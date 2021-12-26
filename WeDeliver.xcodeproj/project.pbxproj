@@ -43,7 +43,6 @@
 		0EA7F24D275257AF00A4216B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EA7F24C275257AF00A4216B /* Assets.xcassets */; };
 		0EA7F250275257AF00A4216B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EA7F24E275257AF00A4216B /* LaunchScreen.storyboard */; };
 		0EA7F25A275262C600A4216B /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EA7F259275262C600A4216B /* SWRevealViewController.m */; settings = {COMPILER_FLAGS = "-w"; }; };
-		0EC7DD2A2778DCE60040E65C /* UIImageExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC7DD292778DCE60040E65C /* UIImageExt.swift */; };
 		0EDCBA8F2770E2C7009D47A7 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 0EDCBA8E2770E2C7009D47A7 /* SkeletonView */; };
 		0EDCBA922770E2E5009D47A7 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0EDCBA912770E2E5009D47A7 /* Alamofire */; };
 		0EDCBA9E2770E347009D47A7 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 0EDCBA9D2770E347009D47A7 /* SwiftyJSON */; };
@@ -110,7 +109,6 @@
 		0EA7F258275262C600A4216B /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		0EA7F259275262C600A4216B /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		0EC7DD1F2778D6210040E65C /* WeDeliver-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WeDeliver-Bridging-Header.h"; sourceTree = "<group>"; };
-		0EC7DD292778DCE60040E65C /* UIImageExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExt.swift; sourceTree = "<group>"; };
 		0EEE7029276B37F1009D92E9 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		0EEE702B276B460D009D92E9 /* OrdersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersTableViewCell.swift; sourceTree = "<group>"; };
 		0EF946FC2774E7D8007F09AD /* MapKitEnabledViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitEnabledViewController.swift; sourceTree = "<group>"; };
@@ -333,7 +331,6 @@
 			isa = PBXGroup;
 			children = (
 				0E68CBF3275EAC5600C766BF /* NumericExt.swift */,
-				0EC7DD292778DCE60040E65C /* UIImageExt.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -471,7 +468,6 @@
 				0E14306A276761BD009EE043 /* DriverMenuTableViewController.swift in Sources */,
 				0EEE702C276B460D009D92E9 /* OrdersTableViewCell.swift in Sources */,
 				0E68CBDF275CAD3900C766BF /* RestaurantsTableViewCell.swift in Sources */,
-				0EC7DD2A2778DCE60040E65C /* UIImageExt.swift in Sources */,
 				0E51F2A9275A12E50048F8CA /* FBAuthClient.swift in Sources */,
 				0E68CBF4275EAC5600C766BF /* NumericExt.swift in Sources */,
 				0EA7F25A275262C600A4216B /* SWRevealViewController.m in Sources */,

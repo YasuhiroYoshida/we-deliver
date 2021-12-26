@@ -76,7 +76,7 @@ class MealDetailsViewController: UIViewController {
 
   private func fetchMeal() {
     if let imageURL = meal.image {
-      Utils.fetchImage(in: mealImageView, from: imageURL)
+      Utils.fetchImage(from: imageURL, in: mealImageView, round: false)
     }
     nameLabel.text = meal.name
     shortDescriptionLabel.text = meal.shortDescription

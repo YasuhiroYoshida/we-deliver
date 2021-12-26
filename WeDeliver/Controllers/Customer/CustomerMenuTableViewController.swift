@@ -17,13 +17,9 @@ class CustomerMenuTableViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    if let image = try? UIImage(data: Data(contentsOf: URL(string: User.current.imageURL!)!)) { // ✅
-      avatarImageView.image = image
+    if let imageUrl = User.current.imageURL {
+      Utils.fetchImage(from: imageUrl, in: avatarImageView, round: true)
     }
-    avatarImageView.layer.cornerRadius = avatarImageView.frame.width / 2
-    avatarImageView.layer.borderWidth = 1
-    avatarImageView.layer.borderColor = UIColor.white.cgColor
-    avatarImageView.layer.masksToBounds = true
     usernameLabel.text = User.current.name!
   }
 

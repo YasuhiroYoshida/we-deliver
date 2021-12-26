@@ -71,7 +71,7 @@ extension RestaurantsViewController: UITableViewDelegate, UITableViewDataSource 
     cell.nameLabel.text = restaurant.name
     cell.addressLabel.text = restaurant.address
     if let logoURL = restaurant.logo {
-      Utils.fetchImage(in: cell.logoImageView, from: logoURL)
+      Utils.fetchImage(from: logoURL, in: cell.logoImageView, round: false)
     }
     return cell
   }

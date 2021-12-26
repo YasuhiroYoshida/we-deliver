@@ -38,13 +38,7 @@ class ProfileViewController: UIViewController {
     }
 
     if let imageURL = User.current.imageURL {
-      if let image = try? UIImage(data: Data(contentsOf: URL(string: imageURL)!)) {// ✅
-        avatarImageView.image = image
-      }
-      avatarImageView.layer.cornerRadius = avatarImageView.frame.width / 2
-      avatarImageView.layer.borderColor = UIColor.white.cgColor
-      avatarImageView.layer.borderWidth = 1
-      avatarImageView.clipsToBounds = true
+      Utils.fetchImage(from: imageURL, in: avatarImageView, round: true)
     }
     usernameLabel.text = User.current.name
 

@@ -9,7 +9,7 @@ import Foundation
 
 struct Utils {
   // MARK: - Image
-  static func fetchImage(in imageView: UIImageView, from url: String) {
+  static func fetchImage(from url: String, in imageView: UIImageView, round: Bool) {
     guard let url = URL(string: url) else { return }
 
     URLSession.shared.dataTask(with: url) { data, response, error in
@@ -17,6 +17,12 @@ struct Utils {
 
       DispatchQueue.main.async {
         imageView.image = UIImage(data: _data)
+        if round {
+          imageView.layer.cornerRadius = imageView.frame.width / 2
+          imageView.layer.borderColor = UIColor.white.cgColor
+          imageView.layer.borderWidth = 1
+          imageView.clipsToBounds = true
+        }
       }
     }.resume()
   }

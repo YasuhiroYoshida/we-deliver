@@ -77,15 +77,19 @@ class RouteViewController: MapKitEnabledViewController {
       let sourceAddress = delivery["restaurant"]["address"].string!
       let destinationAddress = delivery["address"].string!
 
-      let recipientAvatarLink = delivery["customer"]["avatar"].string!
-      if let data = try? Data(contentsOf: URL(string: recipientAvatarLink)!) {// ✅
-        self.avatarImageView.image = UIImage(data: data)
+//      let recipientAvatarLink = delivery["customer"]["avatar"].string!
+//      if let data = try? Data(contentsOf: URL(string: recipientAvatarLink)!) {// ✅
+//        self.avatarImageView.image = UIImage(data: data)
+//      }
+//      self.avatarImageView.layer.cornerRadius = self.avatarImageView.frame.width / 2
+//      self.avatarImageView.layer.borderColor = UIColor.white.cgColor
+//      self.avatarImageView.layer.borderWidth = 1
+//      self.avatarImageView.clipsToBounds = true
+//      self.avatarImageView.backgroundColor = .clear
+
+      if let recipientAvatarLink = delivery["customer"]["avatar"].string {
+        Utils.fetchImage(from: recipientAvatarLink, in: self.avatarImageView, round: true)
       }
-      self.avatarImageView.layer.cornerRadius = self.avatarImageView.frame.width / 2
-      self.avatarImageView.layer.borderColor = UIColor.white.cgColor
-      self.avatarImageView.layer.borderWidth = 1
-      self.avatarImageView.clipsToBounds = true
-      self.avatarImageView.backgroundColor = .clear
       let recipientName = delivery["customer"]["name"].string!
       self.recipientNameLabel.text = recipientName
       self.recipientAddressLabel.text = destinationAddress

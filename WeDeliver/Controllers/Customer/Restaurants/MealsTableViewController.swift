@@ -91,7 +91,7 @@ class MealsTableViewController: UITableViewController {
 
     let cell = tableView.dequeueReusableCell(withIdentifier: "MealsTableViewCell", for: indexPath) as! MealsTableViewCell
     if let imageURL = meal.image {
-      Utils.fetchImage(in: cell.mealImageView, from: imageURL)
+      Utils.fetchImage(from: imageURL, in: cell.mealImageView, round: false)
     }
     cell.nameLabel.text = meal.name
     cell.shortDescriptionLabel.text = meal.shortDescription
