@@ -17,8 +17,8 @@ class CustomerMenuTableViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    if let imageUrl = User.current.imageURL {
-      Utils.fetchImage(from: imageUrl, in: avatarImageView, round: true)
+    if let imageURL = User.current.imageURL {
+      Utils.fetchImage(from: imageURL, in: avatarImageView, round: true)
     }
     usernameLabel.text = User.current.name!
   }
