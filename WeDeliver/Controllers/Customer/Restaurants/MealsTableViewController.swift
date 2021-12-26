@@ -29,7 +29,7 @@ class MealsTableViewController: UITableViewController {
   }
 
   private func loadMeals() {
-    APIClient.shared.meals(restaurantId: restaurant.id) { json in
+    APIClient.shared.meals(restaurantID: restaurant.id) { json in
       guard let _json = json else { return }
 
       for meal in _json["meals"].array! {

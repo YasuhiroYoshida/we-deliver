@@ -122,8 +122,8 @@ class APIClient {
     request(by: .get, to: url, with: nil, completion: completion)
   }
 
-  func meals(restaurantId: Int, completion: @escaping (JSON?) -> Void) {
-    let url = "api/customer/restaurants/\(restaurantId)/meals/"
+  func meals(restaurantID: Int, completion: @escaping (JSON?) -> Void) {
+    let url = "api/customer/restaurants/\(restaurantID)/meals/"
     request(by: .get, to: url, with: nil, completion: completion)
   }
 
