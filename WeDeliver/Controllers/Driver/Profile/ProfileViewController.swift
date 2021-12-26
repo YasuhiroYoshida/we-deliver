@@ -38,7 +38,7 @@ class ProfileViewController: UIViewController {
     }
 
     if let imageURL = User.current.imageURL {
-      if let image = try? UIImage(data: Data(contentsOf: URL(string: imageURL)!)) {
+      if let image = try? UIImage(data: Data(contentsOf: URL(string: imageURL)!)) {// ✅
         avatarImageView.image = image
       }
       avatarImageView.layer.cornerRadius = avatarImageView.frame.width / 2

@@ -78,7 +78,7 @@ class RouteViewController: MapKitEnabledViewController {
       let destinationAddress = delivery["address"].string!
 
       let recipientAvatarLink = delivery["customer"]["avatar"].string!
-      if let data = try? Data(contentsOf: URL(string: recipientAvatarLink)!) {
+      if let data = try? Data(contentsOf: URL(string: recipientAvatarLink)!) {// ✅
         self.avatarImageView.image = UIImage(data: data)
       }
       self.avatarImageView.layer.cornerRadius = self.avatarImageView.frame.width / 2

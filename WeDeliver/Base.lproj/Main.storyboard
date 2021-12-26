@@ -235,10 +235,10 @@
             </objects>
             <point key="canvasLocation" x="1517" y="-3092"/>
         </scene>
-        <!--Delivery Menu Table View Controller-->
+        <!--Driver Menu Table View Controller-->
         <scene sceneID="Ykg-d1-ZNU">
             <objects>
-                <tableViewController id="h4r-pY-nfu" customClass="DeliveryMenuTableViewController" customModule="WeDeliver" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="h4r-pY-nfu" customClass="DriverMenuTableViewController" customModule="WeDeliver" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="PUl-3U-9N4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -436,7 +436,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="presentation" identifier="DeliveryMenuTableViewLogout2LoginView" id="h6T-K8-WVr"/>
+                                            <segue destination="BYZ-38-t0r" kind="presentation" identifier="DriverMenuTableViewLogout2LoginView" id="h6T-K8-WVr"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -578,10 +578,10 @@
             </objects>
             <point key="canvasLocation" x="774" y="-3092"/>
         </scene>
-        <!--Order Menu Table View Controller-->
+        <!--Customer Menu Table View Controller-->
         <scene sceneID="U1H-xV-XXw">
             <objects>
-                <tableViewController id="4rJ-6O-zKZ" customClass="OrderMenuTableViewController" customModule="WeDeliver" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="4rJ-6O-zKZ" customClass="CustomerMenuTableViewController" customModule="WeDeliver" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="QY9-Mo-roJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -746,7 +746,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="presentation" identifier="OrderMenuTableViewLogout2LoginView" modalPresentationStyle="automatic" id="Pfp-fZ-96w"/>
+                                            <segue destination="BYZ-38-t0r" kind="presentation" identifier="CustomerMenuTableViewLogout2LoginView" modalPresentationStyle="automatic" id="Pfp-fZ-96w"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -939,7 +939,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" image="hamburger_icon" id="EIz-g4-VYV">
                             <color key="tintColor" systemColor="labelColor"/>
                             <connections>
-                                <segue destination="jJf-2f-XGz" kind="presentation" identifier="RestaurantsView2OrderMenuTableView" modalPresentationStyle="fullScreen" id="O11-jl-0Ub"/>
+                                <segue destination="jJf-2f-XGz" kind="presentation" identifier="RestaurantsView2CustomerMenuTableView" modalPresentationStyle="fullScreen" id="O11-jl-0Ub"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1168,7 +1168,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" image="hamburger_icon" id="Fzl-g3-F1s" userLabel="Menu Bar Bfutton">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="jJf-2f-XGz" kind="presentation" identifier="CartView2OrderMenuTableView" modalPresentationStyle="fullScreen" id="8Be-cD-Xak"/>
+                                <segue destination="jJf-2f-XGz" kind="presentation" identifier="CartView2CustomerMenuTableView" modalPresentationStyle="fullScreen" id="8Be-cD-Xak"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1374,7 +1374,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" image="hamburger_icon" id="lxf-qw-vcn">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="jJf-2f-XGz" kind="presentation" identifier="DeliveryView2OrderMenuTableView" modalPresentationStyle="fullScreen" id="rSP-Oe-MDv"/>
+                                <segue destination="jJf-2f-XGz" kind="presentation" identifier="DeliveryView2CustomerMenuTableView" modalPresentationStyle="fullScreen" id="rSP-Oe-MDv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

@@ -1,5 +1,5 @@
 //
-//  OrderMenuTableViewController.swift
+//  CustomerMenuTableViewController.swift
 //  WeDeliver
 //
 //  Created by Yasuhiro Yoshida on 2021-12-03.
@@ -8,7 +8,7 @@
 import UIKit
 import SideMenu
 
-class OrderMenuTableViewController: UITableViewController {
+class CustomerMenuTableViewController: UITableViewController {
   // MARK: - IBOutlets
   @IBOutlet weak var avatarImageView: UIImageView!
   @IBOutlet weak var usernameLabel: UILabel!
@@ -17,7 +17,7 @@ class OrderMenuTableViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    if let image = try? UIImage(data: Data(contentsOf: URL(string: User.current.imageURL!)!)) {
+    if let image = try? UIImage(data: Data(contentsOf: URL(string: User.current.imageURL!)!)) { // ✅
       avatarImageView.image = image
     }
     avatarImageView.layer.cornerRadius = avatarImageView.frame.width / 2
@@ -28,7 +28,7 @@ class OrderMenuTableViewController: UITableViewController {
   }
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "OrderMenuTableViewLogout2LoginView" {
+    if segue.identifier == "CustomerMenuTableViewLogout2LoginView" {
       APIClient.shared.logOut { error in
         guard error == nil else { return }
 

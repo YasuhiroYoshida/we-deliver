@@ -106,7 +106,7 @@ class DeliveryViewController: MapKitEnabledViewController {
   }
 
   private func loadDriverInfo(_ driver: JSON) {
-    if let image = try? UIImage(data: Data(contentsOf: URL(string: driver["avatar"].string!)!)) {
+    if let image = try? UIImage(data: Data(contentsOf: URL(string: driver["avatar"].string!)!)) {// ✅
       self.driverAvatarImageView.image = image
       self.driverAvatarImageView.layer.cornerRadius = self.driverAvatarImageView.frame.width / 2
       self.driverAvatarImageView.layer.borderColor = UIColor.white.cgColor

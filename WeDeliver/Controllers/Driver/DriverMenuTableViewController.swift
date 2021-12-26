@@ -1,5 +1,5 @@
 //
-//  DeliveryMenuTableViewController.swift
+//  DriverMenuTableViewController.swift
 //  WeDeliver
 //
 //  Created by Yasuhiro Yoshida on 2021-12-13.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DeliveryMenuTableViewController: UITableViewController {
+class DriverMenuTableViewController: UITableViewController {
   // MARK: - IBOutlets
   @IBOutlet weak var avatarImageView: UIImageView!
   @IBOutlet weak var usernameLabel: UILabel!
@@ -16,7 +16,7 @@ class DeliveryMenuTableViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    if let image = try? UIImage(data: Data(contentsOf: URL(string: User.current.imageURL!)!)) {
+    if let image = try? UIImage(data: Data(contentsOf: URL(string: User.current.imageURL!)!)) {// ✅
       avatarImageView.image = image
     }
     avatarImageView.layer.cornerRadius = avatarImageView.frame.width / 2
@@ -27,7 +27,7 @@ class DeliveryMenuTableViewController: UITableViewController {
   }
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "DeliveryMenuTableViewLogout2LoginView" {
+    if segue.identifier == "DriverMenuTableViewLogout2LoginView" {
       APIClient.shared.logOut { error in
         guard error == nil else { return }
 
