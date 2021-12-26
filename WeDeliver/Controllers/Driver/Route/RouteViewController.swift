@@ -11,7 +11,7 @@ import SwiftyJSON
 
 class RouteViewController: MapKitEnabledViewController {
   // MARK: - Vars
-  var orderId: Int?
+  var orderID: Int?
   // MARK: - Vars - Inherited
 //var locationMgr = CLLocationManager()
 //var driverLocationCoordinate: CLLocationCoordinate2D!
@@ -73,7 +73,7 @@ class RouteViewController: MapKitEnabledViewController {
         return
       }
 
-      self.orderId = delivery["id"].int!
+      self.orderID = delivery["id"].int!
       let sourceAddress = delivery["restaurant"]["address"].string!
       let destinationAddress = delivery["address"].string!
 
@@ -137,8 +137,8 @@ class RouteViewController: MapKitEnabledViewController {
   @IBAction func completeOrderButtonPressed(_ sender: Any) {
     let confirmationController = UIAlertController(title: "Completed the task?", message: "", preferredStyle: .alert)
     let yesAction = UIAlertAction(title: "Yes", style: .default, handler: { _ in
-      if let _orderId = self.orderId {
-        APIClient.shared.updateOrder(id: _orderId, newStatus: OrderStatus.delivered) { json in
+      if let _orderID = self.orderID {
+        APIClient.shared.updateOrder(id: _orderID, newStatus: OrderStatus.delivered) { json in
           Utils.stopTimers()
 
           let alertController = UIAlertController(title: "Task Completed!", message: "Congratulations! You will be taken to Orders", preferredStyle: .alert)
