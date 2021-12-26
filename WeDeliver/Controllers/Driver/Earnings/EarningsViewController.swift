@@ -9,10 +9,6 @@ import UIKit
 import Charts
 
 class EarningsViewController: UIViewController {
-  // MARK: - Vars
-//  let weekdays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
-  var earnings: [BarChartDataEntry]!
-
   // MARK: - IBOutlets
   @IBOutlet weak var menuBarButtonItem: UIBarButtonItem!
   @IBOutlet weak var earningsBarChartView: BarChartView!
@@ -47,15 +43,21 @@ class EarningsViewController: UIViewController {
 
   func loadEarnings() {
     APIClient.shared.earnings { json in
-      if let revenues = json?["daily_revenue_this_week"] {
-        let xAxisLabels = Array(revenues.dictionary!.keys)
-        self.earningsBarChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: xAxisLabels)
+      let xAxisMarks = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 
-        let dataEntries = revenues.enumerated().map { BarChartDataEntry(x: Double($0), y: $1.1.double ?? 0.0) }
+      if let revenues = json?["daily_revenue_this_week"].dictionary {
+
+        let dataEntries = revenues.enumerated().map { (i, revenue) -> BarChartDataEntry in
+          let value = revenues[xAxisMarks[i]]?.double ?? 0.0
+          return BarChartDataEntry(x: Double(i), y: value)
+        }
+
         let dataset = BarChartDataSet(dataEntries)
         dataset.colors = ChartColorTemplates.material()
+
         let data = BarChartData(dataSet: dataset)
         self.earningsBarChartView.data = data
+        self.earningsBarChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: xAxisMarks)
       }
     }
   }
