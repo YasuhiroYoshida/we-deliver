@@ -229,4 +229,13 @@ class APIClient {
     ]
     request(by: .patch, to: url, with: params, completion: completion)
   }
+
+  func earnings(completion: @escaping (JSON?) -> Void) {
+    let url = "api/driver/daily_revenue_this_week/"
+    let params = [
+      "access_token": accessToken
+    ]
+
+    request(by: .get, to: url, with: params, completion: completion)
+  }
 }

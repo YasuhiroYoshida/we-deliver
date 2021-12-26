@@ -130,7 +130,7 @@
             <objects>
                 <tableViewController id="sSY-Ff-0kF" customClass="OrdersTableViewController" customModule="FoodTaskerMobile" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="122" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Snt-7I-bPO">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemGray5Color"/>
                         <prototypes>
@@ -461,7 +461,7 @@
             <objects>
                 <viewController id="z1p-SB-u1C" customClass="RouteViewController" customModule="FoodTaskerMobile" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="esk-fi-3XI">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="UED-eh-fuH">
@@ -1666,7 +1666,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dRz-bx-h25">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dRz-bx-h25" customClass="BarChartView" customModule="Charts">
                                 <rect key="frame" x="20" y="128" width="350" height="592"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                             </view>
@@ -1686,6 +1686,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="earningsBarChartView" destination="dRz-bx-h25" id="5ZZ-dI-ZNU"/>
                         <outlet property="menuBarButtonItem" destination="P8P-8V-JOa" id="IVj-1D-Rvs"/>
                     </connections>
                 </viewController>
@@ -1698,7 +1699,7 @@
             <objects>
                 <viewController id="Ptn-3N-Pac" customClass="ProfileViewController" customModule="FoodTaskerMobile" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eyl-cW-Mjf">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="J4S-d5-yIs">
