@@ -15,7 +15,7 @@ import MapKit
 class APIClient {
   static let shared = APIClient()
 
-  let baseURL = URL(string: BaseURL)!
+  let baseURL = URL(string: Env.baseURL)!
   var accessToken = ""
   var refreshToken = ""
   var expiredAt = Date()
@@ -28,8 +28,8 @@ class APIClient {
     let url = baseURL.appendingPathComponent(path)
     let params: [String: Any] = [
       "grant_type": "convert_token",
-      "client_id": ClientID, // client == FB developer account
-      "client_secret": ClientSecret,
+      "client_id": Env.clientID,
+      "client_secret": Env.clientSecret,
       "backend": "facebook",
       "token": AccessToken.current!.tokenString,
       "character_type": characterType.rawValue
@@ -54,8 +54,8 @@ class APIClient {
     let path = "api/social/revoke-token/"
     let url = baseURL.appendingPathComponent(path)
     let params: [String: Any] = [
-      "client_id": ClientID,
-      "client_secret": ClientSecret,
+      "client_id": Env.clientID,
+      "client_secret": Env.clientSecret,
       "token": AccessToken.current!.tokenString,
     ]
 

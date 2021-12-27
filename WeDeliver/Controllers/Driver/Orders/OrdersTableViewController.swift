@@ -42,7 +42,7 @@ class OrdersTableViewController: UITableViewController {
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
 
-    Utils.stopTimers()
+    Timers.stopAll()
   }
 
   private func loadDriverAndOrders() {

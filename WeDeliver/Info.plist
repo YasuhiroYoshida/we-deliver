@@ -2,6 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>STRIPE_PUBLIC_KEY</key>
+	<string>$(STRIPE_PUBLIC_KEY)</string>
+	<key>CLIENT_SECRET</key>
+	<string>$(CLIENT_SECRET)</string>
+	<key>CLIENT_ID</key>
+	<string>$(CLIENT_ID)</string>
+	<key>BASE_URL</key>
+	<string>$(BASE_URL)</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.yasuhiroyoshida.WeDeliver</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>WeDeliver would like to use your location</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
@@ -16,14 +26,14 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb162297939415274</string>
+				<string>$(FACEBOOK_URL_SCHEME)</string>
 			</array>
 		</dict>
 	</array>
 	<key>FacebookAppID</key>
-	<string>162297939415274</string>
+	<string>$(FACEBOOK_APP_ID)</string>
 	<key>FacebookClientToken</key>
-	<string>24d86b75f63d57849dbaa2f34e37a651</string>
+	<string>$(FACEBOOK_CLIENT_TOKEN)</string>
 	<key>FacebookDisplayName</key>
 	<string>WeDeliver</string>
 	<key>UIApplicationSceneManifest</key>

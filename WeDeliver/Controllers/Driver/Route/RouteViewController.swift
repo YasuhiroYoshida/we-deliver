@@ -57,13 +57,13 @@ class RouteViewController: MapKitEnabledViewController {
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
 
-    UpdateLocaionTimer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { _ in
+    Timers.locationTimer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { _ in
       self.updateDriverLocation()
     }
   }
 
   override func viewWillDisappear(_ animated: Bool) {
-    Utils.stopTimers()
+    Timers.stopAll()
   }
 
   private func loadDelivery() {
@@ -139,7 +139,7 @@ class RouteViewController: MapKitEnabledViewController {
     let yesAction = UIAlertAction(title: "Yes", style: .default, handler: { _ in
       if let _orderID = self.orderID {
         APIClient.shared.updateOrder(id: _orderID, newStatus: OrderStatus.delivered) { json in
-          Utils.stopTimers()
+          Timers.stopAll()
 
           let alertController = UIAlertController(title: "Task Completed!", message: "Congratulations! You will be taken to Orders", preferredStyle: .alert)
           let action = UIAlertAction(title: "OK", style: .default) { _ in

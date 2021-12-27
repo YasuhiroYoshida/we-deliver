@@ -35,13 +35,13 @@ class DeliveryViewController: MapKitEnabledViewController {
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
 
-    UpdateStatusTimer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { _ in
+    Timers.statusTimer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { _ in
       self.updateStatus()
     }
   }
 
   override func viewWillDisappear(_ animated: Bool) {
-    Utils.stopTimers()
+    Timers.stopAll()
   }
   
   private func updateMap() {
@@ -74,7 +74,7 @@ class DeliveryViewController: MapKitEnabledViewController {
             }
           }
 
-          UpdateLocaionTimer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { _ in
+          Timers.locationTimer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { _ in
             self.updateOrderLocaion()
           }
         }
@@ -137,7 +137,7 @@ class DeliveryViewController: MapKitEnabledViewController {
           self.readyImageView.alpha = 1.0
           self.onTheWayImageView.alpha = 1.0
           self.driverInfoView.isHidden = false
-          if UpdateLocaionTimer == nil {
+          if Timers.locationTimer == nil {
             self.updateMap()
           }
         case OrderStatus.delivered.rawValue:
@@ -145,7 +145,7 @@ class DeliveryViewController: MapKitEnabledViewController {
           self.readyImageView.alpha = 1.0
           self.onTheWayImageView.alpha = 1.0
           self.driverInfoView.isHidden = false
-          Utils.stopTimers()
+          Timers.stopAll()
           self.closeMapIf30MinutesSince(pickedAt: orderStatus["picked_at"].string!)
         default: // Already exhaustive with the above conditions
           break

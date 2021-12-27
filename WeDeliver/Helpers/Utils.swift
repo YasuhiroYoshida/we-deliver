@@ -58,18 +58,4 @@ struct Utils {
       badge.heightAnchor.constraint(equalToConstant: badge.bounds.size.height),
     ])
   }
-  
-  // MARK: - Timer
-  static func stopTimers() {
-    if UpdateLocaionTimer != nil {
-      print("stopTimers()")
-      UpdateLocaionTimer.invalidate()
-      UpdateLocaionTimer = nil
-    }
-    if UpdateStatusTimer != nil {
-      print("stopTimers()")
-      UpdateStatusTimer.invalidate()
-      UpdateStatusTimer = nil
-    }
-  }
 }

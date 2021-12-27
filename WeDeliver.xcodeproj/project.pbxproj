@@ -10,7 +10,9 @@
 		0E14305F2766689B009EE043 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E14305E2766689B009EE043 /* Enums.swift */; };
 		0E143061276752C9009EE043 /* OrdersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E143060276752C9009EE043 /* OrdersTableViewController.swift */; };
 		0E14306A276761BD009EE043 /* DriverMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E143069276761BD009EE043 /* DriverMenuTableViewController.swift */; };
+		0E231E02277A4ACF0004F99B /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E231E01277A430B0004F99B /* Env.swift */; };
 		0E25FAC02767DCE600F83796 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E25FABF2767DCE600F83796 /* ProfileViewController.swift */; };
+		0E2A4164277A5F2800DD62AF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0E2A4163277A5F2800DD62AF /* Alamofire */; };
 		0E2F41722753E75D00E0304A /* RestaurantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2F41712753E75D00E0304A /* RestaurantsViewController.swift */; };
 		0E2F417627553B9D00E0304A /* MealsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2F417527553B9D00E0304A /* MealsTableViewController.swift */; };
 		0E2F417827555EB000E0304A /* MealDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2F417727555EB000E0304A /* MealDetailsViewController.swift */; };
@@ -23,7 +25,8 @@
 		0E50CE762758158500EACDC6 /* DeliveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E50CE752758158500EACDC6 /* DeliveryViewController.swift */; };
 		0E51F243275931370048F8CA /* 27630-credit-card-blue.json in Resources */ = {isa = PBXBuildFile; fileRef = 0E51F242275931360048F8CA /* 27630-credit-card-blue.json */; };
 		0E51F2A9275A12E50048F8CA /* FBAuthClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E51F2A8275A12E50048F8CA /* FBAuthClient.swift */; };
-		0E68CBDB275BA4BA00C766BF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68CBDA275BA4BA00C766BF /* Constants.swift */; };
+		0E5BF91C277A4D2E009D8E4B /* Timers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5BF91B277A4D2E009D8E4B /* Timers.swift */; };
+		0E5BF91E277A523B009D8E4B /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 0E5BF91D277A523B009D8E4B /* .gitignore */; };
 		0E68CBDD275BDD3500C766BF /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68CBDC275BDD3500C766BF /* Restaurant.swift */; };
 		0E68CBDF275CAD3900C766BF /* RestaurantsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68CBDE275CAD3900C766BF /* RestaurantsTableViewCell.swift */; };
 		0E68CBE4275CFC6600C766BF /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68CBE3275CFC6600C766BF /* Meal.swift */; };
@@ -43,8 +46,7 @@
 		0EA7F24D275257AF00A4216B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EA7F24C275257AF00A4216B /* Assets.xcassets */; };
 		0EA7F250275257AF00A4216B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EA7F24E275257AF00A4216B /* LaunchScreen.storyboard */; };
 		0EA7F25A275262C600A4216B /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EA7F259275262C600A4216B /* SWRevealViewController.m */; settings = {COMPILER_FLAGS = "-w"; }; };
-		0EDCBA8F2770E2C7009D47A7 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 0EDCBA8E2770E2C7009D47A7 /* SkeletonView */; };
-		0EDCBA922770E2E5009D47A7 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0EDCBA912770E2E5009D47A7 /* Alamofire */; };
+		0EA85D45277A5650002B29FD /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 0EA85D44277A5650002B29FD /* SkeletonView */; };
 		0EDCBA9E2770E347009D47A7 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 0EDCBA9D2770E347009D47A7 /* SwiftyJSON */; };
 		0EDCBAA12770E362009D47A7 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 0EDCBAA02770E362009D47A7 /* Lottie */; };
 		0EDCBAA42770E375009D47A7 /* Stripe in Frameworks */ = {isa = PBXBuildFile; productRef = 0EDCBAA32770E375009D47A7 /* Stripe */; };
@@ -73,6 +75,8 @@
 		0E14305E2766689B009EE043 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		0E143060276752C9009EE043 /* OrdersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersTableViewController.swift; sourceTree = "<group>"; };
 		0E143069276761BD009EE043 /* DriverMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverMenuTableViewController.swift; sourceTree = "<group>"; };
+		0E231DFF277A3B6B0004F99B /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		0E231E01277A430B0004F99B /* Env.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
 		0E25FABF2767DCE600F83796 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		0E2F41712753E75D00E0304A /* RestaurantsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsViewController.swift; sourceTree = "<group>"; };
 		0E2F417527553B9D00E0304A /* MealsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsTableViewController.swift; sourceTree = "<group>"; };
@@ -85,7 +89,8 @@
 		0E50CE752758158500EACDC6 /* DeliveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryViewController.swift; sourceTree = "<group>"; };
 		0E51F242275931360048F8CA /* 27630-credit-card-blue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "27630-credit-card-blue.json"; sourceTree = "<group>"; };
 		0E51F2A8275A12E50048F8CA /* FBAuthClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBAuthClient.swift; sourceTree = "<group>"; };
-		0E68CBDA275BA4BA00C766BF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		0E5BF91B277A4D2E009D8E4B /* Timers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timers.swift; sourceTree = "<group>"; };
+		0E5BF91D277A523B009D8E4B /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		0E68CBDC275BDD3500C766BF /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		0E68CBDE275CAD3900C766BF /* RestaurantsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsTableViewCell.swift; sourceTree = "<group>"; };
 		0E68CBE3275CFC6600C766BF /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
@@ -119,14 +124,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E2A4164277A5F2800DD62AF /* Alamofire in Frameworks */,
 				0EF946FB27724490007F09AD /* FacebookLogin in Frameworks */,
 				0EDCBAAC2770EC9B009D47A7 /* DropDown in Frameworks */,
 				0EDCBA9E2770E347009D47A7 /* SwiftyJSON in Frameworks */,
-				0EDCBA8F2770E2C7009D47A7 /* SkeletonView in Frameworks */,
 				0EF947002778472D007F09AD /* Charts in Frameworks */,
 				0E48B81327712515007F4B4B /* SideMenu in Frameworks */,
-				0EDCBA922770E2E5009D47A7 /* Alamofire in Frameworks */,
 				0EDCBAA12770E362009D47A7 /* Lottie in Frameworks */,
+				0EA85D45277A5650002B29FD /* SkeletonView in Frameworks */,
 				0EDCBAA42770E375009D47A7 /* Stripe in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -158,15 +163,25 @@
 			path = Driver;
 			sourceTree = "<group>";
 		};
+		0E231E00277A3B8C0004F99B /* Configs */ = {
+			isa = PBXGroup;
+			children = (
+				0E231E01277A430B0004F99B /* Env.swift */,
+				0E231DFF277A3B6B0004F99B /* Config.xcconfig */,
+			);
+			path = Configs;
+			sourceTree = "<group>";
+		};
 		0E409DFC275A6BF50003A5A8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				0E409DFD275A6C1A0003A5A8 /* User.swift */,
-				0E68CBF5275F50B700C766BF /* CartItem.swift */,
 				0E68CBF7275F56C900C766BF /* Cart.swift */,
+				0E68CBF5275F50B700C766BF /* CartItem.swift */,
+				0E68CBE3275CFC6600C766BF /* Meal.swift */,
 				0EEE7029276B37F1009D92E9 /* Order.swift */,
 				0E68CBDC275BDD3500C766BF /* Restaurant.swift */,
-				0E68CBE3275CFC6600C766BF /* Meal.swift */,
+				0E5BF91B277A4D2E009D8E4B /* Timers.swift */,
+				0E409DFD275A6C1A0003A5A8 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -174,7 +189,6 @@
 		0E68CBF2275EABE200C766BF /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				0E68CBDA275BA4BA00C766BF /* Constants.swift */,
 				0E14305E2766689B009EE043 /* Enums.swift */,
 				0E720D032763BE06004FDC8D /* Errors.swift */,
 				0E68CBEA275D3ED100C766BF /* Utils.swift */,
@@ -230,10 +244,11 @@
 		0EA7F237275257AD00A4216B = {
 			isa = PBXGroup;
 			children = (
-				0EDCBAA92770EB33009D47A7 /* Packages */,
-				0EA7F242275257AE00A4216B /* WeDeliver */,
+				0E5BF91D277A523B009D8E4B /* .gitignore */,
 				0E6C8569275A8D2A00DB7309 /* Frameworks */,
+				0EDCBAA92770EB33009D47A7 /* Packages */,
 				0EA7F241275257AE00A4216B /* Products */,
+				0EA7F242275257AE00A4216B /* WeDeliver */,
 			);
 			sourceTree = "<group>";
 		};
@@ -248,11 +263,12 @@
 		0EA7F242275257AE00A4216B /* WeDeliver */ = {
 			isa = PBXGroup;
 			children = (
-				0EA7F251275257AF00A4216B /* Info.plist */,
 				0EA7F243275257AE00A4216B /* AppDelegate.swift */,
 				0EA7F245275257AE00A4216B /* SceneDelegate.swift */,
+				0EA7F251275257AF00A4216B /* Info.plist */,
 				0EA7F24C275257AF00A4216B /* Assets.xcassets */,
 				0E6DADD0275906DE001A55ED /* Animations */,
+				0E231E00277A3B8C0004F99B /* Configs */,
 				0E6C857A275AB68B00DB7309 /* Controllers */,
 				0EC7DD282778DCAD0040E65C /* Extensions */,
 				0E68CBF2275EABE200C766BF /* Helpers */,
@@ -360,8 +376,6 @@
 			);
 			name = WeDeliever;
 			packageProductDependencies = (
-				0EDCBA8E2770E2C7009D47A7 /* SkeletonView */,
-				0EDCBA912770E2E5009D47A7 /* Alamofire */,
 				0EDCBA9D2770E347009D47A7 /* SwiftyJSON */,
 				0EDCBAA02770E362009D47A7 /* Lottie */,
 				0EDCBAA32770E375009D47A7 /* Stripe */,
@@ -369,6 +383,8 @@
 				0E48B81227712515007F4B4B /* SideMenu */,
 				0EF946FA27724490007F09AD /* FacebookLogin */,
 				0EF946FF2778472D007F09AD /* Charts */,
+				0EA85D44277A5650002B29FD /* SkeletonView */,
+				0E2A4163277A5F2800DD62AF /* Alamofire */,
 			);
 			productName = FoodTaskerMobile;
 			productReference = 0EA7F240275257AE00A4216B /* WeDeliver.app */;
@@ -400,8 +416,6 @@
 			);
 			mainGroup = 0EA7F237275257AD00A4216B;
 			packageReferences = (
-				0EDCBA8D2770E2C7009D47A7 /* XCRemoteSwiftPackageReference "SkeletonView" */,
-				0EDCBA902770E2E5009D47A7 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				0EDCBA9C2770E347009D47A7 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				0EDCBA9F2770E362009D47A7 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				0EDCBAA22770E375009D47A7 /* XCRemoteSwiftPackageReference "stripe-ios" */,
@@ -409,6 +423,8 @@
 				0E48B81127712515007F4B4B /* XCRemoteSwiftPackageReference "SideMenu" */,
 				0EF946F927724490007F09AD /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 				0EF946FE2778472D007F09AD /* XCRemoteSwiftPackageReference "Charts" */,
+				0EA85D43277A5650002B29FD /* XCRemoteSwiftPackageReference "SkeletonView" */,
+				0E2A4162277A5F2800DD62AF /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 0EA7F241275257AE00A4216B /* Products */;
 			projectDirPath = "";
@@ -424,6 +440,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E5BF91E277A523B009D8E4B /* .gitignore in Resources */,
 				0EA7F250275257AF00A4216B /* LaunchScreen.storyboard in Resources */,
 				0E51F243275931370048F8CA /* 27630-credit-card-blue.json in Resources */,
 				0EA7F24D275257AF00A4216B /* Assets.xcassets in Resources */,
@@ -445,11 +462,11 @@
 				0E68CBF6275F50B700C766BF /* CartItem.swift in Sources */,
 				0E2F417827555EB000E0304A /* MealDetailsViewController.swift in Sources */,
 				0E68CBE6275CFF0400C766BF /* MealsTableViewCell.swift in Sources */,
+				0E5BF91C277A4D2E009D8E4B /* Timers.swift in Sources */,
 				0E409E00275A76A40003A5A8 /* CustomerMenuTableViewController.swift in Sources */,
 				0E68CBE4275CFC6600C766BF /* Meal.swift in Sources */,
 				0E68CBDD275BDD3500C766BF /* Restaurant.swift in Sources */,
 				0E50CE762758158500EACDC6 /* DeliveryViewController.swift in Sources */,
-				0E68CBDB275BA4BA00C766BF /* Constants.swift in Sources */,
 				0EF946FD2774E7D8007F09AD /* MapKitEnabledViewController.swift in Sources */,
 				0E2F41722753E75D00E0304A /* RestaurantsViewController.swift in Sources */,
 				0E25FAC02767DCE600F83796 /* ProfileViewController.swift in Sources */,
@@ -462,6 +479,7 @@
 				0EA7F246275257AE00A4216B /* SceneDelegate.swift in Sources */,
 				0E409DFE275A6C1A0003A5A8 /* User.swift in Sources */,
 				0E2F417627553B9D00E0304A /* MealsTableViewController.swift in Sources */,
+				0E231E02277A4ACF0004F99B /* Env.swift in Sources */,
 				0EA635912767D7FB005A8F63 /* EarningsViewController.swift in Sources */,
 				0E14305F2766689B009EE043 /* Enums.swift in Sources */,
 				0E68CBEB275D3ED100C766BF /* Utils.swift in Sources */,
@@ -499,6 +517,7 @@
 /* Begin XCBuildConfiguration section */
 		0EA7F252275257AF00A4216B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E231DFF277A3B6B0004F99B /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -549,10 +568,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -561,6 +582,7 @@
 		};
 		0EA7F253275257AF00A4216B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E231DFF277A3B6B0004F99B /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -605,9 +627,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -617,6 +641,7 @@
 		};
 		0EA7F255275257AF00A4216B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E231DFF277A3B6B0004F99B /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
@@ -655,6 +680,7 @@
 		};
 		0EA7F256275257AF00A4216B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E231DFF277A3B6B0004F99B /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
@@ -714,28 +740,28 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		0E48B81127712515007F4B4B /* XCRemoteSwiftPackageReference "SideMenu" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/jonkykong/SideMenu";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.0.0;
-			};
-		};
-		0EDCBA8D2770E2C7009D47A7 /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
-			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 1.26.0;
-			};
-		};
-		0EDCBA902770E2E5009D47A7 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		0E2A4162277A5F2800DD62AF /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
 				kind = upToNextMinorVersion;
 				minimumVersion = 5.4.0;
+			};
+		};
+		0E48B81127712515007F4B4B /* XCRemoteSwiftPackageReference "SideMenu" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jonkykong/SideMenu";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 6.5.0;
+			};
+		};
+		0EA85D43277A5650002B29FD /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.26.0;
 			};
 		};
 		0EDCBA9C2770E347009D47A7 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
@@ -774,7 +800,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/facebook/facebook-ios-sdk.git";
 			requirement = {
-				kind = upToNextMajorVersion;
+				kind = upToNextMinorVersion;
 				minimumVersion = 12.1.0;
 			};
 		};
@@ -782,27 +808,27 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/danielgindi/Charts.git";
 			requirement = {
-				kind = upToNextMajorVersion;
+				kind = upToNextMinorVersion;
 				minimumVersion = 3.6.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0E2A4163277A5F2800DD62AF /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0E2A4162277A5F2800DD62AF /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 		0E48B81227712515007F4B4B /* SideMenu */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0E48B81127712515007F4B4B /* XCRemoteSwiftPackageReference "SideMenu" */;
 			productName = SideMenu;
 		};
-		0EDCBA8E2770E2C7009D47A7 /* SkeletonView */ = {
+		0EA85D44277A5650002B29FD /* SkeletonView */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0EDCBA8D2770E2C7009D47A7 /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			package = 0EA85D43277A5650002B29FD /* XCRemoteSwiftPackageReference "SkeletonView" */;
 			productName = SkeletonView;
-		};
-		0EDCBA912770E2E5009D47A7 /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0EDCBA902770E2E5009D47A7 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
 		};
 		0EDCBA9D2770E347009D47A7 /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
